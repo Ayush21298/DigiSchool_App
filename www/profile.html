@@ -58,9 +58,13 @@
     </div>
     <script type="text/javascript">
         function choose_profile(user_id, name, user_type){
-            alert(user_id);
-            alert(name);
-            alert(user_type)
+            // alert(user_id);
+            // alert(name);
+            // alert(user_type);
+            setCookie("user_id", user_id);
+            setCookie("name", name);
+            setCookie("user_type", user_type);
+            window.location.assign("home.html");
         }
         $(document).ready(function(){
             // window.location.assign("profile_add.html");
