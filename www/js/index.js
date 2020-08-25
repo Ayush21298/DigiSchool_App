@@ -77,3 +77,4 @@ var base_url = "http://192.168.43.156:8000/";
 
 var mobile_url = base_url + "app/mobile/";
 var otp_url = base_url + "app/otp/";
+var profile_url = base_url + "app/profile/";
