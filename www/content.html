@@ -153,11 +153,11 @@
         </nav>
         <div class="loading"></div>
         <!-- SUBJECT HEADER -->
-        <section>
+        <!-- <section>
           <div class="subject-header">
             <div id="subj" class="subject-buttons"></div>
           </div>
-        </section>
+        </section> -->
 
         <!-- SUBJECT TITLE -->
         <section class="container">
@@ -192,7 +192,7 @@
 
             <div>
               <form class="form-inline date-class">
-                <label class="form-lb"
+                <!-- <label class="form-lb"
                   ><span class="en">Change Date</span
                   ><span class="hi">तारीख बदले</span></label
                 >
@@ -227,7 +227,7 @@
                   <option value="10">10</option>
                   <option value="11">11</option>
                   <option value="12">12</option>
-                </select>
+                </select> -->
 
                 <script type="text/javascript">
                   function formatDate(date) {
@@ -482,14 +482,14 @@
       function myReload() {
         var edValue = document.getElementById("searchInput");
         console.log(
-          new Date(localStorage.getItem("date")).toLocaleDateString("en-US")
+          new Date().toLocaleDateString("en-US")
         );
         var s = edValue.value;
         $.get(
           video_url,
           {
             view_by: "date",
-            date: new Date(localStorage.getItem("date")).toLocaleDateString(
+            date: new Date().toLocaleDateString(
               "en-US"
             ),
             standard: localStorage.getItem("class"),
