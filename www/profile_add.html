@@ -51,6 +51,12 @@
             <hr>
             <table style="text-align: left">
                 <tr>
+                    <td>Phone</td>
+                    <td>
+                        <input type="text" id="phone" disabled="" style="background: none; color: white; font-size: 20px; width: 50vw; height: 8vw;">
+                    </td>
+                </tr>
+                <tr>
                     <td>State</td>
                     <td>
                         <select id="state" style="background: none; color: white; font-size: 20px; width: 50vw; height: 8vw;">
@@ -61,11 +67,11 @@
                 <tr>
                     <td>Name</td>
                     <td>
-                        <input type="text" name="" style="background: none; color: white; font-size: 20px; width: 50vw; height: 8vw;">
+                        <input type="text" name="name" id="name" style="background: none; color: white; font-size: 20px; width: 50vw; height: 8vw;">
                     </td>
                 </tr>
                 <tr>
-                    <td>Use Type</td>
+                    <td>User Type</td>
                     <td>
                         <input onchange="user_type_change(this)" value="Student" type="radio" name="user_type" checked>Student<br>
                         <input onchange="user_type_change(this)" value="Teacher" type="radio" name="user_type">Teacher
@@ -98,36 +104,29 @@
                 <tr class="teacher_input">
                     <td>Teacher ID</td>
                     <td>
-                        <input type="text" name="" style="background: none; color: white; font-size: 20px; width: 50vw; height: 8vw;">
+                        <input type="text" name="teacher_id" id="teacher_id" style="background: none; color: white; font-size: 20px; width: 50vw; height: 8vw;">
                     </td>
                 </tr>
-                <tr class="student_input">
+                <tr>
                     <td>Class</td>
                     <td>
-                        <select style="background: none; color: white; font-size: 20px; width: 50vw; height: 8vw;">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                            <option>6</option>
-                            <option>7</option>
-                            <option>8</option>
-                            <option>9</option>
-                            <option>10</option>
-                            <option>11</option>
-                            <option>12</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr class="teacher_input">
-                    <td>Class</td>
-                    <td>
-                        <select style="background: none; color: white; font-size: 20px; width: 50vw; height: 8vw;">
-                            <option>Pri</option>
-                            <option>UP</option>
-                            <option>Sec</option>
-                            <option>Higher Sec</option>
+                        <select style="background: none; color: white; font-size: 20px; width: 50vw; height: 8vw;" id="class" name="class">
+                            <option class="student_input">1</option>
+                            <option class="student_input">2</option>
+                            <option class="student_input">3</option>
+                            <option class="student_input">4</option>
+                            <option class="student_input">5</option>
+                            <option class="student_input">6</option>
+                            <option class="student_input">7</option>
+                            <option class="student_input">8</option>
+                            <option class="student_input">9</option>
+                            <option class="student_input">10</option>
+                            <option class="student_input">11</option>
+                            <option class="student_input">12</option>
+                            <option class="teacher_input">Pri</option>
+                            <option class="teacher_input">UP</option>
+                            <option class="teacher_input">Sec</option>
+                            <option class="teacher_input">Higher Sec</option>
                         </select>
                     </td>
                 </tr>
@@ -207,7 +206,37 @@
             });
         }
         function mobile_submit(){
-            window.location.assign("profile_add.html");
+            // window.location.assign("profile_add.html");
+            var temp_phone = getCookie("phone")
+            var temp_state = $("#state").val();
+            var temp_name = $("#name").val();
+            var temp_user_type = $("input[name='user_type']:checked").val();
+            var temp_district = $("#district").val();
+            var temp_block = $("#block").val();
+            var temp_school = $("#school").val();
+            var temp_teacher_id = $("#teacher_id").val();
+            var temp_standard = $("#class").val();
+
+            var data = {}
+
+            data["phone"] = temp_phone;
+            data["state"] = temp_state;
+            data["name"] = temp_name;
+            data["user_type"] = temp_user_type;
+            data["district"] = temp_district;
+            data["block"] = temp_block;
+            data["school"] = temp_school;
+            data["teacher_id"] = temp_teacher_id;
+            data["standard"] = temp_standard;
+
+            // alert(JSON.stringify(data))
+
+            $.post(profile_url, data,
+            function(data, status){
+                alert(JSON.stringify(data));
+                window.location.assign("profile.html");
+            });
+
         }
         function user_type_change(s){
             if(s.value == "Student"){
@@ -219,6 +248,7 @@
             }
         }
         $(document).ready(function(){
+            $("#phone").val(getCookie("phone"))
             var temp = $("input[name='user_type']:checked").val();
             if(temp == "Student"){
                 $(".teacher_input").hide();
