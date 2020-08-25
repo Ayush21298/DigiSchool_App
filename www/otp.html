@@ -63,7 +63,11 @@
             "otp": temp_otp
             },
             function(data, status){
-                alert(data.message)
+                alert(data.message);
+                if(data.message == "Success"){
+                    setCookie("logged_in", "true");
+                    window.location.assign("profile.html");
+                }
             });
         }
     </script>
