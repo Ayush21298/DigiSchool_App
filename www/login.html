@@ -48,14 +48,24 @@
     <div class="container splash-screen" style="background-color: green">
         <div class="splash" style="background-color: green; align-items: center; text-align: center; font-size: 24px">
             <b>Enter Mobile No.</b>
-            <input type="text" name="" style="background: none; color: white; font-size: 20px"><br>
+            <input type="text" name="phone" id="phone" style="background: none; color: white; font-size: 20px"><br>
             <button onclick="mobile_submit()" style="background: transparent; font-size: 20px">OK</button>
         </div>
         <script src="js/login.js"></script>
     </div>
     <script type="text/javascript">
         function mobile_submit(){
-            window.location.assign("otp.html");
+            // window.location.assign("otp.html");
+            var temp_phone = $("#phone").val();
+            alert(mobile_url)
+            $.post(mobile_url,
+            {
+            "phone": temp_phone
+            },
+            function(data, status){
+                setCookie("phone",temp_phone)
+                window.location.assign("otp.html");
+            });
         }
     </script>
     <script type="text/javascript" src="cordova.js"></script>

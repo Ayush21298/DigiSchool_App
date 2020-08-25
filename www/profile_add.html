@@ -67,8 +67,8 @@
                 <tr>
                     <td>Use Type</td>
                     <td>
-                        <input onchange="use_type_change(this)" value="Student" type="radio" name="use_type" checked>Student<br>
-                        <input onchange="use_type_change(this)" value="Teacher" type="radio" name="use_type">Teacher
+                        <input onchange="user_type_change(this)" value="Student" type="radio" name="user_type" checked>Student<br>
+                        <input onchange="user_type_change(this)" value="Teacher" type="radio" name="user_type">Teacher
                     </td>
                 </tr>
                 <tr>
@@ -209,7 +209,7 @@
         function mobile_submit(){
             window.location.assign("profile_add.html");
         }
-        function use_type_change(s){
+        function user_type_change(s){
             if(s.value == "Student"){
                 $(".teacher_input").hide();
                 $(".student_input").show();
@@ -219,7 +219,7 @@
             }
         }
         $(document).ready(function(){
-            var temp = $("input[name='use_type']:checked").val();
+            var temp = $("input[name='user_type']:checked").val();
             if(temp == "Student"){
                 $(".teacher_input").hide();
                 $(".student_input").show();

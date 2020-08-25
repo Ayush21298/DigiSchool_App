@@ -48,14 +48,23 @@
     <div class="container splash-screen" style="background-color: green">
         <div class="splash" style="background-color: green; align-items: center; text-align: center; font-size: 24px">
             <b>Enter OTP</b>
-            <input type="text" name="" style="background: none; color: white; font-size: 20px"><br>
+            <input type="text" name="otp" id="otp" style="background: none; color: white; font-size: 20px"><br>
             <button onclick="mobile_submit()" style="background: transparent; font-size: 20px">OK</button>
         </div>
         <script src="js/login.js"></script>
     </div>
     <script type="text/javascript">
         function mobile_submit(){
-            window.location.assign("profile_add.html");
+            // window.location.assign("profile_add.html");
+            var temp_otp = $("#otp").val();
+            $.post(otp_url,
+            {
+            "phone": getCookie("phone"),
+            "otp": temp_otp
+            },
+            function(data, status){
+                alert(data.message)
+            });
         }
     </script>
     <script type="text/javascript" src="cordova.js"></script>
