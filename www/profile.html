@@ -47,14 +47,23 @@
 <body>
     <div class="container splash-screen" style="background-color: green">
         <div class="splash" style="background-color: green; align-items: center; text-align: center; font-size: 24px">
-            <button onclick="mobile_submit()" style="background: transparent; font-size: 20px">OK</button>
+            <h1>Who are You ?</h1>
+            <div id="profiles">
+            </div>
+            <button onclick='window.location.assign("profile_add.html")' style="background: transparent; font-size: 20px; color: white; padding:10px; margin:30px">
+                Add Another Profile
+            </button>
         </div>
         <script src="js/login.js"></script>
     </div>
     <script type="text/javascript">
+        function choose_profile(user_id, name, user_type){
+            alert(user_id);
+            alert(name);
+            alert(user_type)
+        }
         $(document).ready(function(){
             // window.location.assign("profile_add.html");
-            var temp_otp = $("#otp").val();
             $.get(profile_url,
             {
             "phone": getCookie("phone")
@@ -64,6 +73,14 @@
                 if(data.length == 0){
                     alert("You have no profile associated with this number.")
                     window.location.assign("profile_add.html");
+                } else {
+                    $("#profiles").html("");
+                    for (var i = 0; i < data.length; i++) {
+                        var temp = `<button onclick='choose_profile(${data[i]["id"]},"${data[i]["name"]}","${data[i]["user_type"]}")' style="background: transparent; font-size: 20px; color: white; padding:10px; margin:10px">
+                            ${data[i]["name"]} (${data[i]["user_type"]})
+                            </button><br>`
+                        $("#profiles").html($("#profiles").html() + temp);
+                    }
                 }
             });
         });
