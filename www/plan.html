@@ -218,36 +218,24 @@
           <section class="full-section" style="margin: 10vw;">
             <table style="width: 80vw; font-size: 16px;">
               <tr>
-                <td>Phone</td>
-                <td id="phone"></td>
+                <td>Competency</td>
+                <td id="competency"></td>
               </tr>
               <tr>
-                <td>State</td>
-                <td id="state"></td>
+                <td>Subject</td>
+                <td id="subject"></td>
               </tr>
               <tr>
-                <td>Name</td>
-                <td id="name"></td>
+                <td>GS Workbook</td>
+                <td id="workbook"></td>
               </tr>
               <tr>
-                <td>User Type</td>
-                <td id="user_type"></td>
+                <td>Textbook</td>
+                <td id="textbook"></td>
               </tr>
               <tr>
-                <td>District</td>
-                <td id="district"></td>
-              </tr>
-              <tr>
-                <td>Block</td>
-                <td id="block"></td>
-              </tr>
-              <tr>
-                <td>School</td>
-                <td id="school"></td>
-              </tr>
-              <tr>
-                <td>Class</td>
-                <td id="standard"></td>
+                <td>Activity</td>
+                <td id="activity"></td>
               </tr>
             </table>
             <button onclick='window.location.assign("assessment.html")' style="background: transparent; font-size: 20px; padding:10px; margin:30px">
@@ -283,15 +271,11 @@
             },
             function(data, status){
                 // alert(JSON.stringify(data));
-                $("#phone").html(data["phone"]);
-                $("#state").html(data["state"]);
-                $("#name").html(data["name"]);
-                $("#user_type").html(data["user_type"]);
-                $("#district").html(data["district"]);
-                $("#block").html(data["block"]);
-                $("#school").html(data["school"]);
-                $("#teacher_id").html(data["teacher_id"]);
-                $("#standard").html(data["standard"]);
+                $("#competency").html(data["competency"]);
+                $("#subject").html(data["subject"]);
+                $("#workbook").html(data["workbook"]);
+                $("#textbook").html(data["textbook"]);
+                $("#activity").html(data["activity"]);
             });
       });
     </script>
