@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="stylesheet" href="styles/bootstrap450.min.css" />
+    <script src="scripts/jquery351.min.js"></script>
+    <script src="scripts/popper1160.min.js"></script>
+    <script src="scripts/bootstrap450.min.js"></script>
+
+    <!-- Font Awesome -->
+    <script src="scripts/font1.js"></script>
+
+    <script type="text/javascript" src="scripts/scripts.min.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="styles/LandingPage.css" />
+    <link rel="stylesheet" type="text/css" href="styles/ViewByDate.css" />
+
+    <title>DigiSchool</title>
+    <script>
+      window.addEventListener("DOMContentLoaded", function (event) {
+        Translate();
+      });
+    </script>
+    <style>
+      .fa-copy {
+        margin: 0 0 0 50%;
+        color: black;
+      }
+      .loading {
+        position: fixed;
+        top: 0px;
+        right: 0px;
+        width: 100%;
+        height: 100%;
+        background-image: url("images/giphy.gif");
+        background-repeat: no-repeat;
+        background-position: center;
+        z-index: 10000000;
+        opacity: 0.9;
+        filter: alpha(opacity=100);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <div class="page-container">
+      <div class="content-wrap">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+          <div class="container">
+            <a class="navbar-brand logo" href="/#!/">
+              <img
+                src=""
+                height="100"
+                class="mainlogo1 d-inline-block align-top"
+                alt=""
+              />
+            </a>
+
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div
+              class="collapse navbar-collapse justify-content-end"
+              id="navbarSupportedContent"
+            >
+              <ul class="navbar-nav">
+                <li class="nav-item active">
+                  <a class="nav-link link-item" href="/#!/"
+                    ><span class="en">Home</span><span class="hi"> घर</span>
+                  </a>
+                </li>
+
+                <li class="nav-item active">
+                  <a class="nav-link link-item"
+                    ><span class="en">Calendar View</span
+                    ><span class="hi">तिथि-वार</span></a
+                  >
+                </li>
+
+                <li class="nav-item active">
+                  <a class="nav-link link-item" href="/#!/about"
+                    ><span class="en">About Us</span
+                    ><span class="hi"> हमारे बारे में</span></a
+                  >
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link link-item" href="/#!/contact"
+                    ><span class="en">Contact Us</span
+                    ><span class="hi"> संपर्क करें</span></a
+                  >
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link link-item" href="/#!/additional_resources"
+                    ><span class="en">Resource List</span
+                    ><span class="hi">अतिरिक्त संसाधन</span></a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="nav-item active">
+              <a
+                style="color: white; font-size: 18px;"
+                class="nav-link link-item"
+                href="/#!/subject"
+                ><span class="en">Explore</span
+                ><span class="hi">अन्वेषण</span></a
+              >
+            </div>
+            <div class="dropdown">
+              <button
+                class="btn btn-success dropdown-toggle"
+                type="button"
+                data-toggle="dropdown"
+                id="language-ctrl"
+              >
+                Language <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li>
+                  <button
+                    class="btn language-btn"
+                    onclick="langChange('hindi')"
+                  >
+                    हिन्दी
+                  </button>
+                </li>
+                <li>
+                  <button
+                    class="btn language-btn"
+                    onclick="langChange('english')"
+                  >
+                    English
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <div class="loading"></div>
+        <!-- SUBJECT HEADER -->
+        <section>
+          <div class="subject-header">
+            <div id="subj" class="subject-buttons"></div>
+          </div>
+        </section>
+
+        <!-- SUBJECT TITLE -->
+        <section class="container">
+          <div class="subject-title">
+            <div class="navbar">
+              <div id="date_class"></div>
+              <form class="form-inline">
+                <div class="input-group mb-3">
+                  <input
+                    type="search"
+                    class="form-control mr-sm-2"
+                    placeholder="Search Competency"
+                    aria-label="Search"
+                    onInput="edValueKeyPress()"
+                    id="searchInput"
+                    style="
+                      border-top-left-radius: 5px;
+                      border-bottom-left-radius: 5px;
+                    "
+                  />
+                  <div
+                    class="input-group-append"
+                    style="border-top-right-radius: 10px;"
+                  >
+                    <span class="input-group-text" id="basic-addon2"
+                      ><i class="fa fa-search"></i
+                    ></span>
+                  </div>
+                </div>
+              </form>
+            </div>
+
+            <div>
+              <form class="form-inline date-class">
+                <label class="form-lb"
+                  ><span class="en">Change Date</span
+                  ><span class="hi">तारीख बदले</span></label
+                >
+                <input
+                  type="date"
+                  class="form-control mb-xs-2"
+                  id="date"
+                  onchange="handler(event);"
+                  style="width: 150px;"
+                />
+                <br /><br />
+                <label class="form-lb"
+                  ><span class="en">Change Class</span
+                  ><span class="hi">वर्ग बदले</span></label
+                >
+                <select
+                  class="custom-select mb-xs-2"
+                  id="myClass"
+                  onchange="classChange(event)"
+                  style="width: 150px;"
+                >
+                  <option value="null">Change Class</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                </select>
+
+                <script type="text/javascript">
+                  function formatDate(date) {
+                    var d = new Date(date),
+                      month = "" + (d.getMonth() + 1),
+                      day = "" + d.getDate(),
+                      year = d.getFullYear();
+
+                    if (month.length < 2) month = "0" + month;
+                    if (day.length < 2) day = "0" + day;
+
+                    return [year, month, day].join("-");
+                  }
+
+                  document.getElementById("date").value = formatDate(
+                    localStorage.getItem("date")
+                  );
+                  document.getElementById(
+                    "myClass"
+                  ).value = localStorage.getItem("class");
+
+                  function handler(e) {
+                    // alert(e.target.value);
+                    localStorage.setItem("date", new Date(e.target.value));
+                    location.reload();
+                  }
+
+                  function classChange(e) {
+                    localStorage.setItem("class", e.target.value);
+                    location.reload();
+                  }
+
+                  function edValueKeyPress() {
+                    // var edValue = document.getElementById("searchInput");
+                    // var s = edValue.value;
+
+                    myReload();
+                  }
+                </script>
+              </form>
+            </div>
+          </div>
+        </section>
+
+        <script type="text/javascript">
+          function myDateFunction(event) {
+            console.log(event);
+
+            localStorage.setItem("date", new Date(event));
+            location.reload();
+          }
+        </script>
+        <br />
+
+        <!-- SUBJECT CARDS -->
+        <section class="container" id="main_container">
+          <div id="page"></div>
+
+          <br /><br />
+        </section>
+      </div>
+      <br /><br />
+      <!-- FOOTER -->
+      <br />
+      <div class="footer-row">
+        <span
+          >DigiSchool.&nbsp;&nbsp;&nbsp;Copyright
+          <i class="fa fa-copyright" aria-hidden="true"></i
+          >2020.&nbsp;&nbsp;&nbsp; All rights reserved</span
+        >
+
+        <span>Made by Boston Consulting Group</span>
+      </div>
+    </div>
+    <script type="text/javascript" src="scripts/trans.js"></script>
+    <script>
+      function transsubj(str) {
+        return transObj[str.trim().toLowerCase()];
+      }
+    </script>
+    <script defer type="text/javascript">
+      Translate();
+      function addDays(date, days) {
+        var result = new Date(date);
+        result.setDate(result.getDate() + days);
+        return result;
+      }
+
+      function satOrSun(date) {
+        var day = date.getDay();
+        if (day == 0 || day == 6) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+
+      function getPrevWeek() {
+        var t = localStorage.getItem("date");
+        var n = addDays(today, -7);
+        localStorage.setItem("date", n);
+        location.reload();
+      }
+
+      function getNextWeek() {
+        var t = localStorage.getItem("date");
+        var n = addDays(today, 7);
+        localStorage.setItem("date", n);
+        location.reload();
+      }
+
+      function myFunction(x) {
+        if (x.matches) {
+          (initial = 1), (final = 3);
+        } else {
+          initial = 0;
+          if (satOrSun(today)) {
+            final = 3;
+          } else {
+            final = 4;
+          }
+        }
+      }
+
+      var today = new Date();
+      function dateChanging() {
+        today = new Date(localStorage.getItem("date"));
+        var list = [today];
+
+        for (var i = 0; i < 2; i++) {
+          var d = addDays(list[0], -1);
+          if (satOrSun(d)) {
+            i--;
+          }
+          list.unshift(d);
+        }
+
+        for (var i = 0; i < 2; i++) {
+          var e = addDays(list[list.length - 1], +1);
+          if (satOrSun(e)) {
+            i--;
+          }
+          list.push(e);
+        }
+        var list2 = list.filter((day) => !satOrSun(day));
+        var x = window.matchMedia("(max-width: 590px)");
+        myFunction(x);
+        x.addListener(myFunction);
+        var txtt = "";
+        if (localStorage.getItem("language") == "hindi")
+          txtt =
+            '<span class="week-btn" style="font-size: 13px;" onclick="getPrevWeek()"><i class="fa fa-chevron-circle-left" style="color:white"></i> पिछला सप्ताह</span>';
+        else
+          txtt =
+            '<span class="week-btn" style="font-size: 12px;" onclick="getPrevWeek()"><i class="fa fa-chevron-circle-left" style="color:white"></i> Prev Week</span>';
+        for (var i = initial; i <= final; i++) {
+          // key = list2[i].getDate() + "-" + list2[i].getMonth() + "-" + list2[i].getYear()
+          // key = list2[i].toLocaleDateString("en-US", {year: 'numeric', month: 'long', day: 'numeric'})
+          curr = list2[i];
+          if (datecode == "hi-IN")
+            key = list2[i].toLocaleDateString(datecode, {
+              month: "long",
+              day: "numeric",
+            });
+          else
+            key = list2[i].toLocaleDateString(datecode, {
+              month: "short",
+              day: "numeric",
+            });
+
+          // key = list2[i]
+          if (i == 2) {
+            txtt +=
+              "<button onclick=\"myDateFunction('" +
+              curr +
+              '\'); " type="button" style="background-color:#dcdcdc" class="btn btn-light btn-lg date-btn">' +
+              key +
+              "</button>";
+          } else {
+            txtt +=
+              "<button onclick=\"myDateFunction('" +
+              curr +
+              '\'); " type="button" class="btn btn-light btn-lg date-btn">' +
+              key +
+              "</button>";
+          }
+        }
+        if (localStorage.getItem("language") == "hindi")
+          txtt +=
+            '<span class="week-btn" style="font-size: 13px;" onclick="getNextWeek()" >अगले सप्ताह <i class="fa fa-chevron-circle-right" style="color:white"></i></span>';
+        else
+          txtt +=
+            '<span class="week-btn" style="font-size: 12px;" onclick="getNextWeek()" >Next Week <i class="fa fa-chevron-circle-right" style="color:white"></i></span>';
+        document.getElementById("subj").innerHTML = txtt;
+      }
+
+      function langChange(str) {
+        if (str == "hindi") {
+          Hindi();
+          var datee = new Date(
+            localStorage.getItem("date")
+          ).toLocaleDateString(datecode, { month: "long", day: "numeric" });
+          if (window.innerWidth > 576)
+            $("#date_class").html(
+              "<h2>वर्ग " +
+                localStorage.getItem("class") +
+                " के लिये " +
+                datee +
+                "</h2>"
+            );
+          else
+            $("#date_class").html(
+              "<h6> वर्ग " +
+                localStorage.getItem("class") +
+                " के लिये " +
+                datee +
+                "</h6>"
+            );
+          var classtxt =
+            ' <option value="null">बदले...</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option>';
+          $("#myClass").html(classtxt);
+          $("#searchInput").attr("placeholder", "दक्षताएं खोजें");
+        } else {
+          English();
+          var datee = new Date(
+            localStorage.getItem("date")
+          ).toLocaleDateString(datecode, { month: "short", day: "numeric" });
+          if (window.innerWidth > 576)
+            $("#date_class").html(
+              "<h2>" +
+                datee +
+                " for Class " +
+                localStorage.getItem("class") +
+                "</h2>"
+            );
+          else
+            $("#date_class").html(
+              "<h6>" +
+                datee +
+                " for Class " +
+                localStorage.getItem("class") +
+                "</h6>"
+            );
+          var classtxt =
+            ' <option value="null">Change Class...</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option>';
+          $("#myClass").html(classtxt);
+          $("#searchInput").attr("placeholder", "Search Competency");
+        }
+
+        dateChanging();
+      }
+      function myReload() {
+        var edValue = document.getElementById("searchInput");
+        console.log(
+          new Date(localStorage.getItem("date")).toLocaleDateString("en-US")
+        );
+        var s = edValue.value;
+        $.get(
+          video_url,
+          {
+            view_by: "date",
+            date: new Date(localStorage.getItem("date")).toLocaleDateString(
+              "en-US"
+            ),
+            standard: localStorage.getItem("class"),
+            state: localStorage.getItem("state"),
+            audience: localStorage.getItem("audience"),
+          },
+          function (data, status, jqXHR) {
+            var subjects = new Set();
+
+            for (var i = 0; i < data.length; i++) {
+              subjects.add(data[i]["subject_"]);
+            }
+
+            txt = "";
+            // alert(data)
+            final = [];
+
+            for (let item of subjects) {
+              // console.log(item)
+              temp_data = [];
+              for (var i = 0; i < data.length; i++) {
+                if (data[i]["subject_"] == item) {
+                  temp_data.push(data[i]);
+                }
+              }
+              final.push(temp_data);
+            }
+            console.log(final);
+            // alert(JSON.stringify(data))
+
+            var competency = "";
+
+            //$.LoadingOverlay("hide");
+            $(".loading").hide();
+            txt +=
+              '<div class="modal fade modal-eg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" > <div class="modal-dialog modal-dialog-centered modal-lg"> <div class="modal-content"> <div class="modal-header"> <h5 class="modal-title">DigiSchool</h5><i  style="float:right;" class="fa fa-copy copy-icon" onClick="copyText()" ></i><p style="font-size: 10px;">Copy Link</p><button type="button" class="close" data-dismiss="modal" aria-label="Close" > <span aria-hidden="true">&times;</span> </button> </div> <div class="modal-body"> <iframe class="embed-responsive-item popup-player" height="500px" width="100%" src=""  allowfullscreen ></iframe> </div> <div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div>  </div> </div> </div>';
+
+            for (var i = 0; i < final.length; i++) {
+              var key = final[i];
+              console.log(key);
+              txt +=
+                '<div> <h2><span class="en">' +
+                key[0]["subject_"] +
+                '</span><span class="hi">' +
+                transsubj(key[0]["subject_"]) +
+                '</span></h2><br><div class="row flex-row flex-nowrap cards-container ">';
+
+              for (var j = 0; j < key.length; j++) {
+                var link = key[j];
+                if (s.trim() != "") {
+                  if (
+                    link["competency_"]
+                      .toUpperCase()
+                      .includes(s.toUpperCase()) == false
+                  ) {
+                    continue;
+                  }
+                }
+                if (link["competency_"] != competency) {
+                  competency = link["competency_"];
+                  txt +=
+                    '</div></div><br><h3><span class="en">' +
+                    link["competency_"] +
+                    '</span><span class="hi">' +
+                    link["competency_hindi_"] +
+                    '</span></h3><br><div class="row flex-row flex-nowrap cards-container">';
+                }
+
+                if (
+                  link["url"].toLowerCase().includes("www.youtube.com/embed")
+                ) {
+                  // alert(JSON.stringify(link))
+                  txt +=
+                    '<div class="col-lg-4 mr-3 col-xs-6"><div class="card click-modal" data-toggle="modal" data-target=".modal-eg " data-keyboard="false" data-backdrop="static"><div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item" value ="' +
+                    link["id"] +
+                    '" src="' +
+                    link["url"] +
+                    ' " allowfullscreen></iframe><div class="overlay"></div></div></div></div>';
+                } else {
+                  txt +=
+                    '<div class="col-lg-4 mr-3 col-xs-6"><div class="card"><a href="' +
+                    link["url"] +
+                    '" target="_blank"><img src="images/thumbnail.png" class="card-thumbnail"/></a></div></div>';
+                }
+              }
+              txt += "</div></div><br>";
+            }
+
+            $("#main_container").html(txt);
+            langChange(localStorage.getItem("language"));
+          }
+        );
+      }
+
+      $(document).ready(function () {
+        myReload();
+      });
+
+      $(document).on("click", ".click-modal", function () {
+        var item = $(this.children[0].children[0]);
+        var video = item[0].src;
+        item[0].src = video;
+        $(".popup-player").attr("src", video);
+        $(".copy-icon").attr("onClick", 'copyText("' + video + '")');
+        videoStart(item.attr("value"));
+        //videoStart();
+      });
+    </script>
+    <script type="text/javascript">
+      $(document).on("click", ".modal-eg", function () {
+        if (!$(".modal-eg").hasClass("in")) {
+          $(".popup-player").attr("src", "");
+          videoEnd();
+        }
+      });
+    </script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+  </body>
+</html>

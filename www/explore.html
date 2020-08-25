@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="stylesheet" href="styles/bootstrap450.min.css" />
+    <script src="scripts/jquery351.min.js"></script>
+    <script src="scripts/popper1160.min.js"></script>
+    <script src="scripts/bootstrap450.min.js"></script>
+
+    <!-- Font Awesome -->
+    <script src="scripts/font1.js"></script>
+
+    <script type="text/javascript" src="scripts/scripts.min.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="styles/LandingPage.css" />
+    <link rel="stylesheet" type="text/css" href="styles/ViewBySubject.css" />
+    <title>DigiSchool</title>
+    <script>
+      window.addEventListener("DOMContentLoaded", function (event) {
+        Translate();
+      });
+    </script>
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <div class="loading"></div>
+    <div class="page-container">
+      <div class="content-wrap">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+          <div class="container">
+            <a class="navbar-brand logo" href="/#!/">
+              <img
+                src=""
+                height="100"
+                class="mainlogo1 d-inline-block align-top"
+                alt=""
+              />
+            </a>
+
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div
+              class="collapse navbar-collapse justify-content-end"
+              id="navbarSupportedContent"
+            >
+              <ul class="navbar-nav">
+                <li class="nav-item active">
+                  <a class="nav-link link-item" href="/#!/"
+                    ><span class="en"
+                      ><span class="en">Home</span
+                      ><span class="hi"> घर</span></span
+                    ><span class="hi"> घर</span>
+                  </a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link link-item" href="/#!/date"
+                    ><span class="en">Calendar View</span
+                    ><span class="hi">तिथि-वार</span></a
+                  >
+                </li>
+
+                <li class="nav-item active">
+                  <a class="nav-link link-item" href="/#!/about"
+                    ><span class="en">About Us</span
+                    ><span class="hi"> हमारे बारे में</span></a
+                  >
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link link-item" href="/#!/contact"
+                    ><span class="en">Contact Us</span
+                    ><span class="hi"> संपर्क करें</span></a
+                  >
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link link-item" href="/#!/additional_resources"
+                    ><span class="en">Resource List</span
+                    ><span class="hi">अतिरिक्त संसाधन</span></a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="nav-item active">
+              <a
+                style="color: white; font-size: 18px;"
+                class="nav-link link-item"
+                href="/#!/subject"
+                ><span class="en">Explore</span
+                ><span class="hi">अन्वेषण</span></a
+              >
+            </div>
+
+            <div class="dropdown">
+              <button
+                class="btn btn-success dropdown-toggle"
+                type="button"
+                data-toggle="dropdown"
+                id="language-ctrl"
+              >
+                Language <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li>
+                  <button
+                    class="btn language-btn"
+                    onclick="langChange('hindi')"
+                  >
+                    हिन्दी
+                  </button>
+                </li>
+                <li>
+                  <button
+                    class="btn language-btn"
+                    onclick="langChange('english')"
+                  >
+                    English
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+        <!-- SUBJECT HEADER -->
+        <section>
+          <div class="subject-header" style="background: none;">
+            <div class="subject-buttons">
+              <form class="form-inline">
+                <!-- <label class="form-lb"
+                  ><span class="en h5">Class</span
+                  ><span class="hi h4">वर्ग </span></label
+                >
+                <select
+                  class="custom-select form-control mb-xs-2"
+                  id="myClass"
+                  onchange="classChange(event)"
+                  style="width: 150px;"
+                >
+                  <option value="null">Select Class...</option>
+                </select>
+                <label class="form-lb"
+                  ><span class="en h5">State</span
+                  ><span class="hi h4">राज्य </span></label
+                >
+                <select
+                  class="custom-select form-control mb-xs-2"
+                  id="myStateSubj"
+                  onchange="stateChange(event)"
+                  style="width: 150px;"
+                >
+                  <option value="null">Select State...</option>
+                </select>
+                <br /><br />
+                <label class="form-lb"
+                  ><span class="en h5">Subject</span
+                  ><span class="hi h4">विषय </span></label
+                >
+                <select
+                  class="custom-select form-control mb-xs-2"
+                  id="subj_drop"
+                  onchange="myFunction(event.target.value)"
+                  style="width: 150px;"
+                >
+                  <option value="null">Choose Subject</option>
+                </select> -->
+
+                <label class="form-lb"
+                  ><span class="en h5">Competency</span
+                  ><span class="hi h4">दक्षता </span></label
+                >
+                <select
+                  class="custom-select form-control mb-xs-2"
+                  id="competency_drop"
+                  style="width: 150px;"
+                >
+                  <option value="null">Choose Competency</option>
+                  <!-- <option value="Test">Test</option> -->
+                </select>
+
+                <script type="text/javascript">
+                  function handler(e) {
+                    // alert(e.target.value);
+                    localStorage.setItem("date", new Date(e.target.value));
+                    location.reload();
+                  }
+                  function classChange(e) {
+                    localStorage.setItem("class", e.target.value);
+                    location.reload();
+                  }
+                  function stateChange(e) {
+                    if (e.target.value != "") {
+                      localStorage.setItem("state", e.target.value);
+                      location.reload();
+                    }
+                  }
+                  function edValueKeyPress() {
+                    // var edValue = document.getElementById("searchInput");
+                    // var s = edValue.value;
+
+                    nosubjChange();
+                  }
+                  $("#competency_drop").change(function () {
+                    nosubjChange();
+                  });
+                </script>
+              </form>
+            </div>
+          </div>
+        </section>
+
+        <!-- SUBJECT TITLE -->
+        <section class="container">
+          <div class="subject-title">
+            <div class="navbar">
+              <h4 id="date_class"></h4>
+              <!-- <script type="text/javascript">
+          $("#date_class").html(`${localStorage.getItem("subject")} for Class ${localStorage.getItem("class")}`);
+          </script> -->
+
+              <form class="form-inline">
+                <div class="input-group mb-3">
+                  <input
+                    type="search"
+                    class="form-control mr-sm-2"
+                    placeholder="Search Competency"
+                    aria-label="Search"
+                    onInput="edValueKeyPress()"
+                    id="searchInput"
+                    style="
+                      border-top-left-radius: 5px;
+                      border-bottom-left-radius: 5px;
+                    "
+                  />
+                  <div
+                    class="input-group-append"
+                    style="border-top-right-radius: 10px;"
+                  >
+                    <span class="input-group-text" id="basic-addon2"
+                      ><i class="fa fa-search"></i
+                    ></span>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div></div>
+          </div>
+        </section>
+
+        <script type="text/javascript">
+          function myFunction(event) {
+            localStorage.setItem("subject", event);
+            location.reload();
+          }
+        </script>
+        <br />
+
+        <!-- SUBJECT CARDS -->
+
+        <section class="container" id="main_container">
+          
+          <div id="page"></div>
+          <ul class="pagination justify-content-center">
+            <li onclick="setIndex(1)" class="page-item active" id="pageno_1">
+              <a class="page-link">1</a>
+            </li>
+            <li onclick="setIndex(2)" class="page-item" id="pageno_2">
+              <a class="page-link">2</a>
+            </li>
+            <li onclick="setIndex(3)" class="page-item" id="pageno_3">
+              <a class="page-link">3</a>
+            </li>
+            <li onclick="setIndex(4)" class="page-item" id="pageno_4">
+              <a class="page-link">4</a>
+            </li>
+          </ul>
+          <br /><br />
+        </section>
+
+        <br /><br />
+      </div>
+      <!-- FOOTER -->
+
+      <div class="footer-row">
+        <span
+          >DigiSchool.&nbsp;&nbsp;&nbsp;Copyright
+          <i class="fa fa-copyright" aria-hidden="true"></i
+          >2020.&nbsp;&nbsp;&nbsp; All rights reserved</span
+        >
+
+        <span>Made by Boston Consulting Group</span>
+      </div>
+    </div>
+    <script type="text/javascript" src="scripts/trans.js"></script>
+    <script>
+      function transsubj(str) {
+        return transObj[str.trim().toLowerCase()];
+      }
+    </script>
+    <script type="text/javascript">
+      var subjects = new Set();
+      $.get(
+        video_url,
+        {
+          view_by: "all",
+          standard: localStorage.getItem("class"),
+          state: localStorage.getItem("state"),
+          audience: localStorage.getItem("audience"),
+        },
+        function (data, status, jqXHR) {
+          for (var i = 0; i < data.length; i++) {
+            subjects.add(data[i]["subject_"]);
+          }
+          langChange(localStorage.getItem("language"));
+        }
+      );
+      var final = [];
+      var temp_data = [];
+      var pageIdx = 1;
+      var pageRange = 1;
+      var comps = new Set();
+      var comps_hindi = {};
+      function langChange(str) {
+        if (str == "hindi") {
+          Hindi();
+          compList = '<option value="null">सब दक्षताएं</option>';
+          var subjList = '<option value="null">बदले...</option>';
+          var stateList =
+            '<option value="">बदले...</option> <option value="Rajasthan">राजस्थान</option><option value="Madhya Pradesh">मध्य प्रदेश</option><option value="Jharkhand">झारखंड</option><option value="Others">अन्य</option>';
+
+          for (let item of comps) {
+            compList +=
+              '<option value="' + item + '">' + comps_hindi[item] + "</option>";
+          }
+          for (let item of subjects) {
+            subjList +=
+              '<option value="' + item + '">' + transsubj(item) + "</option>";
+          }
+          var classtxt =
+            ' <option value="null">बदले...</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option>';
+          $("#subj_drop").html(subjList);
+          $("#myClass").html(classtxt);
+          $("#myStateSubj").html(stateList);
+          $("#searchInput").attr("placeholder", "दक्षताएं खोजें");
+        } else {
+          English();
+          compList = '<option value="null">All Competencies</option>';
+          subjList = '<option value="null">Change...</option>';
+          stateList =
+            '<option value="">Change...</option><option value="Rajasthan">Rajasthan</option><option value="Madhya Pradesh">Madhya Pradesh</option><option value="Jharkhand">Jharkhand</option><option value="Others">Others</option>';
+
+          for (let item of comps) {
+            compList += '<option value="' + item + '">' + item + "</option>";
+          }
+          for (let item of subjects) {
+            subjList += '<option value="' + item + '">' + item + "</option>";
+          }
+          var classtxt =
+            ' <option value="null">Change...</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option>';
+          $("#subj_drop").html(subjList);
+          $("#myClass").html(classtxt);
+          $("#myStateSubj").html(stateList);
+          $("#searchInput").attr("placeholder", "Search Competency");
+        }
+        document.getElementById("competency_drop").innerHTML = compList;
+        Translate();
+      }
+      function setIndex(i) {
+        $("#pageno_" + pageIdx).toggleClass("active");
+        pageIdx = i;
+        $("#pageno_" + pageIdx).toggleClass("active");
+        loadCards();
+      }
+      function setPage(numvid) {
+        var pageList = "";
+        pageIdx = 1;
+        pageRange = Math.ceil(numvid / 5);
+        for (var i = 1; i <= pageRange; i++) {
+          pageList +=
+            '<li onclick="setIndex(' +
+            i +
+            ')" class="page-item" id="pageno_' +
+            i +
+            '"><a class="page-link" >' +
+            i +
+            "</a></li>";
+        }
+        $(".pagination").html(pageList);
+        $("#pageno_" + pageIdx).toggleClass("active");
+      }
+      function loadCards() {
+        txt = "";
+        txt +=
+          '<div class="modal fade modal-eg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" > <div class="modal-dialog modal-dialog-centered modal-lg"> <div class="modal-content"> <div class="modal-header"> <h5 class="modal-title">DigiSchool</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Close" > <span aria-hidden="true">&times;</span> </button> </div> <div id="player" class="modal-body"> <iframe class="embed-responsive-item popup-player" height="500px" width="100%" src=""  allowfullscreen ></iframe> </div><div class="modal-footer"><button type="button" class="btn btn-default copy-link" >Copy Link</button><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div>  </div> </div> </div>';
+        for (
+          var i = (pageIdx - 1) * 5;
+          i < Math.min(temp_data.length, pageIdx * 5);
+          i++
+        ) {
+          var key = temp_data[i];
+          txt +=
+            '<div> <h5><span class="en">' +
+            key[0]["competency_"] +
+            " (link : " +
+            key.length +
+            ') <button class="btn btn-success" onClick="copyPlaylist(' +
+            i +
+            ')">Share Competency</button> </span><span class="hi">' +
+            comps_hindi[key[0]["competency_"]] +
+            " (लिंक : " +
+            key.length +
+            ') <button class="btn btn-success" onClick="copyPlaylist(' +
+            i +
+            ')">दक्षता साझा करें</button> </span></h5><br><div class="row flex-row flex-nowrap cards-container ">';
+          for (var j = 0; j < key.length; j++) {
+            var link = key[j];
+
+            if (link["url"].toLowerCase().includes("www.youtube.com/embed")) {
+              // alert(JSON.stringify(link))
+              txt +=
+                '<div class="col-lg-4 mr-3 col-xs-6"><div  class="card click-modal" data-toggle="modal" data-target=".modal-eg " data-keyboard="false" data-backdrop="static"><div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item" value ="' +
+                link["id"] +
+                '" src="' +
+                link["url"] +
+                ' " allowfullscreen></iframe><div class="overlay"></div></div></div></div>';
+            } else {
+              txt +=
+                '<div class="col-lg-4 mr-3 col-xs-6"><div  class="card"><a href="' +
+                link["url"] +
+                '" target="_blank"><img src="images/thumbnail.png" class="card-thumbnail"/></a></div></div>';
+            }
+          }
+          txt += "</div></div><br><br>";
+        }
+
+        $("#page").html(txt);
+        langChange(localStorage.getItem("language"));
+      }
+      function nosubjChange() {
+        var tmp_data = [];
+        var edValue = document.getElementById("searchInput");
+        var s = edValue.value;
+
+        var compValue = document.getElementById("competency_drop");
+        var comp_ = compValue.value;
+
+        for (var i = 0; i < final.length; i++) {
+          var key = final[i];
+          if (s.trim() != "") {
+            if (
+              key[0]["competency_"].toUpperCase().includes(s.toUpperCase()) ==
+              false
+            ) {
+              continue;
+            }
+          }
+          if (comp_ != "null") {
+            if (comp_ != key[0]["competency_"]) {
+              continue;
+            }
+          }
+          tmp_data.push(key);
+        }
+        setPage(tmp_data.length);
+        temp_data = tmp_data;
+        loadCards();
+      }
+      function myReload() {
+        var edValue = document.getElementById("searchInput");
+        var s = edValue.value;
+
+        var compValue = document.getElementById("competency_drop");
+        var comp_ = compValue.value;
+        // alert(comp_);
+
+        $.get(
+          video_url,
+          {
+            view_by: "subject",
+            subject: localStorage.getItem("subject"),
+            state: localStorage.getItem("state"),
+            standard: localStorage.getItem("class"),
+            audience: localStorage.getItem("audience"),
+          },
+          function (data, status, jqXHR) {
+            fxt = "";
+            if (window.innerWidth > 576)
+              fxt =
+                '<span class="en"><h2>' +
+                localStorage.getItem("subject") +
+                " for Class " +
+                localStorage.getItem("class") +
+                "</h2></span>" +
+                '<span class="hi"> <h2>वर्ग ' +
+                localStorage.getItem("class") +
+                " के लिये " +
+                transsubj(localStorage.getItem("subject")) +
+                "</h2></span>";
+            else
+              fxt =
+                '<span class="en"><h5>' +
+                localStorage.getItem("subject") +
+                " for Class " +
+                localStorage.getItem("class") +
+                "</h5></span>" +
+                '<span class="hi"><h5> वर्ग ' +
+                localStorage.getItem("class") +
+                " के लिये " +
+                transsubj(localStorage.getItem("subject")) +
+                "</h5></span>";
+            $("#date_class").html(fxt);
+
+            for (var i = 0; i < data.length; i++) {
+              comps.add(data[i]["competency_"]);
+              comps_hindi[data[i]["competency_"]] =
+                data[i]["competency_hindi_"];
+            }
+            langChange(localStorage.getItem("language"));
+
+            // alert(data)
+
+            for (let item of comps) {
+              temp_data = [];
+              for (var i = 0; i < data.length; i++) {
+                if (data[i]["competency_"] == item) {
+                  temp_data.push(data[i]);
+                }
+              }
+              final.push(temp_data);
+            }
+            $(".loading").hide();
+            setPage(final.length);
+            temp_data = final;
+            loadCards();
+          }
+        );
+      }
+
+      $(document).ready(function () {
+        myReload();
+      });
+
+      $(document).on("click", ".click-modal", function () {
+        var item = $(this.children[0].children[0]);
+        var video = item[0].src;
+        item[0].src = video;
+        $(".popup-player").attr("src", video);
+        videoStart(item.attr("value"));
+        $(".copy-link").attr("onClick", 'copyText("' + video + '")');
+        //videoStart()
+      });
+    </script>
+
+    <script type="text/javascript">
+      $(document).on("click", ".modal-eg", function () {
+        if (!$(".modal-eg").hasClass("in")) {
+          $(".popup-player").attr("src", "");
+          //videoEnd();
+        }
+      });
+    </script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+  </body>
+</html>
