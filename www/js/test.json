@@ -1,27 +1,27 @@
-{'Jharkhand':[
+{"Jharkhand":[
 {
-	'Ranchi':[
+	"Ranchi":[
 	{
-		'Angara' :['Childag School','KGBV Angara'],
-		'Ratu' : ['Smart School Junior', 'Cambrian Public School'],
-		'Chanho' : ['KGBV Chahno, RC Primary School']
+		"Angara" :["Childag School","KGBV Angara"],
+		"Ratu" : ["Smart School Junior", "Cambrian Public School"],
+		"Chanho" : ["KGBV Chahno, RC Primary School"]
 	}],
-	'Bokaro':[
+	"Bokaro":[
 	{
-		'Chas' :['Gyan Darshan Public School','Columbus Public School'],
-		'Gumia' : ['Gomia Public School']
+		"Chas" :["Gyan Darshan Public School","Columbus Public School"],
+		"Gumia" : ["Gomia Public School"]
 	}]
 }],
-'Rajasthan':[
+"Rajasthan":[
 {
-	'Ajmer':[
+	"Ajmer":[
 	{
-		'Kekri' :['AAN Academy','Kesri Public School'],
-		'Bhinai' : ['Shri Pragya Public School', 'Shri Shiksha Sadan']
+		"Kekri" :["AAN Academy","Kesri Public School"],
+		"Bhinai" : ["Shri Pragya Public School", "Shri Shiksha Sadan"]
 	}],
-	'Bokaro':[
+	"Bokaro":[
 	{
-		'Luni' :['Raj Kids Public School','Shri Krishna Adarsh Public School'],
-		'Osian' : ['Thar School']
+		"Luni" :["Raj Kids Public School","Shri Krishna Adarsh Public School"],
+		"Osian" : ["Thar School"]
 	}]
 }]}
