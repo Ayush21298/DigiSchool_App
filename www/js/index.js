@@ -73,8 +73,13 @@ function getCookie(cname) {
   return "";
 }
 
-var base_url = "http://192.168.43.156:8000/";
 
+//var base_url = "http://127.0.0.1:8000/";
+//var base_url = "http://3.18.39.37:8000/";
+var base_url = "http://192.168.43.156:8000/";
+// var base_url = "https://api.digischoolindia.com/";
+
+var video_url = base_url + "video/all";
 var mobile_url = base_url + "app/mobile/";
 var otp_url = base_url + "app/otp/";
 var profile_url = base_url + "app/profile/";
