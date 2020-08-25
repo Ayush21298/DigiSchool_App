@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2016 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' gap:; style-src 'self' 'unsafe-inline'; media-src *" />
+    <!-- Good default declaration:
+    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+        * Enable inline JS: add 'unsafe-inline' to default-src
+        * Enable eval(): add 'unsafe-eval' to default-src
+    * Create your own at http://cspisawesome.com
+    -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+
+    <script type="text/javascript" src="scripts/jquery351.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <title>BCG: Splash</title>
+</head>
+
+<body>
+    <div class="container splash-screen" style="background-color: green">
+        <div class="splash" style="background-color: green; align-items: center; text-align: center; font-size: 20px">
+            <h1>Add Profile</h1>
+            <hr>
+            <table style="text-align: left">
+                <tr>
+                    <td>State</td>
+                    <td>
+                        <select style="background: none; color: white; font-size: 20px; width: 50vw; height: 8vw;">
+                            <option>Select</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Name</td>
+                    <td>
+                        <input type="text" name="" style="background: none; color: white; font-size: 20px; width: 50vw; height: 8vw;">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Use Type</td>
+                    <td>
+                        <input onchange="use_type_change(this)" value="Student" type="radio" name="use_type" checked>Student<br>
+                        <input onchange="use_type_change(this)" value="Teacher" type="radio" name="use_type">Teacher
+                    </td>
+                </tr>
+                <tr>
+                    <td>District</td>
+                    <td>
+                        <select style="background: none; color: white; font-size: 20px; width: 50vw; height: 8vw;">
+                            <option>Select</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Block</td>
+                    <td>
+                        <select style="background: none; color: white; font-size: 20px; width: 50vw; height: 8vw;">
+                            <option>Select</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>School</td>
+                    <td>
+                        <select style="background: none; color: white; font-size: 20px; width: 50vw; height: 8vw;">
+                            <option>Select</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class="teacher_input">
+                    <td>Teacher ID</td>
+                    <td>
+                        <input type="text" name="" style="background: none; color: white; font-size: 20px; width: 50vw; height: 8vw;">
+                    </td>
+                </tr>
+                <tr class="student_input">
+                    <td>Class</td>
+                    <td>
+                        <select style="background: none; color: white; font-size: 20px; width: 50vw; height: 8vw;">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                            <option>10</option>
+                            <option>11</option>
+                            <option>12</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class="teacher_input">
+                    <td>Class</td>
+                    <td>
+                        <select style="background: none; color: white; font-size: 20px; width: 50vw; height: 8vw;">
+                            <option>Pri</option>
+                            <option>UP</option>
+                            <option>Sec</option>
+                            <option>Higher Sec</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <button onclick="mobile_submit()" style="background: transparent; font-size: 20px">Submit</button>
+        </div>
+        <script src="js/login.js"></script>
+    </div>
+    <script type="text/javascript">
+        function mobile_submit(){
+            window.location.assign("profile_add.html");
+        }
+        function use_type_change(s){
+            if(s.value == "Student"){
+                $(".teacher_input").hide();
+                $(".student_input").show();
+            } else if(s.value == "Teacher"){
+                $(".teacher_input").show();
+                $(".student_input").hide();
+            }
+        }
+        $(document).ready(function(){
+            var temp = $("input[name='use_type']:checked").val();
+            if(temp == "Student"){
+                $(".teacher_input").hide();
+                $(".student_input").show();
+            } else if(temp == "Teacher"){
+                $(".teacher_input").show();
+                $(".student_input").hide();
+            }
+        })
+    </script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+</body>
+
+</html>
