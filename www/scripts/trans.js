@@ -1,0 +1,1 @@
+var transObj={english:"अंग्रेज़ी",maths:"गणित",hindi:"हिन्दी",science:"विज्ञान","social science":"सामाजिक विज्ञान",aptitude:"योग्यता",history:"इतिहास",biology:"जीवविज्ञान",geography:"भूगोल",physics:"भौतिक विज्ञान","political science":"राजनीतिक विज्ञान",chemistry:"रसायन विज्ञान",economics:"अर्थशास्त्र",accountancy:"लेखशास्त्र"};

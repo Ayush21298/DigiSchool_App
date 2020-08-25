@@ -1,0 +1,88 @@
+.sidebar{
+    background-color: #27AE60;
+    color:white;
+    text-align: center;
+    padding-top: 20px;
+    
+}
+
+.day-lg{
+    font-size:80px;
+    font-weight: 800;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+.month-lg{
+    font-size: 25px;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.months {
+    margin:0;
+    padding:10px 0;
+    background-color: #ddd;
+}
+  
+.months li {
+    display: inline-block;
+    width: 7.5%;
+    height: 30px;
+    color: #666;
+    text-align: center;
+  }
+
+
+  .weekdays {
+    margin: 0;
+    padding: 10px 0;
+    background-color: #eee;
+  }
+  
+  .weekdays li {
+    display: inline-block;
+    width: 13.6%;
+    height: 30px;
+    color: #666;
+    text-align: center;
+  }
+  
+  .days {
+    padding: 10px 0;
+    background: #ddd;
+    margin: 0;
+  }
+  
+  .days li {
+    list-style-type: none;
+    display: inline-block;
+    width: 13.6%;
+    height:50px;
+    text-align: center;
+    margin-bottom: 5px;
+    font-size:12px;
+    color:black;
+  }
+
+  .days li .disabled{
+      color:lightgrey;
+  }
+  
+  .days li .active {
+    padding: 5px;
+    background: #27AE60;
+    color: white !important
+  }
+  
+  .months li .active {
+    padding: 5px;
+    background: #27AE60;
+    color: white !important
+  }
+  /* Add media queries for smaller screens */
+  @media screen and (max-width:720px) {
+    .weekdays li, .days li, .months li {width:13.1%;}
+  }
+  
+  
