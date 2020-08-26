@@ -243,7 +243,7 @@
             <button class="btn btn-success" onclick='window.location.assign("assessment.html")' style="font-size: 20px; padding:10px; margin:30px">
                 Assessments
             </button>
-            <button class="btn btn-danger" onclick='window.location.assign("assessment.html")' style="font-size: 20px; padding:10px; margin:30px">
+            <button class="btn btn-danger" onclick='delete_profile()' style="font-size: 20px; padding:10px; margin:30px">
                 Delete
             </button>
           </section>
@@ -287,6 +287,15 @@
                 $("#standard").html(data["standard"]);
             });
       });
+      function delete_profile(){
+          $.post(delete_profile_url,
+          {
+          "id": getCookie("user_id")
+          },
+          function(data, status){
+              window.location.assign("profile.html");
+          });
+      }
     </script>
     <script>
     function w3_open() {

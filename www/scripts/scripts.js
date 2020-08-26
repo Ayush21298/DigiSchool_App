@@ -1,4 +1,25 @@
 var datecode = "hi-IN";
+
+var options = {
+  message: 'share this', // not supported on some apps (Facebook, Instagram)
+  subject: 'the subject', // fi. for email
+  files: ['', ''], // an array of filenames either locally or remotely
+  url: 'https://www.website.com/foo/#bar?a=b',
+  chooserTitle: 'Pick an app', // Android only, you can override the default share sheet title
+  // appPackageName: 'com.apple.social.facebook', // Android only, you can provide id of the App you want to share with
+  iPadCoordinates: '0,0,0,0' //IOS only iPadCoordinates for where the popover should be point.  Format with x,y,width,height
+};
+
+var onSuccess = function(result) {
+  console.log("Share completed? " + result.completed); // On Android apps mostly return false even while it's true
+  console.log("Shared to app: " + result.app); // On Android result.app since plugin version 5.4.0 this is no longer empty. On iOS it's empty when sharing is cancelled (result.completed=false)
+};
+
+var onError = function(msg) {
+  console.log("Sharing failed with message: " + msg);
+};
+
+
 function Translate() {
   var language = localStorage.getItem("language");
   console.log(language);
@@ -90,6 +111,7 @@ function copyText(str) {
   selection.removeAllRanges();
 
   document.body.removeChild(textarea);
+  window.plugins.socialsharing.shareWithOptions(options, onSuccess, onError);
 }
 
 function copyPlaylist(key){
@@ -136,5 +158,7 @@ function copyPlaylist(key){
     selection.removeAllRanges();
   
     document.body.removeChild(textarea);
-    alert("Playlist copied");}
+    alert("Playlist copied");
+    window.plugins.socialsharing.shareWithOptions(options, onSuccess, onError);
+  }
 }

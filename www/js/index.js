@@ -94,6 +94,7 @@ var video_url = base_url + "video/all";
 var mobile_url = base_url + "app/mobile/";
 var otp_url = base_url + "app/otp/";
 var profile_url = base_url + "app/profile/";
+var delete_profile_url = base_url + "app/delete_profile/";
 var me_url = base_url + "app/me/";
 var quiz_url = base_url + "app/quiz/";
 var plan_url = base_url + "app/plan/";
