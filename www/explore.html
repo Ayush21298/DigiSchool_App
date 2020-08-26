@@ -313,21 +313,21 @@
     </script>
     <script type="text/javascript">
       var subjects = new Set();
-      $.get(
-        video_url,
-        {
-          view_by: "all",
-          standard: localStorage.getItem("class"),
-          state: localStorage.getItem("state"),
-          audience: localStorage.getItem("audience"),
-        },
-        function (data, status, jqXHR) {
-          for (var i = 0; i < data.length; i++) {
-            subjects.add(data[i]["subject_"]);
-          }
-          langChange(localStorage.getItem("language"));
-        }
-      );
+      // $.get(
+      //   video_url,
+      //   {
+      //     view_by: "all",
+      //     standard: localStorage.getItem("class"),
+      //     state: localStorage.getItem("state"),
+      //     audience: localStorage.getItem("audience"),
+      //   },
+      //   function (data, status, jqXHR) {
+      //     for (var i = 0; i < data.length; i++) {
+      //       subjects.add(data[i]["subject_"]);
+      //     }
+      //     langChange(localStorage.getItem("language"));
+      //   }
+      // );
       var final = [];
       var temp_data = [];
       var pageIdx = 1;
@@ -480,6 +480,23 @@
         loadCards();
       }
       function myReload() {
+
+        $.get(
+          video_url,
+          {
+            view_by: "all",
+            standard: localStorage.getItem("class"),
+            state: localStorage.getItem("state"),
+            audience: localStorage.getItem("audience"),
+          },
+          function (data, status, jqXHR) {
+            for (var i = 0; i < data.length; i++) {
+              subjects.add(data[i]["subject_"]);
+            }
+            langChange(localStorage.getItem("language"));
+          }
+        );
+
         var edValue = document.getElementById("searchInput");
         var s = edValue.value;
 
