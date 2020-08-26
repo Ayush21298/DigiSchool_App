@@ -57,7 +57,7 @@
       }
     </style>
     <div class="container splash-screen" style="background-color: green">
-        <div class="splash" style="background-color: green; align-items: center; text-align: center; font-size: 20px">
+        <div class="splash" style="background-color: green; align-items: center; text-align: center; font-size: 20px; padding:5vw;">
             <h1>Add Profile</h1>
             <hr>
             <table style="text-align: left">
@@ -154,6 +154,7 @@
                 var block_sel = $("#block").children("option:selected").val();
                 var school_sel = $("#school").children("option:selected").val();
                 if( (state_sel == "Select") || (st=="state") ){
+                    $('#state').prop('disabled', false);
                     $('#state')
                     .empty()
                     .append('<option>Select</option>')
@@ -173,6 +174,7 @@
                     .empty()
                     .append('<option>Select</option>')
                 } else if( (district_sel == "Select") || (st=="district") ){
+                    $('#district').prop('disabled', false);
                     $('#district')
                     .empty()
                     .append('<option>Select</option>')
@@ -189,6 +191,7 @@
                     .empty()
                     .append('<option>Select</option>')
                 } else if( (block_sel == "Select") || (st=="block") ){
+                    $('#block').prop('disabled', false);
                     $('#block')
                     .empty()
                     .append('<option>Select</option>')
@@ -202,6 +205,8 @@
                     .empty()
                     .append('<option>Select</option>')
                 } else if( (school_sel == "Select") || (st=="school") ){
+                    $('#school').prop('disabled', false);
+                    $('#class').prop('disabled', false);
                     $('#school')
                     .empty()
                     .append('<option>Select</option>')
@@ -269,6 +274,11 @@
                 $(".teacher_input").show();
                 $(".student_input").hide();
             }
+            $('#state').prop('disabled', 'disabled');
+            $('#district').prop('disabled', 'disabled');
+            $('#block').prop('disabled', 'disabled');
+            $('#school').prop('disabled', 'disabled');
+            $('#class').prop('disabled', 'disabled');
             load_form();
         })
         $('select').change(function () {
