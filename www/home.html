@@ -198,7 +198,7 @@
                 CONTENT OF THE DAY
             </button>
 
-            <button onclick='' style="background:grey; color: white; font-size: 20px; padding:10px; width:80vw; margin: 10vw;">
+            <button onclick='quiz()' style="background:grey; color: white; font-size: 20px; padding:10px; width:80vw; margin: 10vw;">
                 QUIZ OF THE DAY
             </button>
 
@@ -230,10 +230,29 @@
         containerId: "wholepage",
         sectionClass: "full-section",
       });
+      var quiz_otd="";
+      function quiz(){
+        if(quiz_otd == ""){
+          alert("No Quiz Today!")
+        } else {
+          // alert(quiz_otd);
+          // window.location.assign(quiz_otd);
+          var ref = window.open(encodeURI(quiz_otd), '_self', 'location=yes');
+        }
+      }
       $(document).ready(function () {
         Translate();
         console.log("ready");
         $(".loading").hide();
+        $.get(quiz_url,
+            {
+            "id": getCookie("user_id"),
+            "date": formatDate(new Date())
+            },
+            function(data, status){
+                // alert(JSON.stringify(data));
+                quiz_otd = data[0]["url"];
+            });
       });
     </script>
 
