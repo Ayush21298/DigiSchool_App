@@ -16,6 +16,7 @@
     <script src="scripts/font1.js"></script>
 
     <script type="text/javascript" src="scripts/scripts.min.js"></script>
+    <link rel="stylesheet" href="css/w3.css">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="styles/LandingPage.css" />
@@ -32,197 +33,86 @@
     <div class="loading"></div>
     <div class="page-container">
       <div class="content-wrap">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-          <div class="container">
-            <a class="navbar-brand logo" href="/#!/">
-              <img
-                src=""
-                height="100"
-                class="mainlogo1 d-inline-block align-top"
-                alt=""
-              />
-            </a>
+         <div class="w3-sidebar w3-card" style="display:none" id="mySidebar">
+           <button class="w3-button w3-green w3-xlarge" onclick="w3_close()">☰</button>
 
-            <button
-              class="navbar-toggler"
+            <ul class="navbar-nav">
+              <li class="w3-bar-item w3-button w3-border-bottom">
+                <div >
+                  <img style="width: 40% ;margin:5%" src="images/partner logos/bcg.png"/>
+                  <img style="width: 40% ;margin:5%" src="images/partner logos/jharkhand-govt.png"/>
+                </div>
+                <span class="en h3">Welcome User</span><span class="hi h3">स्वागत हे</span><br />
+                <button
+              class="btn btn-success dropdown-toggle"
               type="button"
-              data-toggle="collapse"
-              data-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
+              data-toggle="dropdown"
+              id="language-ctrl"
             >
-              <span class="navbar-toggler-icon"></span>
+              Language <span class="caret"></span>
             </button>
-
-            <div
-              class="collapse navbar-collapse justify-content-end"
-              id="navbarSupportedContent"
+            <ul class="dropdown-menu dropdown-menu-right">
+              <li>
+                <button class="btn language-btn" onclick="langChange('hindi')">
+                  हिन्दी
+                </button>
+              </li>
+              <li>
+                <button class="btn language-btn" onclick="langChange('english')">
+                  English
+                </button>
+              </li>
+            </ul>
+              </li>
+              <li class="w3-bar-item w3-button w3-border-bottom">
+                <button class="btn btn-link" type="button">
+                  <span class="en">Home</span><span class="hi" onclick='window.location.assign("home.html")'>घर</span>
+                  </button>
+              </li>
+              <li class="w3-bar-item w3-button w3-border-bottom">
+                <button class="btn btn-link" type="button" >
+                  <span class="en">Explore</span><span class="hi">अन्वेषण</span>
+                </button>
+              </li>
+              <li class="w3-bar-item w3-button w3-border-bottom">
+                <button class="btn btn-link" type="button" onclick='window.location.assign("me.html")'>
+                  <span class="en">My Profile</span
+                  ><span class="hi">मेरी जानकारी</span>
+                </button>
+              </li>
+              <li class="w3-bar-item w3-button w3-border-bottom">
+                <button class="btn btn-link" type="button" onclick='window.location.assign("profile.html")'>
+                  <span class="en">Switch Profile</span>
+                  <span class="hi">उपभोक्ता बदलें</span>
+                </button>
+              </li>
+              <li class="w3-bar-item w3-button w3-border-bottom">
+                <button class="btn btn-link" type="button" onclick='window.location.assign("me.html")'>
+                  <span class="en">Contact Us</span>
+                  <span class="hi">संपर्क करें</span>
+                </button>
+              </li>
+              <div class="footer-row">
+            <span
+              >DigiSchool.&nbsp;&nbsp;&nbsp;Copyright
+              <i class="fa fa-copyright" aria-hidden="true"></i
+              >2020.&nbsp;&nbsp;&nbsp; All rights reserved</span
             >
-              <ul class="navbar-nav">
-                <li class="nav-item active">
-                  <a class="nav-link link-item" href="/#!/"
-                    ><span class="en"
-                      ><span class="en">Home</span
-                      ><span class="hi"> घर</span></span
-                    ><span class="hi"> घर</span>
-                  </a>
-                </li>
-                <li class="nav-item active">
-                  <a class="nav-link link-item" href="/#!/date"
-                    ><span class="en">Calendar View</span
-                    ><span class="hi">तिथि-वार</span></a
-                  >
-                </li>
 
-                <li class="nav-item active">
-                  <a class="nav-link link-item" href="/#!/about"
-                    ><span class="en">About Us</span
-                    ><span class="hi"> हमारे बारे में</span></a
-                  >
-                </li>
-                <li class="nav-item active">
-                  <a class="nav-link link-item" href="/#!/contact"
-                    ><span class="en">Contact Us</span
-                    ><span class="hi"> संपर्क करें</span></a
-                  >
-                </li>
-                <li class="nav-item active">
-                  <a class="nav-link link-item" href="/#!/additional_resources"
-                    ><span class="en">Resource List</span
-                    ><span class="hi">अतिरिक्त संसाधन</span></a
-                  >
-                </li>
-              </ul>
-            </div>
-            <div class="nav-item active">
-              <a
-                style="color: white; font-size: 18px;"
-                class="nav-link link-item"
-                href="/#!/subject"
-                ><span class="en">Explore</span
-                ><span class="hi">अन्वेषण</span></a
-              >
-            </div>
-
-            <div class="dropdown">
-              <button
-                class="btn btn-success dropdown-toggle"
-                type="button"
-                data-toggle="dropdown"
-                id="language-ctrl"
-              >
-                Language <span class="caret"></span>
-              </button>
-              <ul class="dropdown-menu dropdown-menu-right">
-                <li>
-                  <button
-                    class="btn language-btn"
-                    onclick="langChange('hindi')"
-                  >
-                    हिन्दी
-                  </button>
-                </li>
-                <li>
-                  <button
-                    class="btn language-btn"
-                    onclick="langChange('english')"
-                  >
-                    English
-                  </button>
-                </li>
-              </ul>
-            </div>
+            <span>Made by Boston Consulting Group</span>
           </div>
-        </nav>
+              </ul>
+          </div>
+          
+    <!-- NAVBAR -->
+    <div class="body-content">
+        <div class="w3-green">
+          <button class="w3-button w3-green w3-xlarge" onclick="w3_open()">☰</button>
+           <span class="en h2">Explore</span><span class="hi h2">अन्वेषण</span>
+        </div>
 
         <!-- SUBJECT HEADER -->
-        <section>
-          <div class="subject-header" style="background: none;">
-            <div class="subject-buttons">
-              <form class="form-inline">
-                <!-- <label class="form-lb"
-                  ><span class="en h5">Class</span
-                  ><span class="hi h4">वर्ग </span></label
-                >
-                <select
-                  class="custom-select form-control mb-xs-2"
-                  id="myClass"
-                  onchange="classChange(event)"
-                  style="width: 150px;"
-                >
-                  <option value="null">Select Class...</option>
-                </select>
-                <label class="form-lb"
-                  ><span class="en h5">State</span
-                  ><span class="hi h4">राज्य </span></label
-                >
-                <select
-                  class="custom-select form-control mb-xs-2"
-                  id="myStateSubj"
-                  onchange="stateChange(event)"
-                  style="width: 150px;"
-                >
-                  <option value="null">Select State...</option>
-                </select>
-                <br /><br />
-                <label class="form-lb"
-                  ><span class="en h5">Subject</span
-                  ><span class="hi h4">विषय </span></label
-                >
-                <select
-                  class="custom-select form-control mb-xs-2"
-                  id="subj_drop"
-                  onchange="myFunction(event.target.value)"
-                  style="width: 150px;"
-                >
-                  <option value="null">Choose Subject</option>
-                </select> -->
-
-                <label class="form-lb"
-                  ><span class="en h5">Competency</span
-                  ><span class="hi h4">दक्षता </span></label
-                >
-                <select
-                  class="custom-select form-control mb-xs-2"
-                  id="competency_drop"
-                  style="width: 150px;"
-                >
-                  <option value="null">Choose Competency</option>
-                  <!-- <option value="Test">Test</option> -->
-                </select>
-
-                <script type="text/javascript">
-                  function handler(e) {
-                    // alert(e.target.value);
-                    localStorage.setItem("date", new Date(e.target.value));
-                    location.reload();
-                  }
-                  function classChange(e) {
-                    localStorage.setItem("class", e.target.value);
-                    location.reload();
-                  }
-                  function stateChange(e) {
-                    if (e.target.value != "") {
-                      localStorage.setItem("state", e.target.value);
-                      location.reload();
-                    }
-                  }
-                  function edValueKeyPress() {
-                    // var edValue = document.getElementById("searchInput");
-                    // var s = edValue.value;
-
-                    nosubjChange();
-                  }
-                  $("#competency_drop").change(function () {
-                    nosubjChange();
-                  });
-                </script>
-              </form>
-            </div>
-          </div>
-        </section>
-
+        
         <!-- SUBJECT TITLE -->
         <section class="container">
           <div class="subject-title">
@@ -268,7 +158,91 @@
           }
         </script>
         <br />
+        <section>
+          <div class="subject-header" style="background: none;">
+            <div class="subject-buttons">
+              <form class="form-inline" style="float: right;">
+                <!--<label class="form-lb"
+                  ><span class="en h5">Class</span
+                  ><span class="hi h4">वर्ग </span></label
+                >
+                <select
+                  class="custom-select form-control mb-xs-2"
+                  id="myClass"
+                  onchange="classChange(event)"
+                  style="width: 150px;"
+                >
+                  <option value="null">Select Class...</option>
+                </select>
+                <label class="form-lb"
+                  ><span class="en h5">State</span
+                  ><span class="hi h4">राज्य </span></label
+                >
+                <select
+                  class="custom-select form-control mb-xs-2"
+                  id="myStateSubj"
+                  onchange="stateChange(event)"
+                  style="width: 150px;"
+                >
+                  <option value="null">Select State...</option>
+                </select>
+                <br /><br /-->
+                <label class="form-lb"
+                  ><span class="en h5">Subject</span
+                  ><span class="hi h4">विषय </span></label
+                >
+                <select
+                  class="custom-select form-control mb-xs-2"
+                  id="subj_drop"
+                  onchange="myFunction(event.target.value)"
+                  style="width: 150px;"
+                >
+                  <option value="null">Choose Subject</option>
+                </select> 
 
+                <label class="form-lb"
+                  ><span class="en h5">Competency</span
+                  ><span class="hi h4">दक्षता </span></label
+                >
+                <select
+                  class="custom-select form-control mb-xs-2"
+                  id="competency_drop"
+                  style="width: 150px;"
+                >
+                  <option value="null">Choose Competency</option>
+                  <!-- <option value="Test">Test</option> -->
+                </select>
+
+                <script type="text/javascript">
+                  function handler(e) {
+                    // alert(e.target.value);
+                    localStorage.setItem("date", new Date(e.target.value));
+                    location.reload();
+                  }
+                  function classChange(e) {
+                    localStorage.setItem("class", e.target.value);
+                    location.reload();
+                  }
+                  function stateChange(e) {
+                    if (e.target.value != "") {
+                      localStorage.setItem("state", e.target.value);
+                      location.reload();
+                    }
+                  }
+                  function edValueKeyPress() {
+                    // var edValue = document.getElementById("searchInput");
+                    // var s = edValue.value;
+
+                    nosubjChange();
+                  }
+                  $("#competency_drop").change(function () {
+                    nosubjChange();
+                  });
+                </script>
+              </form>
+            </div>
+          </div>
+        </section>
         <!-- SUBJECT CARDS -->
 
         <section class="container" id="main_container">
@@ -292,17 +266,6 @@
         </section>
 
         <br /><br />
-      </div>
-      <!-- FOOTER -->
-
-      <div class="footer-row">
-        <span
-          >DigiSchool.&nbsp;&nbsp;&nbsp;Copyright
-          <i class="fa fa-copyright" aria-hidden="true"></i
-          >2020.&nbsp;&nbsp;&nbsp; All rights reserved</span
-        >
-
-        <span>Made by Boston Consulting Group</span>
       </div>
     </div>
     <script type="text/javascript" src="scripts/trans.js"></script>
@@ -589,6 +552,16 @@
           //videoEnd();
         }
       });
+    </script>
+    <script>
+    function w3_open() {
+      document.getElementById("mySidebar").style.width = "75%";
+      document.getElementById("mySidebar").style.display = "block";
+    }
+
+    function w3_close() {
+      document.getElementById("mySidebar").style.display = "none";
+    }
     </script>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>

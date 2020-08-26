@@ -15,6 +15,7 @@
     <!-- Font Awesome -->
     <script src="scripts/font1.js"></script>
 
+    <link rel="stylesheet" href="css/w3.css">
     <script type="text/javascript" src="scripts/scripts.min.js"></script>
 
     <!-- Custom CSS -->
@@ -51,106 +52,81 @@
     <!-- NAVBAR -->
     <div class="page-container">
       <div class="content-wrap">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-          <div class="container">
-            <a class="navbar-brand logo" href="/#!/">
-              <img
-                src=""
-                height="100"
-                class="mainlogo1 d-inline-block align-top"
-                alt=""
-              />
-            </a>
+        <div class="w3-sidebar w3-card" style="display:none" id="mySidebar">
+           <button class="w3-button w3-green w3-xlarge" onclick="w3_close()">☰</button>
 
-            <button
-              class="navbar-toggler"
+            <ul class="navbar-nav">
+              <li class="w3-bar-item w3-button w3-border-bottom">
+                <div >
+                  <img style="width: 40% ;margin:5%" src="images/partner logos/bcg.png"/>
+                  <img style="width: 40% ;margin:5%" src="images/partner logos/jharkhand-govt.png"/>
+                </div>
+                <span class="en h3">Welcome User</span><span class="hi h3">स्वागत हे</span><br />
+                <button
+              class="btn btn-success dropdown-toggle"
               type="button"
-              data-toggle="collapse"
-              data-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
+              data-toggle="dropdown"
+              id="language-ctrl"
             >
-              <span class="navbar-toggler-icon"></span>
+              Language <span class="caret"></span>
             </button>
-
-            <div
-              class="collapse navbar-collapse justify-content-end"
-              id="navbarSupportedContent"
+            <ul class="dropdown-menu dropdown-menu-right">
+              <li>
+                <button class="btn language-btn" onclick="langChange('hindi')">
+                  हिन्दी
+                </button>
+              </li>
+              <li>
+                <button class="btn language-btn" onclick="langChange('english')">
+                  English
+                </button>
+              </li>
+            </ul>
+              </li>
+              <li class="w3-bar-item w3-button w3-border-bottom">
+                <button class="btn btn-link" type="button" onclick='window.location.assign("home.html")'>
+                  <span class="en">Home</span><span class="hi">घर</span>
+                  </button>
+              </li>
+              <li class="w3-bar-item w3-button w3-border-bottom">
+                <button class="btn btn-link" type="button" onclick='window.location.assign("explore.html")'>
+                  <span class="en">Explore</span><span class="hi">अन्वेषण</span>
+                </button>
+              </li>
+              <li class="w3-bar-item w3-button w3-border-bottom">
+                <button class="btn btn-link" type="button" onclick='window.location.assign("me.html")'>
+                  <span class="en">My Profile</span
+                  ><span class="hi">मेरी जानकारी</span>
+                </button>
+              </li>
+              <li class="w3-bar-item w3-button w3-border-bottom">
+                <button class="btn btn-link" type="button" onclick='window.location.assign("profile.html")'>
+                  <span class="en">Switch Profile</span>
+                  <span class="hi">उपभोक्ता बदलें</span>
+                </button>
+              </li>
+              <li class="w3-bar-item w3-button w3-border-bottom">
+                <button class="btn btn-link" type="button" onclick='window.location.assign("me.html")'>
+                  <span class="en">Contact Us</span>
+                  <span class="hi">संपर्क करें</span>
+                </button>
+              </li>
+              <div class="footer-row">
+            <span
+              >DigiSchool.&nbsp;&nbsp;&nbsp;Copyright
+              <i class="fa fa-copyright" aria-hidden="true"></i
+              >2020.&nbsp;&nbsp;&nbsp; All rights reserved</span
             >
-              <ul class="navbar-nav">
-                <li class="nav-item active">
-                  <a class="nav-link link-item" href="/#!/"
-                    ><span class="en">Home</span><span class="hi"> घर</span>
-                  </a>
-                </li>
 
-                <li class="nav-item active">
-                  <a class="nav-link link-item"
-                    ><span class="en">Calendar View</span
-                    ><span class="hi">तिथि-वार</span></a
-                  >
-                </li>
-
-                <li class="nav-item active">
-                  <a class="nav-link link-item" href="/#!/about"
-                    ><span class="en">About Us</span
-                    ><span class="hi"> हमारे बारे में</span></a
-                  >
-                </li>
-                <li class="nav-item active">
-                  <a class="nav-link link-item" href="/#!/contact"
-                    ><span class="en">Contact Us</span
-                    ><span class="hi"> संपर्क करें</span></a
-                  >
-                </li>
-                <li class="nav-item active">
-                  <a class="nav-link link-item" href="/#!/additional_resources"
-                    ><span class="en">Resource List</span
-                    ><span class="hi">अतिरिक्त संसाधन</span></a
-                  >
-                </li>
-              </ul>
-            </div>
-            <div class="nav-item active">
-              <a
-                style="color: white; font-size: 18px;"
-                class="nav-link link-item"
-                href="/#!/subject"
-                ><span class="en">Explore</span
-                ><span class="hi">अन्वेषण</span></a
-              >
-            </div>
-            <div class="dropdown">
-              <button
-                class="btn btn-success dropdown-toggle"
-                type="button"
-                data-toggle="dropdown"
-                id="language-ctrl"
-              >
-                Language <span class="caret"></span>
-              </button>
-              <ul class="dropdown-menu dropdown-menu-right">
-                <li>
-                  <button
-                    class="btn language-btn"
-                    onclick="langChange('hindi')"
-                  >
-                    हिन्दी
-                  </button>
-                </li>
-                <li>
-                  <button
-                    class="btn language-btn"
-                    onclick="langChange('english')"
-                  >
-                    English
-                  </button>
-                </li>
-              </ul>
-            </div>
+            <span>Made by Boston Consulting Group</span>
           </div>
-        </nav>
+              </ul>
+          </div>
+          <div class="body-content">
+        <div class="w3-green">
+          <button class="w3-button w3-green w3-xlarge" onclick="w3_open()">☰</button>
+          <span class="en h2">Content OTD</span><span class="hi h2">आज की सामग्री</span>
+        </div>
         <div class="loading"></div>
         <!-- SUBJECT HEADER -->
         <!-- <section>
@@ -292,15 +268,6 @@
       <br /><br />
       <!-- FOOTER -->
       <br />
-      <div class="footer-row">
-        <span
-          >DigiSchool.&nbsp;&nbsp;&nbsp;Copyright
-          <i class="fa fa-copyright" aria-hidden="true"></i
-          >2020.&nbsp;&nbsp;&nbsp; All rights reserved</span
-        >
-
-        <span>Made by Boston Consulting Group</span>
-      </div>
     </div>
     <script type="text/javascript" src="scripts/trans.js"></script>
     <script>
@@ -605,6 +572,16 @@
           videoEnd();
         }
       });
+    </script>
+    <script >
+    function w3_open() {
+      document.getElementById("mySidebar").style.width = "75%";
+      document.getElementById("mySidebar").style.display = "block";
+    }
+
+    function w3_close() {
+      document.getElementById("mySidebar").style.display = "none";
+    }
     </script>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>

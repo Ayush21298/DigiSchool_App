@@ -13,10 +13,10 @@
 
     <!-- Font Awesome -->
     <script src="scripts/font1.js"></script>
-
+    
     <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="styles/LandingPage.css" />
-
+    <link rel="stylesheet" href="css/w3.css">
     <link rel="stylesheet" type="text/css" href="styles/carousel.css" />
 
     <style>
@@ -28,6 +28,9 @@
         overflow: hidden;
       }
       .body-content::-webkit-scrollbar {
+        display: none;
+      }
+      .w3-sidebar::-webkit-scrollbar {
         display: none;
       }
 
@@ -42,6 +45,11 @@
       div#preload {
         display: none;
       }
+
+      p { 
+            font-size: 22px;
+            text-align: center;
+        } 
 
       .full-section {
         height: 100%;
@@ -101,73 +109,17 @@
       localStorage.setItem("language", "hindi");
       Translate();
     </script>
+     <div class="w3-sidebar w3-card" style="display:none" id="mySidebar">
+           <button class="w3-button w3-green w3-xlarge" onclick="w3_close()">☰</button>
 
-    <!-- NAVBAR -->
-    <div class="body-content">
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-          <a class="navbar-brand logo" href="/#!/">
-            <img
-              src=""
-              height="100"
-              class="mainlogo1 d-inline-block align-top"
-              alt=""
-            />
-          </a>
-
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <div
-            class="collapse navbar-collapse justify-content-end"
-            id="navbarSupportedContent"
-          >
             <ul class="navbar-nav">
-              <li class="nav-item active">
-                <a class="nav-link link-item"
-                  ><span class="en">Home</span><span class="hi"> घर</span></a
-                >
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link link-item" href="/#!/about"
-                  ><span class="en">About Us</span
-                  ><span class="hi"> हमारे बारे में</span></a
-                >
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link link-item" href="/#!/contact"
-                  ><span class="en">Contact Us</span
-                  ><span class="hi"> संपर्क करें</span></a
-                >
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link link-item" href="/#!/additional_resources"
-                  ><span class="en">Resource List</span
-                  ><span class="hi">अतिरिक्त संसाधन</span>
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div class="nav-item active">
-            <a
-              style="color: white; font-size: 18px;"
-              class="nav-link link-item explore"
-              href="/#!/subject"
-              ><span class="en">Explore</span><span class="hi">अन्वेषण</span></a
-            >
-          </div>
-
-          <div class="dropdown">
-            <button
+              <li class="w3-bar-item w3-button w3-border-bottom">
+                <div >
+                  <img style="width: 40% ;margin:5%" src="images/partner logos/bcg.png"/>
+                  <img style="width: 40% ;margin:5%" src="images/partner logos/jharkhand-govt.png"/>
+                </div>
+                <span class="en h3">Welcome User</span><span class="hi h3">स्वागत हे</span><br />
+                <button
               class="btn btn-success dropdown-toggle"
               type="button"
               data-toggle="dropdown"
@@ -187,32 +139,36 @@
                 </button>
               </li>
             </ul>
-          </div>
-        </div>
-      </nav>
-      <div id="wholepage">
-
-          <section class="full-section" style="">
-
-            <button onclick='window.location.assign("content.html")' style="background:green; color: white; font-size: 20px; padding:10px; width:80vw; margin: 10vw;">
-                CONTENT OF THE DAY
-            </button>
-
-            <button onclick='quiz()' style="background:grey; color: white; font-size: 20px; padding:10px; width:80vw; margin: 10vw;">
-                QUIZ OF THE DAY
-            </button>
-
-            <button onclick='window.location.assign("plan.html")' style="background:green; color: white; font-size: 20px; padding:10px; width:80vw; margin: 10vw;">
-                PLAN OF THE DAY
-            </button>
-
-            <button onclick='window.location.assign("assessment.html")' style="background:grey; color: white; font-size: 20px; padding:10px; width:80vw; margin: 10vw;">
-                ASSESSMENTS
-            </button>
-            
-          </section>
-
-          <div class="footer-row">
+              </li>
+              <li class="w3-bar-item w3-button w3-border-bottom">
+                <button class="btn btn-link" type="button">
+                  <span class="en">Home</span><span class="hi">घर</span>
+                  </button>
+              </li>
+              <li class="w3-bar-item w3-button w3-border-bottom">
+                <button class="btn btn-link" type="button" onclick='window.location.assign("explore.html")'>
+                  <span class="en">Explore</span><span class="hi">अन्वेषण</span>
+                </button>
+              </li>
+              <li class="w3-bar-item w3-button w3-border-bottom">
+                <button class="btn btn-link" type="button" onclick='window.location.assign("me.html")'>
+                  <span class="en">My Profile</span
+                  ><span class="hi">मेरी जानकारी</span>
+                </button>
+              </li>
+              <li class="w3-bar-item w3-button w3-border-bottom">
+                <button class="btn btn-link" type="button" onclick='window.location.assign("profile.html")'>
+                  <span class="en">Switch Profile</span>
+                  <span class="hi">उपभोक्ता बदलें</span>
+                </button>
+              </li>
+              <li class="w3-bar-item w3-button w3-border-bottom">
+                <button class="btn btn-link" type="button" onclick='window.location.assign("me.html")'>
+                  <span class="en">Contact Us</span>
+                  <span class="hi">संपर्क करें</span>
+                </button>
+              </li>
+              <div class="footer-row">
             <span
               >DigiSchool.&nbsp;&nbsp;&nbsp;Copyright
               <i class="fa fa-copyright" aria-hidden="true"></i
@@ -221,15 +177,48 @@
 
             <span>Made by Boston Consulting Group</span>
           </div>
+              </ul>
+          </div>
+          
+    <!-- NAVBAR -->
+    <div class="body-content">
+        <div class="w3-green">
+          <button class="w3-button w3-green w3-xlarge" onclick="w3_open()">☰</button>
+          <span class="en h2">HOME</span><span class="hi h2">घर</span>
+        </div>
+      <div id="wholepage">
+
+          <section class="full-section" style="text-align: center;">
+
+            <button onclick='window.location.assign("content.html")' style="background-image: linear-gradient(to right, white , green); color: white; padding:10px; width:90%; height: 100px; margin: 1vw; ">
+                <img style='width:60px; height: 60px; float: left; margin-right: 10px' src='images/brand-2.png'></img>
+                <p><span class="en">CONTENT OF THE DAY</span><span class="hi ">आज की सामग्री</span></p>
+            </button>
+
+            <button onclick='quiz()' style="background-image: linear-gradient(to right, white , gray); color: white; padding:10px; width:90%; height: 100px; margin: 1vw;">
+              <img style='width:60px; height: 60px; float: left; margin-right: 10px' src='images/brand-2.png'></img>
+                <p><span class="en">QUIZ OF THE DAY</span><span class="hi ">आज की प्रश्नोत्तरी</span></p>
+            </button>
+
+            <button onclick='window.location.assign("plan.html")' style="background-image: linear-gradient(to right, white , green); color: white; padding:10px; width:90%; height: 100px; margin: 1vw;">
+                <img style='width:60px; height: 60px; float: left; margin-right: 10px' src='images/brand-2.png'></img>
+                <p><span class="en">PLAN OF THE DAY</span><span class="hi ">आज की योजना</span></p>
+            </button>
+
+            <button onclick='window.location.assign("assessment.html")' style="background-image: linear-gradient(to right, white , gray); color: white; padding:10px; width:90%; height: 100px; margin: 1vw;">
+                <img style='width:60px; height: 60px; float: left; margin-right: 10px' src='images/brand-2.png'></img>
+                <p><span class="en">ASSESSMENTS</span><span class="hi ">मूल्यांकन</span></p>
+            </button>
+            
+          </section>
+
+          
         </section>
       </div>
     </div>
 
     <script>
-      new WholePageSlider({
-        containerId: "wholepage",
-        sectionClass: "full-section",
-      });
+
       var quiz_otd="";
       function quiz(){
         if(quiz_otd == ""){
@@ -255,7 +244,16 @@
             });
       });
     </script>
+    <script>
+    function w3_open() {
+      document.getElementById("mySidebar").style.width = "75%";
+      document.getElementById("mySidebar").style.display = "block";
+    }
 
+    function w3_close() {
+      document.getElementById("mySidebar").style.display = "none";
+    }
+    </script>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
 
