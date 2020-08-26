@@ -1,11 +1,11 @@
 var datecode = "hi-IN";
 
 var options = {
-  message: 'share this', // not supported on some apps (Facebook, Instagram)
-  subject: 'the subject', // fi. for email
+  message: 'DigiSchool', // not supported on some apps (Facebook, Instagram)
+  subject: 'Share', // fi. for email
   files: ['', ''], // an array of filenames either locally or remotely
   url: 'https://www.website.com/foo/#bar?a=b',
-  chooserTitle: 'Pick an app', // Android only, you can override the default share sheet title
+  chooserTitle: 'DigiSchool Share', // Android only, you can override the default share sheet title
   // appPackageName: 'com.apple.social.facebook', // Android only, you can provide id of the App you want to share with
   iPadCoordinates: '0,0,0,0' //IOS only iPadCoordinates for where the popover should be point.  Format with x,y,width,height
 };
@@ -111,6 +111,7 @@ function copyText(str) {
   selection.removeAllRanges();
 
   document.body.removeChild(textarea);
+  options["url"] = str;
   window.plugins.socialsharing.shareWithOptions(options, onSuccess, onError);
 }
 
@@ -136,7 +137,10 @@ function copyPlaylist(key){
     selection.removeAllRanges();
   
     document.body.removeChild(textarea);
-    alert("Playlist copied");}
+    // alert("Playlist copied");
+    options["url"] = strr;
+    window.plugins.socialsharing.shareWithOptions(options, onSuccess, onError);
+    }
 
     else{
     console.log("eng copy")
@@ -158,7 +162,8 @@ function copyPlaylist(key){
     selection.removeAllRanges();
   
     document.body.removeChild(textarea);
-    alert("Playlist copied");
+    // alert("Playlist copied");
+    options["url"] = strr;
     window.plugins.socialsharing.shareWithOptions(options, onSuccess, onError);
   }
 }
