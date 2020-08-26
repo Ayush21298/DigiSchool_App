@@ -45,10 +45,21 @@
 </head>
 
 <body>
-    <div class="container splash-screen" style="background-color: green">
-        <div class="splash" style="background-color: green; align-items: center; text-align: center; font-size: 24px">
+    <style type="text/css">
+        .container {
+        background-image: url("images/banner-en.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+        background-color: rgba(255, 255, 255, 0.81) !important;
+        background-blend-mode: color;
+      }
+    </style>
+    <div class="container splash-screen" style="">
+        <div class="splash" style="align-items: center; text-align: center; font-size: 24px; color: black">
             <b>Enter OTP</b>
-            <input type="text" name="otp" id="otp" style="background: none; color: white; font-size: 20px"><br>
+            <input type="text" name="otp" id="otp" style="background: none; color: black; font-size: 20px"><br>
             <button onclick="mobile_submit()" style="background: transparent; font-size: 20px">OK</button>
         </div>
         <script src="js/login.js"></script>
