@@ -1,5 +1,5 @@
 window.onload = () => {
-	if(getCookie("logged_in") == true){
+	if(getCookie("logged_in") == "true"){
 		setTimeout(()=> {
 	        window.location.assign("profile.html");
 	    }, 2000);
