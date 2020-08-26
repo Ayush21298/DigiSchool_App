@@ -216,6 +216,8 @@
         </style>
 
           <section class="full-section" style="margin: 10vw;">
+            <h1>Plan Of The Day</h1>
+            <hr>
             <table style="width: 80vw; font-size: 16px;">
               <tr>
                 <td>Competency</td>
@@ -264,15 +266,16 @@
         $(".loading").hide();
         $.get(plan_url,
             {
-            "id": getCookie("user_id")
+            "id": getCookie("user_id"),
+            "date": formatDate(new Date())
             },
             function(data, status){
                 // alert(JSON.stringify(data));
-                $("#competency").html(data["competency"]);
-                $("#subject").html(data["subject"]);
-                $("#workbook").html(data["workbook"]);
-                $("#textbook").html(data["textbook"]);
-                $("#activity").html(data["activity"]);
+                $("#competency").html(data[0]["competency_"]);
+                $("#subject").html(data[0]["subject_"]);
+                $("#workbook").html(data[0]["workbook"]);
+                $("#textbook").html(data[0]["textbook"]);
+                $("#activity").html(data[0]["activity"]);
             });
       });
     </script>

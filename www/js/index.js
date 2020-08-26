@@ -73,6 +73,17 @@ function getCookie(cname) {
   return "";
 }
 
+function formatDate(date) {
+  var d = new Date(date),
+    month = "" + (d.getMonth() + 1),
+    day = "" + d.getDate(),
+    year = d.getFullYear();
+
+  if (month.length < 2) month = "0" + month;
+  if (day.length < 2) day = "0" + day;
+
+  return [year, month, day].join("-");
+}
 
 //var base_url = "http://127.0.0.1:8000/";
 //var base_url = "http://3.18.39.37:8000/";
