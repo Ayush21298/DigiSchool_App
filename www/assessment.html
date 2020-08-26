@@ -246,15 +246,20 @@
         Translate();
         console.log("ready");
         $(".loading").hide();
-        $.get(scores_url,
+        $.get(score_url,
             {
             "id": getCookie("user_id")
             },
             function(data, status){
               $("#scores").html("");
+                temp = `<tr>
+                            <th>QUIZ ID</th>
+                            <th>SCORE</th>
+                          </tr>`
+                  $("#scores").html($("#scores").html()+temp);
                 for (var i = 0; i < data.length; i++) {
                   temp = `<tr>
-                            <td>${data[i]["date"]}</td>
+                            <td>${data[i]["quiz_id"]}</td>
                             <td>${data[i]["score"]}</td>
                           </tr>`
                   $("#scores").html($("#scores").html()+temp);
