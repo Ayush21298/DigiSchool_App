@@ -71,13 +71,18 @@
         <script src="js/login.js"></script>
     </div>
     <script type="text/javascript">
-        function choose_profile(user_id, name, user_type){
+        function choose_profile(user_id, name, user_type, state, standard){
             // alert(user_id);
             // alert(name);
             // alert(user_type);
+            alert(state);
+            alert(standard);
             setCookie("user_id", user_id);
             setCookie("name", name);
             setCookie("user_type", user_type);
+            localStorage.setItem("state", state);
+            localStorage.setItem("class", standard);
+            localStorage.setItem("audience", user_type);
             window.location.assign("home.html");
         }
         $(document).ready(function(){
@@ -94,7 +99,7 @@
                 } else {
                     $("#profiles").html("");
                     for (var i = 0; i < data.length; i++) {
-                        var temp = `<button onclick='choose_profile(${data[i]["id"]},"${data[i]["name"]}","${data[i]["user_type"]}")' style="background: transparent; font-size: 20px; color: white; padding:10px; margin:10px">
+                        var temp = `<button onclick='choose_profile(${data[i]["id"]},"${data[i]["name"]}","${data[i]["user_type"]}","${data[i]["state"]}","${data[i]["standard"]}")' style="background: transparent; font-size: 20px; color: white; padding:10px; margin:10px">
                             ${data[i]["name"]} (${data[i]["user_type"]})
                             </button><br>`
                         $("#profiles").html($("#profiles").html() + temp);
