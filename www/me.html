@@ -248,18 +248,9 @@
             </button>
           </section>
 
-          <div class="footer-row">
-            <span
-              >DigiSchool.&nbsp;&nbsp;&nbsp;Copyright
-              <i class="fa fa-copyright" aria-hidden="true"></i
-              >2020.&nbsp;&nbsp;&nbsp; All rights reserved</span
-            >
-
-            <span>Made by Boston Consulting Group</span>
-          </div>
-        </section>
+  
       </div>
-    </div>
+    </div></div>
 
     <script>
       new WholePageSlider({
@@ -288,13 +279,14 @@
             });
       });
       function delete_profile(){
+        if (confirm("Are you sure?")) {
           $.post(delete_profile_url,
           {
           "id": getCookie("user_id")
           },
           function(data, status){
               window.location.assign("profile.html");
-          });
+          });}
       }
     </script>
     <script>
