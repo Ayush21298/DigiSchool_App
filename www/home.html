@@ -71,9 +71,14 @@
         opacity: 0.9;
         filter: alpha(opacity=100);
       }
-      .how-to-card {
-        background-color: rgba(255, 255, 255, 0.81);
+      .my-button {
+        background-image: linear-gradient(to right, white , green); 
+        color: white; padding:10px; 
+        width:95%; 
+        height: 100px; 
+        margin: 1vw; 
       }
+      .my-button:nth-child(even){background-image: linear-gradient(to right, white , gray); }
       body {
         background-image: url("images/banner-en.png");
         background-repeat: no-repeat;
@@ -141,29 +146,29 @@
             </ul>
               </li>
               <li class="w3-bar-item w3-button w3-border-bottom">
-                <button class="btn btn-link" type="button">
+                <button class="btn btn-link btn-lg btn-block" type="button">
                   <span class="en">Home</span><span class="hi">घर</span>
                   </button>
               </li>
               <li class="w3-bar-item w3-button w3-border-bottom">
-                <button class="btn btn-link" type="button" onclick='window.location.assign("explore.html")'>
+                <button class="btn btn-link btn-lg btn-block" type="button" onclick='window.location.assign("explore.html")'>
                   <span class="en">Explore</span><span class="hi">अन्वेषण</span>
                 </button>
               </li>
               <li class="w3-bar-item w3-button w3-border-bottom">
-                <button class="btn btn-link" type="button" onclick='window.location.assign("me.html")'>
+                <button class="btn btn-link btn-lg btn-block" type="button" onclick='window.location.assign("me.html")'>
                   <span class="en">My Profile</span
                   ><span class="hi">मेरी जानकारी</span>
                 </button>
               </li>
               <li class="w3-bar-item w3-button w3-border-bottom">
-                <button class="btn btn-link" type="button" onclick='window.location.assign("profile.html")'>
+                <button class="btn btn-link btn-lg btn-block" type="button" onclick='window.location.assign("profile.html")'>
                   <span class="en">Switch Profile</span>
                   <span class="hi">उपभोक्ता बदलें</span>
                 </button>
               </li>
               <li class="w3-bar-item w3-button w3-border-bottom">
-                <button class="btn btn-link" type="button" onclick='window.location.assign("me.html")'>
+                <button class="btn btn-link btn-lg btn-block" type="button" onclick='contact()'>
                   <span class="en">Contact Us</span>
                   <span class="hi">संपर्क करें</span>
                 </button>
@@ -184,28 +189,28 @@
     <div class="body-content">
         <div class="w3-green">
           <button class="w3-button w3-green w3-xlarge" onclick="w3_open()">☰</button>
-          <span class="en h2">HOME</span><span class="hi h2">घर</span>
+          <span class="en h1">&nbsp;&nbsp;&nbsp;&nbsp;HOME</span><span class="hi h1">&nbsp;&nbsp;&nbsp;&nbsp;घर</span>
         </div>
       <div id="wholepage">
 
           <section class="full-section" style="text-align: center;">
 
-            <button onclick='window.location.assign("content.html")' style="background-image: linear-gradient(to right, white , green); color: white; padding:10px; width:90%; height: 100px; margin: 1vw; ">
+            <button type="button" class="btn my-button" onclick='window.location.assign("content.html")'>
                 <img style='width:60px; height: 60px; float: left; margin-right: 10px' src='images/brand-2.png'></img>
                 <p><span class="en">CONTENT OF THE DAY</span><span class="hi ">आज की सामग्री</span></p>
             </button>
 
-            <button onclick='quiz()' style="background-image: linear-gradient(to right, white , gray); color: white; padding:10px; width:90%; height: 100px; margin: 1vw;">
+            <button type="button" class="btn my-button" onclick='quiz()' >
               <img style='width:60px; height: 60px; float: left; margin-right: 10px' src='images/brand-2.png'></img>
                 <p><span class="en">QUIZ OF THE DAY</span><span class="hi ">आज की प्रश्नोत्तरी</span></p>
             </button>
 
-            <button onclick='window.location.assign("plan.html")' style="background-image: linear-gradient(to right, white , green); color: white; padding:10px; width:90%; height: 100px; margin: 1vw;">
+            <button type="button" class="btn my-button" onclick='window.location.assign("plan.html")' >
                 <img style='width:60px; height: 60px; float: left; margin-right: 10px' src='images/brand-2.png'></img>
                 <p><span class="en">PLAN OF THE DAY</span><span class="hi ">आज की योजना</span></p>
             </button>
 
-            <button onclick='window.location.assign("assessment.html")' style="background-image: linear-gradient(to right, white , gray); color: white; padding:10px; width:90%; height: 100px; margin: 1vw;">
+            <button type="button" class="btn my-button" onclick='window.location.assign("assessment.html")'>
                 <img style='width:60px; height: 60px; float: left; margin-right: 10px' src='images/brand-2.png'></img>
                 <p><span class="en">ASSESSMENTS</span><span class="hi ">मूल्यांकन</span></p>
             </button>
@@ -229,6 +234,7 @@
           var ref = window.open(encodeURI(quiz_otd), '_self', 'location=yes');
         }
       }
+      
       $(document).ready(function () {
         Translate();
         console.log("ready");
@@ -243,16 +249,6 @@
                 quiz_otd = data[0]["url"];
             });
       });
-    </script>
-    <script>
-    function w3_open() {
-      document.getElementById("mySidebar").style.width = "75%";
-      document.getElementById("mySidebar").style.display = "block";
-    }
-
-    function w3_close() {
-      document.getElementById("mySidebar").style.display = "none";
-    }
     </script>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>

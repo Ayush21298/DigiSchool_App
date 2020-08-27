@@ -40,14 +40,16 @@
 
     <script type="text/javascript" src="scripts/jquery351.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/w3.css" />
+    <link rel="stylesheet" type="text/css" href="styles/bootstrap450.min.css" />
     <link rel="stylesheet" type="text/css" href="css/styles.css">
     <title>BCG: Splash</title>
 </head>
 
 <body>
     <style type="text/css">
-        .container {
-        background-image: url("images/banner-en.png");
+        body {
+        background-image: url("images/banner-hi-2.png");
         background-size: contain;
         background-repeat: no-repeat;
         background-attachment: fixed;
@@ -55,21 +57,31 @@
         background-color: rgba(255, 255, 255, 0.81) !important;
         background-blend-mode: color;
       }
+      .prof-but{
+        /*background-image: linear-gradient(to right, #5A3F37 , #2C7744); */
+        background-image: linear-gradient(to right, #000 , #45a247);
+        font-size: 22px;
+        color: white; 
+        padding:10px; 
+        width:95%; 
+        height: 100px; 
+        margin: 1vw;
+        }
     </style>
-    <div class="container splash-screen" style="background-color: green">
-        <div class="splash" style="background-color: green; align-items: center; text-align: center; font-size: 24px">
-            <button onclick='setCookie("logged_in", "false");alert("Logged Out");window.location.assign("login.html")' style="background: transparent; font-size: 20px; color: white; padding:10px; margin:30px">
-                Log Out
+        <div class="w3-green">
+            
+            <button onclick='setCookie("logged_in", "false");alert("Logged Out");window.location.assign("login.html")' style="background: transparent; font-size: 20px; color: white; padding:10px; margin:30px;">
+                Log Out/लॉग आउट
             </button>
-            <h1>Who are You ?</h1>
+            <h1>Who are You ?<br />तुम कौन हो?<br /></h1>
+        </div>
+        <div style="text-align: center;">
             <div id="profiles">
             </div>
-            <button onclick='window.location.assign("profile_add.html")' style="background: transparent; font-size: 20px; color: white; padding:10px; margin:30px">
-                Add Another Profile
-            </button>
+            <button type="button" onclick='window.location.assign("profile_add.html")' class="btn rounded prof-but">
+                Add Another Profile<br />कोई अन्य उपभोक्ता जोड़ें</button>
         </div>
-        <script src="js/login.js"></script>
-    </div>
+    <script src="js/login.js"></script>
     <script type="text/javascript">
         function choose_profile(user_id, name, user_type, state, standard){
             // alert(user_id);
@@ -99,7 +111,7 @@
                 } else {
                     $("#profiles").html("");
                     for (var i = 0; i < data.length; i++) {
-                        var temp = `<button onclick='choose_profile(${data[i]["id"]},"${data[i]["name"]}","${data[i]["user_type"]}","${data[i]["state"]}","${data[i]["standard"]}")' style="background: transparent; font-size: 20px; color: white; padding:10px; margin:10px">
+                        var temp = `<button class="btn rounded prof-but" onclick='choose_profile(${data[i]["id"]},"${data[i]["name"]}","${data[i]["user_type"]}","${data[i]["state"]}","${data[i]["standard"]}")'>
                             ${data[i]["name"]} (${data[i]["user_type"]})
                             </button><br>`
                         $("#profiles").html($("#profiles").html() + temp);

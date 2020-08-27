@@ -30,6 +30,24 @@ function Translate() {
   }
 }
 
+function contact(){
+        
+  var ref = window.open(encodeURI('https://digischoolindia.com/#!/contact'), '_self', 'location=yes');
+ 
+}
+
+
+function w3_open() {
+  document.getElementById("mySidebar").style.width = "75%";
+  document.getElementById("mySidebar").style.display = "block";
+}
+
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+}
+
+
+
 function Hindi() {
   localStorage.setItem("language", "hindi");
   var eng = document.getElementsByClassName("en");
@@ -97,20 +115,8 @@ function videoEnd() {
 }
 
 function copyText(str) {
-  var textarea = document.createElement("textarea");
-  textarea.textContent = str;
-  document.body.appendChild(textarea);
+  
 
-  var selection = document.getSelection();
-  var range = document.createRange();
-  range.selectNode(textarea);
-  selection.removeAllRanges();
-  selection.addRange(range);
-
-  console.log("copy success", document.execCommand("copy"));
-  selection.removeAllRanges();
-
-  document.body.removeChild(textarea);
   options["url"] = str;
   window.plugins.socialsharing.shareWithOptions(options, onSuccess, onError);
 }
@@ -123,21 +129,8 @@ function copyPlaylist(key){
     for (i=0;i<x.length;i++)
       strr+="\n"+x[i]['url'];
     strr+="\n\n ऐसी और सामग्री के लिए, visit https://www.digischoolindia.com"
-    var textarea = document.createElement("textarea");
-    textarea.textContent = strr;
-    document.body.appendChild(textarea);
-  
-    var selection = document.getSelection();
-    var range = document.createRange();
-    range.selectNode(textarea);
-    selection.removeAllRanges();
-    selection.addRange(range);
-  
-    console.log("copy success", document.execCommand("copy"));
-    selection.removeAllRanges();
-  
-    document.body.removeChild(textarea);
-    // alert("Playlist copied");
+    
+
     options["url"] = strr;
     window.plugins.socialsharing.shareWithOptions(options, onSuccess, onError);
     }
@@ -148,21 +141,8 @@ function copyPlaylist(key){
     for (i=0;i<x.length;i++)
       strr+="\n"+x[i]['url'];
     strr+="\n\n For more such content, visit https://www.digischoolindia.com"
-    var textarea = document.createElement("textarea");
-    textarea.textContent = strr;
-    document.body.appendChild(textarea);
-  
-    var selection = document.getSelection();
-    var range = document.createRange();
-    range.selectNode(textarea);
-    selection.removeAllRanges();
-    selection.addRange(range);
-  
-    console.log("copy success", document.execCommand("copy"));
-    selection.removeAllRanges();
-  
-    document.body.removeChild(textarea);
-    // alert("Playlist copied");
+    
+
     options["url"] = strr;
     window.plugins.socialsharing.shareWithOptions(options, onSuccess, onError);
   }

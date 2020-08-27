@@ -106,7 +106,7 @@
                 </button>
               </li>
               <li class="w3-bar-item w3-button w3-border-bottom">
-                <button class="btn btn-link" type="button" onclick='window.location.assign("me.html")'>
+                <button class="btn btn-link" type="button" onclick='contact()'>
                   <span class="en">Contact Us</span>
                   <span class="hi">संपर्क करें</span>
                 </button>
@@ -125,7 +125,7 @@
           <div class="body-content">
         <div class="w3-green">
           <button class="w3-button w3-green w3-xlarge" onclick="w3_open()">☰</button>
-          <span class="en h2">Content OTD</span><span class="hi h2">आज की सामग्री</span>
+          <span class="en h2">&nbsp;&nbsp;&nbsp;&nbsp;Content OTD</span><span class="hi h2">&nbsp;&nbsp;&nbsp;&nbsp;आज की सामग्री</span>
         </div>
         <div class="loading"></div>
         <!-- SUBJECT HEADER -->
@@ -277,119 +277,11 @@
     </script>
     <script defer type="text/javascript">
       Translate();
-      function addDays(date, days) {
-        var result = new Date(date);
-        result.setDate(result.getDate() + days);
-        return result;
-      }
 
-      function satOrSun(date) {
-        var day = date.getDay();
-        if (day == 0 || day == 6) {
-          return true;
-        } else {
-          return false;
-        }
-      }
-
-      function getPrevWeek() {
-        var t = localStorage.getItem("date");
-        var n = addDays(today, -7);
-        localStorage.setItem("date", n);
-        location.reload();
-      }
-
-      function getNextWeek() {
-        var t = localStorage.getItem("date");
-        var n = addDays(today, 7);
-        localStorage.setItem("date", n);
-        location.reload();
-      }
-
-      function myFunction(x) {
-        if (x.matches) {
-          (initial = 1), (final = 3);
-        } else {
-          initial = 0;
-          if (satOrSun(today)) {
-            final = 3;
-          } else {
-            final = 4;
-          }
-        }
-      }
 
       var today = new Date();
-      function dateChanging() {
-        today = new Date(localStorage.getItem("date"));
-        var list = [today];
+      
 
-        for (var i = 0; i < 2; i++) {
-          var d = addDays(list[0], -1);
-          if (satOrSun(d)) {
-            i--;
-          }
-          list.unshift(d);
-        }
-
-        for (var i = 0; i < 2; i++) {
-          var e = addDays(list[list.length - 1], +1);
-          if (satOrSun(e)) {
-            i--;
-          }
-          list.push(e);
-        }
-        var list2 = list.filter((day) => !satOrSun(day));
-        var x = window.matchMedia("(max-width: 590px)");
-        myFunction(x);
-        x.addListener(myFunction);
-        var txtt = "";
-        if (localStorage.getItem("language") == "hindi")
-          txtt =
-            '<span class="week-btn" style="font-size: 13px;" onclick="getPrevWeek()"><i class="fa fa-chevron-circle-left" style="color:white"></i> पिछला सप्ताह</span>';
-        else
-          txtt =
-            '<span class="week-btn" style="font-size: 12px;" onclick="getPrevWeek()"><i class="fa fa-chevron-circle-left" style="color:white"></i> Prev Week</span>';
-        for (var i = initial; i <= final; i++) {
-          // key = list2[i].getDate() + "-" + list2[i].getMonth() + "-" + list2[i].getYear()
-          // key = list2[i].toLocaleDateString("en-US", {year: 'numeric', month: 'long', day: 'numeric'})
-          curr = list2[i];
-          if (datecode == "hi-IN")
-            key = list2[i].toLocaleDateString(datecode, {
-              month: "long",
-              day: "numeric",
-            });
-          else
-            key = list2[i].toLocaleDateString(datecode, {
-              month: "short",
-              day: "numeric",
-            });
-
-          // key = list2[i]
-          if (i == 2) {
-            txtt +=
-              "<button onclick=\"myDateFunction('" +
-              curr +
-              '\'); " type="button" style="background-color:#dcdcdc" class="btn btn-light btn-lg date-btn">' +
-              key +
-              "</button>";
-          } else {
-            txtt +=
-              "<button onclick=\"myDateFunction('" +
-              curr +
-              '\'); " type="button" class="btn btn-light btn-lg date-btn">' +
-              key +
-              "</button>";
-          }
-        }
-        if (localStorage.getItem("language") == "hindi")
-          txtt +=
-            '<span class="week-btn" style="font-size: 13px;" onclick="getNextWeek()" >अगले सप्ताह <i class="fa fa-chevron-circle-right" style="color:white"></i></span>';
-        else
-          txtt +=
-            '<span class="week-btn" style="font-size: 12px;" onclick="getNextWeek()" >Next Week <i class="fa fa-chevron-circle-right" style="color:white"></i></span>';
-        document.getElementById("subj").innerHTML = txtt;
-      }
 
       function langChange(str) {
         if (str == "hindi") {
@@ -443,8 +335,6 @@
           $("#myClass").html(classtxt);
           $("#searchInput").attr("placeholder", "Search Competency");
         }
-
-        dateChanging();
       }
       function myReload() {
         var edValue = document.getElementById("searchInput");
@@ -456,9 +346,7 @@
           video_url,
           {
             view_by: "date",
-            date: new Date().toLocaleDateString(
-              "en-US"
-            ),
+            date: new Date().toLocaleDateString("en-US"),
             standard: localStorage.getItem("class"),
             state: localStorage.getItem("state"),
             audience: localStorage.getItem("audience"),
@@ -484,8 +372,7 @@
               }
               final.push(temp_data);
             }
-            console.log(final);
-            // alert(JSON.stringify(data))
+
 
             var competency = "";
 
@@ -493,58 +380,60 @@
             $(".loading").hide();
             txt +=
               '<div class="modal fade modal-eg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" > <div class="modal-dialog modal-dialog-centered modal-lg"> <div class="modal-content"> <div class="modal-header"> <h5 class="modal-title">DigiSchool</h5><i  style="float:right;" class="fa fa-copy copy-icon" onClick="copyText()" ></i><p style="font-size: 10px;">Copy Link</p><button type="button" class="close" data-dismiss="modal" aria-label="Close" > <span aria-hidden="true">&times;</span> </button> </div> <div class="modal-body"> <iframe class="embed-responsive-item popup-player" height="500px" width="100%" src=""  allowfullscreen ></iframe> </div> <div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div>  </div> </div> </div>';
-
-            for (var i = 0; i < final.length; i++) {
-              var key = final[i];
-              console.log(key);
-              txt +=
-                '<div> <h2><span class="en">' +
-                key[0]["subject_"] +
-                '</span><span class="hi">' +
-                transsubj(key[0]["subject_"]) +
-                '</span></h2><br><div class="row flex-row flex-nowrap cards-container ">';
-
-              for (var j = 0; j < key.length; j++) {
-                var link = key[j];
-                if (s.trim() != "") {
-                  if (
-                    link["competency_"]
-                      .toUpperCase()
-                      .includes(s.toUpperCase()) == false
-                  ) {
-                    continue;
-                  }
-                }
-                if (link["competency_"] != competency) {
-                  competency = link["competency_"];
-                  txt +=
-                    '</div></div><br><h3><span class="en">' +
-                    link["competency_"] +
-                    '</span><span class="hi">' +
-                    link["competency_hindi_"] +
-                    '</span></h3><br><div class="row flex-row flex-nowrap cards-container">';
-                }
-
-                if (
-                  link["url"].toLowerCase().includes("www.youtube.com/embed")
-                ) {
-                  // alert(JSON.stringify(link))
-                  txt +=
-                    '<div class="col-lg-4 mr-3 col-xs-6"><div class="card click-modal" data-toggle="modal" data-target=".modal-eg " data-keyboard="false" data-backdrop="static"><div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item" value ="' +
-                    link["id"] +
-                    '" src="' +
-                    link["url"] +
-                    ' " allowfullscreen></iframe><div class="overlay"></div></div></div></div>';
-                } else {
-                  txt +=
-                    '<div class="col-lg-4 mr-3 col-xs-6"><div class="card"><a href="' +
-                    link["url"] +
-                    '" target="_blank"><img src="images/thumbnail.png" class="card-thumbnail"/></a></div></div>';
-                }
-              }
-              txt += "</div></div><br>";
+            if(final.length>0){
+                        for (var i = 0; i < final.length; i++) {
+                          var key = final[i];
+                          console.log(key);
+                          txt +=
+                            '<div> <h2><span class="en">' +
+                            key[0]["subject_"] +
+                            '</span><span class="hi">' +
+                            transsubj(key[0]["subject_"]) +
+                            '</span></h2><br><div class="row flex-row flex-nowrap cards-container ">';
+            
+                          for (var j = 0; j < key.length; j++) {
+                            var link = key[j];
+                            if (s.trim() != "") {
+                              if (
+                                link["competency_"]
+                                  .toUpperCase()
+                                  .includes(s.toUpperCase()) == false
+                              ) {
+                                continue;
+                              }
+                            }
+                            if (link["competency_"] != competency) {
+                              competency = link["competency_"];
+                              txt +=
+                                '</div></div><br><h3><span class="en">' +
+                                link["competency_"] +
+                                '</span><span class="hi">' +
+                                link["competency_hindi_"] +
+                                '</span></h3><br><div class="row flex-row flex-nowrap cards-container">';
+                            }
+            
+                            if (
+                              link["url"].toLowerCase().includes("www.youtube.com/embed")
+                            ) {
+                              // alert(JSON.stringify(link))
+                              txt +=
+                                '<div class="col-lg-4 mr-3 col-xs-6"><div class="card click-modal" data-toggle="modal" data-target=".modal-eg " data-keyboard="false" data-backdrop="static"><div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item" value ="' +
+                                link["id"] +
+                                '" src="' +
+                                link["url"] +
+                                ' " allowfullscreen></iframe><div class="overlay"></div></div></div></div>';
+                            } else {
+                              txt +=
+                                '<div class="col-lg-4 mr-3 col-xs-6"><div class="card"><a href="' +
+                                link["url"] +
+                                '" target="_blank"><img src="images/thumbnail.png" class="card-thumbnail"/></a></div></div>';
+                            }
+                          }
+                          txt += "</div></div><br>";
+                        }}
+            else {
+              txt+="<img style='width:100%;' src='images/blank.jpg' /><h3 style='color:blue;text-align:center;'><span class='en'>No Content Today</span><span class='hi'>आज कोई सामग्री नहीं</span></h3>"
             }
-
             $("#main_container").html(txt);
             langChange(localStorage.getItem("language"));
           }
@@ -572,16 +461,6 @@
           videoEnd();
         }
       });
-    </script>
-    <script >
-    function w3_open() {
-      document.getElementById("mySidebar").style.width = "75%";
-      document.getElementById("mySidebar").style.display = "block";
-    }
-
-    function w3_close() {
-      document.getElementById("mySidebar").style.display = "none";
-    }
     </script>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
