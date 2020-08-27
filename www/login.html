@@ -39,6 +39,8 @@
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
 
     <script type="text/javascript" src="scripts/jquery351.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="styles/bootstrap450.min.css" />
     <link rel="stylesheet" type="text/css" href="css/index.css" />
     <link rel="stylesheet" type="text/css" href="css/w3.css" />
     <link rel="stylesheet" type="text/css" href="css/styles.css">
@@ -47,7 +49,7 @@
 
 <body>
     <style type="text/css">
-        .container {
+        body{
         background-image: url("images/banner-hi-2.png");
         background-size: contain;
         background-repeat: no-repeat;
@@ -60,12 +62,10 @@
     <div class="w3-green">
       <h2><b>Login/Sign Up<br/><br/>लॉग इन/साइन अप करें<br/></b></h2>
     </div>
-    <div class="container splash-screen" style="">
-        <div class="splash" style="align-items: center; text-align: center; font-size: 24px; color: black">
-            <b>Enter Mobile No.<br/><br/>मोबाइल नंबर दर्ज करें<br/></b>
-            <input type="text" name="phone" id="phone" style="background: none; color: black; font-size: 20px"><br>
-            <button onclick="mobile_submit()" style="background: transparent; font-size: 20px">OK</button>
-        </div>
+        <div style="align-items: center; text-align: center; font-size: 24px; color: black">
+            <b><br/><br/>Enter Mobile No.<br/><br/>मोबाइल नंबर दर्ज करें<br/><br/></b>
+            <input class="form-control form-control-lg"type="text" name="phone" id="phone" style="width: 20ch;margin:auto;padding:10px;" ><br>
+            <button type="button" class="btn btn-primary"  onclick="mobile_submit()" >OK</button>
         <script src="js/login.js"></script>
     </div>
     <script type="text/javascript">
