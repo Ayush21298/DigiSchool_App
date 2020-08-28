@@ -17,6 +17,7 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="styles/LandingPage.css" />
     <link rel="stylesheet" href="css/w3.css">
+    <link href="css/mdb.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="styles/carousel.css" />
 
     <style>
@@ -34,14 +35,7 @@
         display: none;
       }
 
-      .body-content {
-        max-height: 100vh;
-        position: fixed;
-        height: 100vh;
-        width: 100vw;
-        overflow: auto;
-        overscroll-behavior-y: contain;
-      }
+      
       div#preload {
         display: none;
       }
@@ -80,12 +74,29 @@
       }
       .my-button:nth-child(even){background-image: linear-gradient(to right, white , gray); }
       body {
-        background-image: url("images/banner-en.png");
+        background-image: linear-gradient(to top left,#72fa24,#ffffef,#ffffff  );
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-position: center;
         background-color: rgba(255, 255, 255, 0.81) !important;
         background-blend-mode: color;
+      }
+      .xx{
+        background-color: green;
+        position: relative;
+        top: 0px;
+        color :white;
+        text-align: left;
+      }
+      .btn-link{
+        text-align: left;
+        font-size: 30px;
+      }
+      .btn.btn-lg{
+        font-size: 18px;
+      }
+      .active{
+        background-color:rgba(100,255,100,0.5);
       }
     </style>
 
@@ -115,13 +126,15 @@
       Translate();
     </script>
      <div class="w3-sidebar w3-card" style="display:none" id="mySidebar">
-           <button class="w3-button w3-green w3-xlarge" onclick="w3_close()">☰</button>
-
+      <div class="xx">
+        <br/>
+           <button class="w3-button xx w3-xlarge btn-block " onclick="w3_close()">☰</button>
+         </div>
             <ul class="navbar-nav">
               <li class="w3-bar-item w3-button w3-border-bottom">
                 <div >
                   <img style="width: 40% ;margin:5%" src="images/partner logos/bcg.png"/>
-                  <img style="width: 40% ;margin:5%" src="images/partner logos/jharkhand-govt.png"/>
+                  <img style="width: 40% ;margin:5%" src="images/partner logos/jhar.jpg"/>
                 </div>
                 <span class="en h3">Welcome User</span><span class="hi h3">स्वागत हे</span><br />
                 <button
@@ -134,18 +147,18 @@
             </button>
             <ul class="dropdown-menu dropdown-menu-right">
               <li>
-                <button class="btn language-btn" onclick="Hindi()">
+                <button class="btn btn-block" onclick="Hindi()">
                   हिन्दी
                 </button>
               </li>
               <li>
-                <button class="btn language-btn" onclick="English()">
+                <button class="btn btn-block" onclick="English()">
                   English
                 </button>
               </li>
             </ul>
               </li>
-              <li class="w3-bar-item w3-button w3-border-bottom">
+              <li class="w3-bar-item w3-button w3-border-bottom active">
                 <button class="btn btn-link btn-lg btn-block" type="button">
                   <span class="en">Home</span><span class="hi">घर</span>
                   </button>
@@ -187,10 +200,11 @@
           
     <!-- NAVBAR -->
     <div class="body-content">
-        <div class="w3-green">
-          <button class="w3-button w3-green w3-xlarge" onclick="w3_open()">☰</button>
-          <span class="en h1">&nbsp;&nbsp;&nbsp;&nbsp;HOME</span><span class="hi h1">&nbsp;&nbsp;&nbsp;&nbsp;घर</span>
+        <div class="xx">
+          <br/>
+          <span class="en h1"><button class="w3-button xx w3-xlarge" onclick="w3_open()">☰</button>&nbsp;&nbsp;HOME</span><span class="hi h1"><button class="w3-button xx w3-xlarge" onclick="w3_open()">☰</button>&nbsp;&nbsp;घर</span>
         </div>
+      </div>
       <div id="wholepage">
 
           <section class="full-section" style="text-align: center;">
@@ -255,5 +269,6 @@
 
     <script src="scripts/popper1143.min.js"></script>
     <script src="scripts/bootstrap413.min.js"></script>
+    <script type="text/javascript" src="js/mdb.min.js"></script>
   </body>
 </html>

@@ -1000,7 +1000,7 @@
     letter-spacing: normal;
   }
   .step-completed {
-      text-transform: uppercase;
+      
       color: #30d696;
   }
   .step-todo {
@@ -1077,7 +1077,7 @@
       line-height: 0.8;
       letter-spacing: 0.17vw;
       text-align: center;
-      text-transform: uppercase; 
+       
       color: #fc6161;
   }
   
@@ -1091,7 +1091,7 @@
       border: solid 0.26vw #017afc;
       background-color: #1b2231;
       text-align: center;
-      text-transform: uppercase;
+      
       font-size: 4vw;
       font-weight: 600;
       font-stretch: normal;
@@ -1195,7 +1195,7 @@
       border: solid 0.26vw #017afc;
       background-color: #1b2231;
       text-align: center;
-      text-transform: uppercase;
+      
       font-size: 3.8vw;
       font-weight: 600;
       font-stretch: normal;
@@ -1238,7 +1238,7 @@
     line-height: 1.19;
     letter-spacing: 0.178vw;
     text-align: center;
-    text-transform: uppercase;
+    
   }
   .open-whatsapp {
     margin-top: 18.22vh;
@@ -1304,7 +1304,7 @@
       margin-bottom: auto;
     font-family: "Montserrat";
     text-align: center;
-    text-transform: uppercase;
+    
     font-size: 4.27vw;
     font-weight: 600;
     font-stretch: normal;

@@ -43,14 +43,16 @@
     <link rel="stylesheet" type="text/css" href="styles/bootstrap450.min.css" />
     <link rel="stylesheet" type="text/css" href="css/index.css" />
     <link rel="stylesheet" type="text/css" href="css/w3.css" />
+    <link href="css/mdb.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <script type="text/javascript" src="scripts/scripts.js"></script>
     <title>BCG: Splash</title>
 </head>
 
 <body>
     <style type="text/css">
         body{
-        background-image: url("images/banner-hi-2.png");
+        background-image: linear-gradient(to top left,#72fa24,#ffffef,#ffffff  );
         background-size: contain;
         background-repeat: no-repeat;
         background-attachment: fixed;
@@ -59,16 +61,22 @@
         background-blend-mode: color;
       }
     </style>
-    <div class="w3-green">
-      <h2><b>Login/Sign Up<br/><br/>लॉग इन/साइन अप करें<br/></b></h2>
-    </div>
-        <div style="align-items: center; text-align: center; font-size: 24px; color: black">
-            <b><br/><br/>Enter Mobile No.<br/><br/>मोबाइल नंबर दर्ज करें<br/><br/></b>
-            <input class="form-control form-control-lg"type="text" name="phone" id="phone" style="width: 20ch;margin:auto;padding:10px;" ><br>
-            <button type="button" class="btn btn-primary"  onclick="mobile_submit()" >OK</button>
+        <img src='images/logo.jpg' style='width:100%;'/>
+        <div style="text-transform:none;  font-size: 24px; margin: 20px;" >
+            <h2 class='en'>Login/Sign Up</h2><h2 class="hi"></span>लॉग इन/साइन अप करें</h2>
+            <br/><p class='en'>Enter Mobile No.</p><p class='hi'>मोबाइल नंबर दर्ज करें</p>
+        </div>
+        <div class='md-form' style="margin: 20px" >
+            <input class="form-control form-control-lg" type="text" name="phone" id="phone"  ><br>
+            <button type="button" class=" en btn aqua-gradient" style='height:50px;width:100%; font-size: 20px;border-radius:25px;' onclick="mobile_submit()" >Get Started</button>
+            <button type="button" class=" hi btn aqua-gradient" style='height:50px;width:100%; font-size: 20px;border-radius:25px;' onclick="mobile_submit()" >शुरू करें</button>
         <script src="js/login.js"></script>
     </div>
+    <div >
+        <button type="button" class="hi btn btn-link" style='font-size: 18px;' onclick="English()">Switch to English</button><button type="button" class="en btn btn-link" style='font-size: 20px;' onclick="Hindi()">हिंदी में दिखाएँ</button>
+    </div>
     <script type="text/javascript">
+        Translate()
         function mobile_submit(){
             // window.location.assign("otp.html");
             var temp_phone = $("#phone").val();
@@ -85,6 +93,8 @@
     </script>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+
 </body>
 
 </html>

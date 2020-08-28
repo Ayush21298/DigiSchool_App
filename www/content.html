@@ -20,6 +20,7 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="styles/LandingPage.css" />
+    <link href="css/mdb.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="styles/ViewByDate.css" />
 
     <title>DigiSchool</title>
@@ -46,20 +47,47 @@
         opacity: 0.9;
         filter: alpha(opacity=100);
       }
+      .xx{
+        background-color: green;
+        position: relative;
+        top: 0px;
+        color :white;
+        text-align: left;
+      }
+      .btn-link{
+        text-align: left;
+        font-size: 30px;
+      }
+      .btn.btn-lg{
+        font-size: 18px;
+      }
+      .active{
+        background-color:rgba(100,255,100,0.5);
+      }
+      body {
+        background-image: linear-gradient(to top left,#72fa24,#ffffef,#ffffff  );
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+        background-color: rgba(255, 255, 255, 0.81) !important;
+        background-blend-mode: color;
+      }
     </style>
   </head>
   <body>
     <!-- NAVBAR -->
     <div class="page-container">
       <div class="content-wrap">
-        <div class="w3-sidebar w3-card" style="display:none;z-index: 3;" id="mySidebar">
-           <button class="w3-button w3-green w3-xlarge" onclick="w3_close()">☰</button>
-
+      <div class="w3-sidebar w3-card" style="display:none;z-index: 3" id="mySidebar">
+      <div class="xx">
+        <br/>
+           <button class="w3-button xx w3-xlarge btn-block " onclick="w3_close()">☰</button>
+         </div>
             <ul class="navbar-nav">
               <li class="w3-bar-item w3-button w3-border-bottom">
                 <div >
                   <img style="width: 40% ;margin:5%" src="images/partner logos/bcg.png"/>
-                  <img style="width: 40% ;margin:5%" src="images/partner logos/jharkhand-govt.png"/>
+                  <img style="width: 40% ;margin:5%" src="images/partner logos/jhar.jpg"/>
                 </div>
                 <span class="en h3">Welcome User</span><span class="hi h3">स्वागत हे</span><br />
                 <button
@@ -72,41 +100,41 @@
             </button>
             <ul class="dropdown-menu dropdown-menu-right">
               <li>
-                <button class="btn language-btn" onclick="langChange('hindi')">
+                <button class="btn btn-block" onclick="Hindi()">
                   हिन्दी
                 </button>
               </li>
               <li>
-                <button class="btn language-btn" onclick="langChange('english')">
+                <button class="btn btn-block" onclick="English()">
                   English
                 </button>
               </li>
             </ul>
               </li>
-              <li class="w3-bar-item w3-button w3-border-bottom">
-                <button class="btn btn-link" type="button" onclick='window.location.assign("home.html")'>
+              <li class="w3-bar-item w3-button w3-border-bottom ">
+                <button class="btn btn-link btn-lg btn-block" type="button" onclick='window.location.assign("home.html")'>
                   <span class="en">Home</span><span class="hi">घर</span>
                   </button>
               </li>
               <li class="w3-bar-item w3-button w3-border-bottom">
-                <button class="btn btn-link" type="button" onclick='window.location.assign("explore.html")'>
+                <button class="btn btn-link btn-lg btn-block" type="button" onclick='window.location.assign("explore.html")'>
                   <span class="en">Explore</span><span class="hi">अन्वेषण</span>
                 </button>
               </li>
-              <li class="w3-bar-item w3-button w3-border-bottom">
-                <button class="btn btn-link" type="button" onclick='window.location.assign("me.html")'>
+              <li class="w3-bar-item w3-button w3-border-bottom " onclick='window.location.assign("me.html")'>
+                <button class="btn btn-link btn-lg btn-block" type="button" >
                   <span class="en">My Profile</span
                   ><span class="hi">मेरी जानकारी</span>
                 </button>
               </li>
               <li class="w3-bar-item w3-button w3-border-bottom">
-                <button class="btn btn-link" type="button" onclick='window.location.assign("profile.html")'>
+                <button class="btn btn-link btn-lg btn-block" type="button" onclick='window.location.assign("profile.html")'>
                   <span class="en">Switch Profile</span>
                   <span class="hi">उपभोक्ता बदलें</span>
                 </button>
               </li>
               <li class="w3-bar-item w3-button w3-border-bottom">
-                <button class="btn btn-link" type="button" onclick='contact()'>
+                <button class="btn btn-link btn-lg btn-block" type="button" onclick='contact()'>
                   <span class="en">Contact Us</span>
                   <span class="hi">संपर्क करें</span>
                 </button>
@@ -121,11 +149,11 @@
             <span>Made by Boston Consulting Group</span>
           </div>
               </ul>
-          </div>
+      </div>
           <div class="body-content">
-        <div class="w3-green">
-          <button class="w3-button w3-green w3-xlarge" onclick="w3_open()">☰</button>
-          <span class="en h2">&nbsp;&nbsp;&nbsp;&nbsp;Content OTD</span><span class="hi h2">&nbsp;&nbsp;&nbsp;&nbsp;आज की सामग्री</span>
+            <div class="xx">
+          <br/>
+          <span class="en h1"><button class="w3-button xx w3-xlarge" onclick="w3_open()">☰</button>&nbsp;&nbsp;Content OTD</span><span class="hi h1"><button class="w3-button xx w3-xlarge" onclick="w3_open()">☰</button>&nbsp;&nbsp;आज की सामग्री</span>
         </div>
         <div class="loading"></div>
         <!-- SUBJECT HEADER -->
@@ -138,8 +166,7 @@
         <!-- SUBJECT TITLE -->
         <section class="container">
           <div class="subject-title">
-            <div class="navbar">
-              <div id="date_class"></div>
+              <h3 id="date_class"></h3>
               <form class="form-inline">
                 <div class="input-group mb-3">
                   <input
@@ -164,11 +191,11 @@
                   </div>
                 </div>
               </form>
-            </div>
+           
 
             <div>
               <form class="form-inline date-class">
-                <!-- <label class="form-lb"
+               <!--  <label class="form-lb"
                   ><span class="en">Change Date</span
                   ><span class="hi">तारीख बदले</span></label
                 >
@@ -206,30 +233,12 @@
                 </select> -->
 
                 <script type="text/javascript">
-                  function formatDate(date) {
-                    var d = new Date(date),
-                      month = "" + (d.getMonth() + 1),
-                      day = "" + d.getDate(),
-                      year = d.getFullYear();
-
-                    if (month.length < 2) month = "0" + month;
-                    if (day.length < 2) day = "0" + day;
-
-                    return [year, month, day].join("-");
-                  }
-
-                  document.getElementById("date").value = formatDate(
-                    localStorage.getItem("date")
-                  );
+                  
                   document.getElementById(
                     "myClass"
                   ).value = localStorage.getItem("class");
 
-                  function handler(e) {
-                    // alert(e.target.value);
-                    localStorage.setItem("date", new Date(e.target.value));
-                    location.reload();
-                  }
+                  
 
                   function classChange(e) {
                     localStorage.setItem("class", e.target.value);
@@ -247,15 +256,72 @@
             </div>
           </div>
         </section>
+        <section>
+          <div class="subject-header" style="background: none;">
+            <div class="subject-buttons">
+              <form class="form-inline" style="float: right;">
+                <!--<label class="form-lb"
+                  ><span class="en h5">Class</span
+                  ><span class="hi h4">वर्ग </span></label
+                >
+                <select
+                  class="custom-select form-control mb-xs-2"
+                  id="myClass"
+                  onchange="classChange(event)"
+                  style="width: 150px;"
+                >
+                  <option value="null">Select Class...</option>
+                </select>
+                <label class="form-lb"
+                  ><span class="en h5">State</span
+                  ><span class="hi h4">राज्य </span></label
+                >
+                <select
+                  class="custom-select form-control mb-xs-2"
+                  id="myStateSubj"
+                  onchange="stateChange(event)"
+                  style="width: 150px;"
+                >
+                  <option value="null">Select State...</option>
+                </select>
+                <br /><br /-->
+                <label class="form-lb"
+                  ><span class="en h5">Change Date</span
+                  ><span class="hi h4">तारीख बदले </span></label
+                >
+                <input
+                  type="date"
+                  class="form-control mb-xs-2"
+                  id="datep"
+                  onchange="handler(event);"
+                  style="width: 150px;"
+                />
+                <script type="text/javascript">
+                  function formatDate(date) {
+                    var d = new Date(date),
+                      month = "" + (d.getMonth() + 1),
+                      day = "" + d.getDate(),
+                      year = d.getFullYear();
 
-        <script type="text/javascript">
-          function myDateFunction(event) {
-            console.log(event);
+                    if (month.length < 2) month = "0" + month;
+                    if (day.length < 2) day = "0" + day;
 
-            localStorage.setItem("date", new Date(event));
-            location.reload();
-          }
-        </script>
+                    return [year, month, day].join("-");
+                  }
+
+                  document.getElementById("datep").value = new Date(localStorage.getItem("date"));
+                  function handler(e) {
+                    // alert(e.target.value);
+                    var xxx=new Date(e.target.value).toLocaleDateString("en-US");
+                    localStorage.setItem("date", xxx);
+                    location.reload();
+                  }
+                </script>
+              </form>
+            </div>
+          </div>
+        </section>
+        
         <br />
 
         <!-- SUBJECT CARDS -->
@@ -291,19 +357,17 @@
           ).toLocaleDateString(datecode, { month: "long", day: "numeric" });
           if (window.innerWidth > 576)
             $("#date_class").html(
-              "<h2>वर्ग " +
+              "वर्ग " +
                 localStorage.getItem("class") +
                 " के लिये " +
-                datee +
-                "</h2>"
+                datee
             );
           else
             $("#date_class").html(
-              "<h6> वर्ग " +
+              " वर्ग " +
                 localStorage.getItem("class") +
                 " के लिये " +
-                datee +
-                "</h6>"
+                datee 
             );
           var classtxt =
             ' <option value="null">बदले...</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option>';
@@ -316,19 +380,15 @@
           ).toLocaleDateString(datecode, { month: "short", day: "numeric" });
           if (window.innerWidth > 576)
             $("#date_class").html(
-              "<h2>" +
-                datee +
+              datee +
                 " for Class " +
-                localStorage.getItem("class") +
-                "</h2>"
+                localStorage.getItem("class") 
             );
           else
             $("#date_class").html(
-              "<h6>" +
-                datee +
+              datee +
                 " for Class " +
-                localStorage.getItem("class") +
-                "</h6>"
+                localStorage.getItem("class") 
             );
           var classtxt =
             ' <option value="null">Change Class...</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option>';
@@ -338,15 +398,13 @@
       }
       function myReload() {
         var edValue = document.getElementById("searchInput");
-        console.log(
-          new Date().toLocaleDateString("en-US")
-        );
+        console.log(   new Date(localStorage.getItem("date")).toLocaleDateString("en-us"));
         var s = edValue.value;
         $.get(
           video_url,
           {
             view_by: "date",
-            date: new Date().toLocaleDateString("en-US"),
+            date: new Date(localStorage.getItem("date")).toLocaleDateString("en-us"),
             standard: localStorage.getItem("class"),
             state: localStorage.getItem("state"),
             audience: localStorage.getItem("audience"),
@@ -464,5 +522,6 @@
     </script>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/mdb.min.js"></script>
   </body>
 </html>

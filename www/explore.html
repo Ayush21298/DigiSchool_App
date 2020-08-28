@@ -20,6 +20,7 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="styles/LandingPage.css" />
+    <link href="css/mdb.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="styles/ViewBySubject.css" />
     <title>DigiSchool</title>
     <script>
@@ -28,19 +29,48 @@
       });
     </script>
   </head>
+  <style type="text/css">
+    body {
+        background-image: linear-gradient(to top left,#72fa24,#ffffef,#ffffff  );
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+        background-color: rgba(255, 255, 255, 0.81) !important;
+        background-blend-mode: color;
+      }
+    .xx{
+        background-color: green;
+        position: relative;
+        top: 0px;
+        color :white;
+        text-align: left;
+      }
+      .btn-link{
+        text-align: left;
+        font-size: 30px;
+      }
+      .btn.btn-lg{
+        font-size: 18px;
+      }
+      .active{
+        background-color:rgba(100,255,100,0.5);
+      }
+  </style>
   <body>
     <!-- NAVBAR -->
     <div class="loading"></div>
     <div class="page-container">
       <div class="content-wrap">
-         <div class="w3-sidebar w3-card" style="display:none;z-index: 3;" id="mySidebar">
-           <button class="w3-button w3-green w3-xlarge" onclick="w3_close()">☰</button>
-
+         <div class="w3-sidebar w3-card" style="display:none;z-index: 3" id="mySidebar">
+      <div class="xx">
+        <br/>
+           <button class="w3-button xx w3-xlarge btn-block " onclick="w3_close()">☰</button>
+         </div>
             <ul class="navbar-nav">
               <li class="w3-bar-item w3-button w3-border-bottom">
                 <div >
                   <img style="width: 40% ;margin:5%" src="images/partner logos/bcg.png"/>
-                  <img style="width: 40% ;margin:5%" src="images/partner logos/jharkhand-govt.png"/>
+                  <img style="width: 40% ;margin:5%" src="images/partner logos/jhar.jpg"/>
                 </div>
                 <span class="en h3">Welcome User</span><span class="hi h3">स्वागत हे</span><br />
                 <button
@@ -53,41 +83,41 @@
             </button>
             <ul class="dropdown-menu dropdown-menu-right">
               <li>
-                <button class="btn language-btn" onclick="langChange('hindi')">
+                <button class="btn btn-block" onclick="Hindi()">
                   हिन्दी
                 </button>
               </li>
               <li>
-                <button class="btn language-btn" onclick="langChange('english')">
+                <button class="btn btn-block" onclick="English()">
                   English
                 </button>
               </li>
             </ul>
               </li>
-              <li class="w3-bar-item w3-button w3-border-bottom">
-                <button class="btn btn-link" type="button">
-                  <span class="en">Home</span><span class="hi" onclick='window.location.assign("home.html")'>घर</span>
+              <li class="w3-bar-item w3-button w3-border-bottom ">
+                <button class="btn btn-link btn-lg btn-block" type="button" onclick='window.location.assign("home.html")'>
+                  <span class="en">Home</span><span class="hi">घर</span>
                   </button>
               </li>
-              <li class="w3-bar-item w3-button w3-border-bottom">
-                <button class="btn btn-link" type="button" >
+              <li class="w3-bar-item w3-button w3-border-bottom active" >
+                <button class="btn btn-link btn-lg btn-block" type="button" onclick='window.location.assign("explore.html")'>
                   <span class="en">Explore</span><span class="hi">अन्वेषण</span>
                 </button>
               </li>
               <li class="w3-bar-item w3-button w3-border-bottom">
-                <button class="btn btn-link" type="button" onclick='window.location.assign("me.html")'>
+                <button class="btn btn-link btn-lg btn-block" type="button" onclick='window.location.assign("me.html")'>
                   <span class="en">My Profile</span
                   ><span class="hi">मेरी जानकारी</span>
                 </button>
               </li>
               <li class="w3-bar-item w3-button w3-border-bottom">
-                <button class="btn btn-link" type="button" onclick='window.location.assign("profile.html")'>
+                <button class="btn btn-link btn-lg btn-block" type="button" onclick='window.location.assign("profile.html")'>
                   <span class="en">Switch Profile</span>
                   <span class="hi">उपभोक्ता बदलें</span>
                 </button>
               </li>
               <li class="w3-bar-item w3-button w3-border-bottom">
-                <button class="btn btn-link" type="button" onclick='contact()'>
+                <button class="btn btn-link btn-lg btn-block" type="button" onclick='contact()'>
                   <span class="en">Contact Us</span>
                   <span class="hi">संपर्क करें</span>
                 </button>
@@ -106,9 +136,13 @@
           
     <!-- NAVBAR -->
     <div class="body-content">
-        <div class="w3-green">
-          <button class="w3-button w3-green w3-xlarge" onclick="w3_open()">☰</button>
-           <span class="en h2">&nbsp;&nbsp;&nbsp;&nbsp;Explore</span><span class="hi h2">&nbsp;&nbsp;&nbsp;&nbsp;अन्वेषण</span>
+        
+          
+    <!-- NAVBAR -->
+    <div class="body-content">
+        <div class="xx">
+          <br/>
+          <span class="en h1"><button class="w3-button xx w3-xlarge" onclick="w3_open()">☰</button>&nbsp;&nbsp;Explore</span><span class="hi h1"><button class="w3-button xx w3-xlarge" onclick="w3_open()">☰</button>&nbsp;&nbsp;अन्वेषण</span>
         </div>
 
         <!-- SUBJECT HEADER -->
@@ -116,8 +150,7 @@
         <!-- SUBJECT TITLE -->
         <section class="container">
           <div class="subject-title">
-            <div class="navbar">
-              <h4 id="date_class"></h4>
+              <h3 id="date_class"></h3>
               <!-- <script type="text/javascript">
           $("#date_class").html(`${localStorage.getItem("subject")} for Class ${localStorage.getItem("class")}`);
           </script> -->
@@ -146,7 +179,6 @@
                   </div>
                 </div>
               </form>
-            </div>
             <div></div>
           </div>
         </section>
@@ -492,16 +524,16 @@
                 "</h2></span>";
             else
               fxt =
-                '<span class="en"><h5>' +
+                '<span class="en">' +
                 localStorage.getItem("subject") +
                 " for Class " +
                 localStorage.getItem("class") +
-                "</h5></span>" +
-                '<span class="hi"><h5> वर्ग ' +
+                "</span>" +
+                '<span class="hi"> वर्ग ' +
                 localStorage.getItem("class") +
                 " के लिये " +
                 transsubj(localStorage.getItem("subject")) +
-                "</h5></span>";
+                "</span>";
             $("#date_class").html(fxt);
 
             for (var i = 0; i < data.length; i++) {
@@ -555,5 +587,6 @@
     </script>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/mdb.min.js"></script>
   </body>
 </html>

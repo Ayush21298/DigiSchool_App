@@ -16,7 +16,7 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="styles/LandingPage.css" />
-
+    <link href="css/mdb.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/w3.css">
     <link rel="stylesheet" type="text/css" href="styles/carousel.css" />
 
@@ -40,16 +40,23 @@
         overflow: auto;
         overscroll-behavior-y: contain;
       }
-      div#preload {
-        display: none;
+      
+    .xx{
+        background-color: green;
+        position: relative;
+        top: 0px;
+        color :white;
+        text-align: left;
       }
-
-      .full-section {
-        height: 100%;
-        width: 100%;
-        display: block;
-
-        transition: transform 0.4s ease-out;
+      .btn-link{
+        text-align: left;
+        font-size: 30px;
+      }
+      .btn.btn-lg{
+        font-size: 18px;
+      }
+      .active{
+        background-color:rgba(100,255,100,0.5);
       }
       .loading {
         position: fixed;
@@ -68,7 +75,7 @@
         background-color: rgba(255, 255, 255, 0.81);
       }
       body {
-        background-image: url("images/banner-en.png");
+        background-image: linear-gradient(to top left,#72fa24,#ffffef,#ffffff  );
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-position: center;
@@ -106,13 +113,15 @@
     <!-- NAVBAR -->
     <div class="body-content">
       <div class="w3-sidebar w3-card" style="display:none" id="mySidebar">
-           <button class="w3-button w3-green w3-xlarge" onclick="w3_close()">☰</button>
-
+      <div class="xx">
+        <br/>
+           <button class="w3-button xx w3-xlarge btn-block " onclick="w3_close()">☰</button>
+         </div>
             <ul class="navbar-nav">
               <li class="w3-bar-item w3-button w3-border-bottom">
                 <div >
                   <img style="width: 40% ;margin:5%" src="images/partner logos/bcg.png"/>
-                  <img style="width: 40% ;margin:5%" src="images/partner logos/jharkhand-govt.png"/>
+                  <img style="width: 40% ;margin:5%" src="images/partner logos/jhar.jpg"/>
                 </div>
                 <span class="en h3">Welcome User</span><span class="hi h3">स्वागत हे</span><br />
                 <button
@@ -125,41 +134,41 @@
             </button>
             <ul class="dropdown-menu dropdown-menu-right">
               <li>
-                <button class="btn language-btn" onclick="langChange('hindi')">
+                <button class="btn btn-block" onclick="Hindi()">
                   हिन्दी
                 </button>
               </li>
               <li>
-                <button class="btn language-btn" onclick="langChange('english')">
+                <button class="btn btn-block" onclick="English()">
                   English
                 </button>
               </li>
             </ul>
               </li>
-              <li class="w3-bar-item w3-button w3-border-bottom">
-                <button class="btn btn-link" type="button" onclick='window.location.assign("home.html")'>
+              <li class="w3-bar-item w3-button w3-border-bottom ">
+                <button class="btn btn-link btn-lg btn-block" type="button" onclick='window.location.assign("home.html")'>
                   <span class="en">Home</span><span class="hi">घर</span>
                   </button>
               </li>
               <li class="w3-bar-item w3-button w3-border-bottom">
-                <button class="btn btn-link" type="button" onclick='window.location.assign("explore.html")'>
+                <button class="btn btn-link btn-lg btn-block" type="button" onclick='window.location.assign("explore.html")'>
                   <span class="en">Explore</span><span class="hi">अन्वेषण</span>
                 </button>
               </li>
-              <li class="w3-bar-item w3-button w3-border-bottom">
-                <button class="btn btn-link" type="button" onclick='window.location.assign("me.html")'>
+              <li class="w3-bar-item w3-button w3-border-bottom active">
+                <button class="btn btn-link btn-lg btn-block" type="button" >
                   <span class="en">My Profile</span
                   ><span class="hi">मेरी जानकारी</span>
                 </button>
               </li>
               <li class="w3-bar-item w3-button w3-border-bottom">
-                <button class="btn btn-link" type="button" onclick='window.location.assign("profile.html")'>
+                <button class="btn btn-link btn-lg btn-block" type="button" onclick='window.location.assign("profile.html")'>
                   <span class="en">Switch Profile</span>
                   <span class="hi">उपभोक्ता बदलें</span>
                 </button>
               </li>
               <li class="w3-bar-item w3-button w3-border-bottom">
-                <button class="btn btn-link" type="button" onclick='contact()'>
+                <button class="btn btn-link btn-lg btn-block" type="button" onclick='contact()'>
                   <span class="en">Contact Us</span>
                   <span class="hi">संपर्क करें</span>
                 </button>
@@ -176,9 +185,9 @@
               </ul>
           </div>
           <div class="body-content">
-        <div class="w3-green">
-          <button class="w3-button w3-green w3-xlarge" onclick="w3_open()">☰</button>
-          <span class="en h2">&nbsp;&nbsp;&nbsp;&nbsp;My Profile</span><span class="hi h2">&nbsp;&nbsp;&nbsp;&nbsp;मेरी जानकारी</span>
+            <div class="xx">
+          <br/>
+          <span class="en h1"><button class="w3-button xx w3-xlarge" onclick="w3_open()">☰</button>&nbsp;&nbsp;My Profile</span><span class="hi h1"><button class="w3-button xx w3-xlarge" onclick="w3_open()">☰</button>&nbsp;&nbsp;मेरी जानकारी</span>
         </div>
       <div id="wholepage">
 
@@ -206,44 +215,27 @@
         </style>
 
           <section class="full-section" style="margin: 10vw;">
-            <table style="width: 80vw; font-size: 16px;">
-              <tr>
-                <td>Phone</td>
-                <td id="phone"></td>
-              </tr>
-              <tr>
-                <td>State</td>
-                <td id="state"></td>
-              </tr>
-              <tr>
-                <td>Name</td>
-                <td id="name"></td>
-              </tr>
-              <tr>
-                <td>User Type</td>
-                <td id="user_type"></td>
-              </tr>
-              <tr>
-                <td>District</td>
-                <td id="district"></td>
-              </tr>
-              <tr>
-                <td>Block</td>
-                <td id="block"></td>
-              </tr>
-              <tr>
-                <td>School</td>
-                <td id="school"></td>
-              </tr>
-              <tr>
-                <td>Class</td>
-                <td id="standard"></td>
-              </tr>
-            </table>
-            <button class="btn btn-success" onclick='window.location.assign("assessment.html")' style="font-size: 20px; padding:10px; margin:30px">
+          <div style="text-align:center;">
+           <h3 id='name'></h3>
+         </div>
+         <br />
+         <div>
+           <h5 id='school'></h5>
+           <h5  id='block'></h5>
+           <h5  id='district'></h5>
+           <h5 id='state'></h5>
+           <h5  id='class'></h5>
+           <h5 id='phone'></h5>
+           <h5 id='user_type'></h5>
+         </div>
+         <br/><br/>
+            <button style='height:50px;width:100%;border-radius:25px;' class="btn btn-success btn-block" onclick='window.location.assign("assessment.html")' >
                 Assessments
             </button>
-            <button class="btn btn-danger" onclick='delete_profile()' style="font-size: 20px; padding:10px; margin:30px">
+            <button style='height:50px;width:100%;border-radius:25px;' class="btn btn-warning btn-block" onclick='window.location.assign("profile.html")' >
+                Switch Profile
+            </button>
+            <button style='height:50px;width:100%;border-radius:25px;' class="btn btn-danger btn-block" onclick='delete_profile()' >
                 Delete
             </button>
           </section>
@@ -267,15 +259,15 @@
             },
             function(data, status){
                 // alert(JSON.stringify(data));
-                $("#phone").html(data["phone"]);
-                $("#state").html(data["state"]);
+                $("#phone").html('Phone : '+data["phone"]);
+                $("#state").html('State : '+data["state"]);
                 $("#name").html(data["name"]);
-                $("#user_type").html(data["user_type"]);
-                $("#district").html(data["district"]);
-                $("#block").html(data["block"]);
-                $("#school").html(data["school"]);
-                $("#teacher_id").html(data["teacher_id"]);
-                $("#standard").html(data["standard"]);
+                $("#user_type").html('Type : '+data["user_type"]);
+                $("#district").html('Disrtict : '+data["district"]);
+                $("#block").html('Block : '+data["block"]);
+                $("#school").html('School : '+data["school"]);
+                $("#teacher_id").html('Teacher ID : '+data["teacher_id"]);
+                $("#standard").html('Class : '+data["standard"]);
             });
       });
       function delete_profile(){
@@ -301,7 +293,6 @@
     </script>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
-
     <script src="scripts/popper1143.min.js"></script>
     <script src="scripts/bootstrap413.min.js"></script>
   </body>
