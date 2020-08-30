@@ -286,8 +286,8 @@
                 </select>
                 <br /><br /-->
                 <label class="form-lb"
-                  ><span class="en h5">Change Date</span
-                  ><span class="hi h4">तारीख बदले </span></label
+                  ><span class="en">Change Date</span
+                  ><span class="hi">तारीख बदले </span></label
                 >
                 <input
                   type="date"
@@ -398,7 +398,10 @@
       }
       function myReload() {
         var edValue = document.getElementById("searchInput");
-        console.log(   new Date(localStorage.getItem("date")).toLocaleDateString("en-us"));
+        console.log("hello " +  new Date(localStorage.getItem("date")).toLocaleDateString("en-us"));
+        console.log("hello " +  localStorage.getItem("class"));
+        console.log("hello " +  localStorage.getItem("state"));
+        console.log("hello " +  localStorage.getItem("audience"));
         var s = edValue.value;
         $.get(
           video_url,
