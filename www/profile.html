@@ -62,31 +62,49 @@
       }
       .prof-but{
         /*background-image: linear-gradient(to right, #5A3F37 , #2C7744); */
-        white-space: normal;
         background-image: linear-gradient(to bottom right, #000 , #45a247);
         font-size: 22px;
         color: white; 
-        padding:10px; 
         width:95%; 
-        height: 100px; 
-        margin: 1vw;
+        min-height: 150px;
+        height: 95%;
+        position: relative;
+        font-size:18px
         }
+        .xxx{
+            margin-bottom: 30px;
+        }
+        .deletee {
+        background: #8b0000;
+        color: white;
+        margin:20px;
+      }
+
+      .assess {
+        background: #328203;
+        font-size: 22px;
+        color: white;
+        margin:auto;
+      }
     </style>
        
             
-            <button class="en btn btn-danger" onclick='setCookie("logged_in", "false");alert("Logged Out");window.location.assign("login.html")' style="position:fixed; top:10px;right:10px;height: 50px">
+            <button class="en btn deletee" onclick='setCookie("logged_in", "false");alert("Logged Out");window.location.assign("login.html")' style="position:fixed; top:10px;right:10px;height: 50px">
                 Log Out
             </button>
-            <button class="hi btn btn-danger" onclick='setCookie("logged_in", "false");alert("Logged Out");window.location.assign("login.html")' style="position:fixed; top:10px;right:10px;height: 50px">
+            <button class="hi btn deletee" onclick='setCookie("logged_in", "false");alert("Logged Out");window.location.assign("login.html")' style="position:fixed; top:10px;right:10px;height: 50px">
                 लॉग आउट
             </button>
             <div style="margin:30px; margin-top:100px;text-align: center;align-items: center;">
                 <h2 class='en'>Choose Profile</h2><h2 class="hi"></span>उपभोक्ता चुनें</h2>
+                <br/><br/>
                 <div  class="row " id="profiless">
                 </div>
-                    
-                    <button style="width: 100%;height: 70px;border-radius: 35px;"type="button" onclick='window.location.assign("untitled.html")' class="btn-lg btn btn-brown">
-                        Add Another Profile<br />कोई अन्य उपभोक्ता जोड़ें</button>
+                <br/>
+                <button style="width: 100%;height: 100px;border-radius: 50px;"type="button" onclick='window.location.assign("untitled.html")' class="btn-lg btn assess en">
+                        Add Another Profile</button>
+                <button style="width: 100%;height: 100px;border-radius: 50px;" type="button" onclick='window.location.assign("untitled.html")' class="btn-lg btn assess hi">
+                        कोई अन्य उपभोक्ता जोड़ें</button>
                 
             </div>
     
@@ -120,12 +138,12 @@
                 // alert(JSON.stringify(data));
                 if(data.length == 0){
                     alert("You have no profile associated with this number.")
-                    window.location.assign("profile_add.html");
+                    window.location.assign("untitled.html");
                 } else {
                     $("#profiless").html("");
                     for (var i = 0; i < data.length; i++) {
-                        var temp = `<div class="col-6"><button style="font-size:18px" class="btn prof-but" onclick='choose_profile(${data[i]["id"]},"${data[i]["name"]}","${data[i]["user_type"]}","${data[i]["state"]}","${data[i]["standard"]}")'>
-                            ${data[i]["name"]} (${data[i]["user_type"]})
+                        var temp = `<div class="col-6 xxx"><button class="btn prof-but" onclick='choose_profile(${data[i]["id"]},"${data[i]["name"]}","${data[i]["user_type"]}","${data[i]["state"]}","${data[i]["standard"]}")'>
+                            ${data[i]["name"]}
                             </button></div>`
                         $("#profiless").html($("#profiless").html() + temp);
                     }
@@ -133,6 +151,9 @@
                 Translate();
             });
         });
+    </script>
+    <script type="text/javascript">
+        
     </script>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>

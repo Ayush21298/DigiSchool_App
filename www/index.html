@@ -42,20 +42,35 @@
     <link rel="stylesheet" type="text/css" href="css/styles.css">
     <title>BCG: Splash</title>
 </head>
-
-<body style="background-color: white;">
-    <div class="container splash-screen" style="background-color: white;">
-        <div class="splash" style="background-color: white;">
-            <object class="splash-logo" data="img/splash-screen.svg" type="image/svg+xml" style="background-color: white;">
-                <img src="img/logo.png" style="background-color: white;" />
-            </object>
+<style>
+    .vertical-center {
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      -ms-transform: translateY(-50%);
+      transform: translateY(-50%);
+    }
+    body {
+        background-image: linear-gradient(to top left,#72fa24,#ffffef,#ffffff  );
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+        background-color: rgba(255, 255, 255, 0.81) !important;
+        background-blend-mode: color;
+      }
+</style>
+<body >
+    <div class='vertical-center' >
+            <img style="width: 50% ;margin-left:25%;margin-right:25%;margin-top:10%;margin-bottom:5%" src="img/logo.png" style="background-color: white;" />
+            <img style="width: 30% ;margin:9%" src="images/partner logos/bcg.png"/>
+            <img style="width: 38% ;margin:5%" src="images/partner logos/jhar.jpg"/>
+             <script type="text/javascript" src="js/splash.js"></script>
         </div>
-        <script src="js/splash.js"></script>
-    </div>
     <script type="text/javascript" src="cordova.js"></script>
+
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript">
-        app.initialize();
+       app.initialize();
     </script>
 </body>
 

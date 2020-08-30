@@ -85,6 +85,11 @@
         background-color: rgba(255, 255, 255, 0.81) !important;
         background-blend-mode: color;
       }
+      .switchh {
+        background: #1e5002;
+        color: white;
+        margin:20px;
+      }
     </style>
 
     <script src="scripts/scripts.js"></script>
@@ -123,8 +128,8 @@
             <ul class="navbar-nav">
               <li class="w3-bar-item w3-button w3-border-bottom">
                 <div >
-                  <img style="width: 40% ;margin:5%" src="images/partner logos/bcg.png"/>
-                  <img style="width: 40% ;margin:5%" src="images/partner logos/jhar.jpg"/>
+                  <img style="width: 38% ;margin:5%" src="images/partner logos/bcg.png"/>
+                  <img style="width: 42% ;margin:5%" src="images/partner logos/jhar.jpg"/>
                 </div>
                 <span class="en h3">Welcome User</span><span class="hi h3">स्वागत हे</span><br />
                 <button
@@ -215,34 +220,50 @@
         }
         </style>
 
-          <section class="full-section" id="jalwa" style="margin: 10vw;">
-            <table style="width: 80vw; font-size: 16px;">
-              <tr>
-                <td>Competency</td>
-                <td id="competency">NONE</td>
-              </tr>
-              <tr>
-                <td>Subject</td>
-                <td id="subject">NONE</td>
-              </tr>
-              <tr>
-                <td>GS Workbook</td>
-                <td id="workbook">NONE</td>
-              </tr>
-              <tr>
-                <td>Textbook</td>
-                <td id="textbook">NONE</td>
-              </tr>
-              <tr>
-                <td>Activity</td>
-                <td id="activity">NONE</td>
-              </tr>
-            </table>
+          <section class="full-section" >
+
+            <div class='row'>
+
+             <div class='col-4' style='text-align: right'>
+              <h5>Competency:</h5>
+            </div>
+            <div class='col-8' style='text-align: center;'>
+              <h5 id='competency'></h5>
+            </div>
+
+             <div class='col-4' style='text-align: right'>
+              <h5>Subject:</h5>
+            </div>
+            <div class='col-8' style='text-align: center;'>
+              <h5 id='subject'></h5>
+            </div>
+
+             <div class='col-4' style='text-align: right'>
+              <h5>GS Workbook:</h5>
+            </div>
+            <div class='col-8' style='text-align: center;'>
+              <h5 id='workbook'></h5>
+            </div>
+
+             <div class='col-4' style='text-align: right'>
+              <h5>Textbook:</h5>
+            </div>
+            <div class='col-8' style='text-align: center;'>
+              <h5 id='textbook'></h5>
+            </div>
+
+             <div class='col-4' style='text-align: right'>
+              <h5>Activity:</h5>
+            </div>
+            <div class='col-8' style='text-align: center;'>
+              <h5 id='activity'></h5>
+            </div>
+           </div>
           </section>
 
           
         <br/><br/>
-        <button style='margin:auto;height:50px;width:80%;border-radius:25px;' class="btn btn-success btn-block" onclick='window.location.assign("content.html")' >
+        <button style='margin:auto;height:50px;width:80%;border-radius:25px;' class="btn switchh btn-block" onclick='window.location.assign("content.html")' >
                 Content OTD
             </button>
       </div>
@@ -251,7 +272,7 @@
     <script>
       
       $(document).ready(function () {
-        Translate();
+        
         console.log("ready");
         $(".loading").hide();
         $.get(plan_url,
@@ -261,11 +282,19 @@
             },
             function(data, status){
                 // alert(JSON.stringify(data));
+                if (data.length){
                 $("#competency").html(data[0]["competency_"]);
                 $("#subject").html(data[0]["subject_"]);
                 $("#workbook").html(data[0]["workbook"]);
                 $("#textbook").html(data[0]["textbook"]);
-                $("#activity").html(data[0]["activity"]);
+                $("#activity").html(data[0]["activity"]);}
+                else{
+                $("#competency").html("None");
+                $("#subject").html("None");
+                $("#workbook").html("None");
+                $("#textbook").html("None");
+                $("#activity").html("None");}
+                Translate();
             });
       });
     </script>

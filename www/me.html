@@ -71,8 +71,20 @@
         opacity: 0.9;
         filter: alpha(opacity=100);
       }
-      .how-to-card {
-        background-color: rgba(255, 255, 255, 0.81);
+      .deletee {
+        background: #581600;
+        color: white;
+        margin:20px;
+      }
+      .switchh {
+        background: #1e5002;
+        color: white;
+        margin:20px;
+      }
+      .assess {
+        background: #328203;;
+        color: white;
+        margin:20px;
       }
       body {
         background-image: linear-gradient(to top left,#72fa24,#ffffef,#ffffff  );
@@ -120,8 +132,8 @@
             <ul class="navbar-nav">
               <li class="w3-bar-item w3-button w3-border-bottom">
                 <div >
-                  <img style="width: 40% ;margin:5%" src="images/partner logos/bcg.png"/>
-                  <img style="width: 40% ;margin:5%" src="images/partner logos/jhar.jpg"/>
+                  <img style="width: 38% ;margin:5%" src="images/partner logos/bcg.png"/>
+                  <img style="width: 42% ;margin:5%" src="images/partner logos/jhar.jpg"/>
                 </div>
                 <span class="en h3">Welcome User</span><span class="hi h3">स्वागत हे</span><br />
                 <button
@@ -219,25 +231,71 @@
            <h3 id='name'></h3>
          </div>
          <br />
-         <div>
-           <h5 id='school'></h5>
-           <h5  id='block'></h5>
-           <h5  id='district'></h5>
-           <h5 id='state'></h5>
-           <h5  id='class'></h5>
-           <h5 id='phone'></h5>
-           <h5 id='user_type'></h5>
+         <div class='row'>
+
+          <div class='col-4' style='text-align: right'>
+            <h5>School:</h5>
+          </div>
+          <div class='col-8' style='text-align: center;'>
+            <h5 id='school'></h5>
+          </div>
+
+           <div class='col-4' style='text-align: right'>
+            <h5>Block:</h5>
+          </div>
+          <div class='col-8' style='text-align: center;'>
+            <h5  id='block'></h5>
+          </div>
+
+           <div class='col-4' style='text-align: right'>
+            <h5>District:</h5>
+          </div>
+          <div class='col-8' style='text-align: center;'>
+            <h5 id='district'></h5>
+          </div>
+
+           <div class='col-4' style='text-align: right'>
+            <h5>State:</h5>
+          </div>
+          <div class='col-8' style='text-align: center;'>
+            <h5 id='state'></h5>
+          </div>
+
+           <div class='col-4' style='text-align: right'>
+            <h5>Standard:</h5>
+          </div>
+          <div class='col-8' style='text-align: center;'>
+            <h5 id='standard'></h5>
+          </div>
+
+           <div class='col-4' style='text-align: right'>
+            <h5>Phone:</h5>
+          </div>
+          <div class='col-8' style='text-align: center;'>
+            <h5 id='phone'></h5>
+          </div>
+
+          <div class='col-4' style='text-align: right'>
+            <h5>Type:</h5>
+          </div>
+          <div class='col-8' style='text-align: center;'>
+            <h5 id='user_type'></h5>
+          </div>
          </div>
          <br/><br/>
-            <button style='height:50px;width:100%;border-radius:25px;' class="btn btn-success btn-block" onclick='window.location.assign("assessment.html")' >
+         <div style="align-items: center;">
+            <button style='height:50px;width:100%;border-radius:25px;' class="btn btn-block assess" onclick='window.location.assign("assessment.html")' >
                 Assessments
             </button>
-            <button style='height:50px;width:100%;border-radius:25px;' class="btn btn-warning btn-block" onclick='window.location.assign("profile.html")' >
+            <br />
+            <button style='height:50px;width:100%;border-radius:25px;' class="btn btn-block switchh" onclick='window.location.assign("profile.html")' >
                 Switch Profile
             </button>
-            <button style='height:50px;width:100%;border-radius:25px;' class="btn btn-danger btn-block" onclick='delete_profile()' >
+            <br />
+            <button style='height:50px;width:100%;border-radius:25px;' class="btn btn-block deletee" onclick='delete_profile()' >
                 Delete
             </button>
+          </div>
           </section>
 
   
@@ -245,12 +303,8 @@
     </div></div>
 
     <script>
-      new WholePageSlider({
-        containerId: "wholepage",
-        sectionClass: "full-section",
-      });
       $(document).ready(function () {
-        Translate();
+        
         console.log("ready");
         $(".loading").hide();
         $.get(me_url,
@@ -259,15 +313,16 @@
             },
             function(data, status){
                 // alert(JSON.stringify(data));
-                $("#phone").html('Phone : '+data["phone"]);
-                $("#state").html('State : '+data["state"]);
+                $("#phone").html(data["phone"]);
+                $("#state").html(data["state"]);
                 $("#name").html(data["name"]);
-                $("#user_type").html('Type : '+data["user_type"]);
-                $("#district").html('Disrtict : '+data["district"]);
-                $("#block").html('Block : '+data["block"]);
-                $("#school").html('School : '+data["school"]);
-                $("#teacher_id").html('Teacher ID : '+data["teacher_id"]);
-                $("#standard").html('Class : '+data["standard"]);
+                $("#user_type").html(data["user_type"]);
+                $("#district").html(data["district"]);
+                $("#block").html(data["block"]);
+                $("#school").html(data["school"]);
+                $("#teacher_id").html(data["teacher_id"]);
+                $("#standard").html(data["standard"]);
+                Translate();
             });
       });
       function delete_profile(){
