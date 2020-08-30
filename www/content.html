@@ -397,12 +397,12 @@
         }
       }
       function myReload() {
-        var edValue = document.getElementById("searchInput");
+        //var edValue = document.getElementById("searchInput");
         console.log("hello " +  new Date(localStorage.getItem("date")).toLocaleDateString("en-us"));
         console.log("hello " +  localStorage.getItem("class"));
         console.log("hello " +  localStorage.getItem("state"));
         console.log("hello " +  localStorage.getItem("audience"));
-        var s = edValue.value;
+        //var s = edValue.value;
         $.get(
           video_url,
           {
