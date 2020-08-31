@@ -444,7 +444,6 @@
             if(final.length>0){
                         for (var i = 0; i < final.length; i++) {
                           var key = final[i];
-                          console.log(key);
                           txt +=
                             '<div> <h2><span class="en">' +
                             key[0]["subject_"] +
@@ -454,15 +453,7 @@
             
                           for (var j = 0; j < key.length; j++) {
                             var link = key[j];
-                            if (s.trim() != "") {
-                              if (
-                                link["competency_"]
-                                  .toUpperCase()
-                                  .includes(s.toUpperCase()) == false
-                              ) {
-                                continue;
-                              }
-                            }
+                            
                             if (link["competency_"] != competency) {
                               competency = link["competency_"];
                               txt +=
@@ -495,7 +486,7 @@
             else {
               txt+="<img style='width:100%;' src='images/blank.jpg' /><h3 style='color:blue;text-align:center;'><span class='en'>No Content Today</span><span class='hi'>आज कोई सामग्री नहीं</span></h3>"
             }
-            $("#main_container").html(txt);
+            $("#page").html(txt);
             langChange(localStorage.getItem("language"));
           }
         );
