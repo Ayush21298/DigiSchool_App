@@ -268,9 +268,11 @@
             var temp = $("input[name='user_type']:checked").val();
             if(temp == "Students"){
                 $(".teacher_input").hide();
+                $("#teacher_id").attr('disabled','disabled');
                 $(".student_input").show();
             } else if(temp == "Teachers"){
                 $(".teacher_input").show();
+                $("#teacher_id").removeAttr('disabled');
                 $(".student_input").hide();
             }
             $('#state').prop('disabled', 'disabled');
