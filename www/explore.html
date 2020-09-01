@@ -41,9 +41,12 @@
     .xx{
         background-color: green;
         position: relative;
-        top: 0px;
+        height:20vw;
         color :white;
         text-align: left;
+      }
+      .xx span{
+        font-size: 10vw;
       }
       .btn-link{
         text-align: left;
@@ -63,74 +66,75 @@
       <div class="content-wrap">
          <div class="w3-sidebar w3-card" style="display:none;z-index: 3" id="mySidebar">
       <div class="xx">
-        <br/>
            <button class="w3-button xx w3-xlarge btn-block " onclick="w3_close()">☰</button>
          </div>
             <ul class="navbar-nav">
               <li class="w3-bar-item w3-button w3-border-bottom">
                 <div >
-                  <img style="width: 38% ;margin:5%" src="images/partner logos/bcg.png"/>
-                  <img style="width: 42% ;margin:5%" src="images/partner logos/jhar.jpg"/>
+                  <img style="width: 42% ;margin:5%" src="images/partner logos/jhar.jpg"/>                  
+                  <img style="width: 38% ;margin:5%" src="images/partner logos/digisath.png"/>
                 </div>
-                <span class="en h3">Welcome User</span><span class="hi h3">स्वागत हे</span><br />
+                <span class="en h3">Welcome User</span><span class="hi h3">स्वागत है</span><br />
                 <button
-              class="btn btn-success dropdown-toggle"
-              type="button"
-              data-toggle="dropdown"
-              id="language-ctrl"
-            >
-              Language <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu dropdown-menu-right">
-              <li>
-                <button class="btn btn-block" onclick="Hindi()">
-                  हिन्दी
+                  class="btn btn-success dropdown-toggle"
+                  type="button"
+                  data-toggle="dropdown"
+                  id="language-ctrl"
+                >
+                  Language <span class="caret"></span>
                 </button>
-              </li>
-              <li>
-                <button class="btn btn-block" onclick="English()">
-                  English
-                </button>
+                <ul class="dropdown-menu dropdown-menu-right">
+                  <li>
+                    <button class="btn btn-block" onclick="Hindi()">
+                      हिन्दी
+                    </button>
+                  </li>
+                  <li>
+                    <button class="btn btn-block" onclick="English()">
+                      English
+                    </button>
               </li>
             </ul>
               </li>
-              <li class="w3-bar-item w3-button w3-border-bottom ">
-                <button class="btn btn-link btn-lg btn-block" type="button" onclick='window.location.assign("home.html")'>
-                  <span class="en">Home</span><span class="hi">घर</span>
+              <li class="w3-bar-item w3-button w3-border-bottom">
+                <button class="btn btn-link btn-lg btn-block " type="button" onclick='window.location.assign("home.html")'>
+                  <span class="en"><img style='width: 10%;height: auto;' src='images/icons/home-run.png'/>&nbsp;&nbsp;&nbsp;&nbsp;Home</span>
+                  <span class="hi"><img style='width: 10%;height: auto;' src='images/icons/home-run.png'/>&nbsp;&nbsp;&nbsp;&nbsp;मुख्य पृष्ठ</span>
                   </button>
               </li>
               <li class="w3-bar-item w3-button w3-border-bottom active" >
                 <button class="btn btn-link btn-lg btn-block" type="button" onclick='window.location.assign("explore.html")'>
-                  <span class="en">Explore</span><span class="hi">अन्वेषण</span>
+                  <span class="en"><img style='width: 10%;height: auto;' src='images/icons/search.png'/>&nbsp;&nbsp;&nbsp;&nbsp;Explore</span>
+                  <span class="hi"><img style='width: 10%;height: auto;' src='images/icons/search.png'/>&nbsp;&nbsp;&nbsp;&nbsp;एक्सप्लोर</span>
                 </button>
               </li>
               <li class="w3-bar-item w3-button w3-border-bottom">
-                <button class="btn btn-link btn-lg btn-block" type="button" onclick='window.location.assign("me.html")'>
-                  <span class="en">My Profile</span
-                  ><span class="hi">मेरी जानकारी</span>
+                <button class="btn btn-link btn-lg btn-block" type="button" onclick='window.location.assign("me.html")'>                  
+                  <span class="en"><img style='width: 10%;height: auto;' src='images/icons/user.png'/>&nbsp;&nbsp;&nbsp;&nbsp;My Profile</span>
+                  <span class="hi"><img style='width: 10%;height: auto;' src='images/icons/user.png'/>&nbsp;&nbsp;&nbsp;&nbsp;मेरी प्रोफ़ाइल</span>
                 </button>
               </li>
               <li class="w3-bar-item w3-button w3-border-bottom">
-                <button class="btn btn-link btn-lg btn-block" type="button" onclick='window.location.assign("profile.html")'>
-                  <span class="en">Switch Profile</span>
-                  <span class="hi">उपभोक्ता बदलें</span>
+                <button class="btn btn-link btn-lg btn-block" type="button" onclick='window.location.assign("profile.html")'>                  
+                  <span class="en"><img style='width: 10%;height: auto;' src='images/icons/transfer.png'/>&nbsp;&nbsp;&nbsp;&nbsp;Switch Profile</span>
+                  <span class="hi"><img style='width: 10%;height: auto;' src='images/icons/transfer.png'/>&nbsp;&nbsp;&nbsp;&nbsp;प्रोफ़ाइल बदलें</span>
                 </button>
               </li>
               <li class="w3-bar-item w3-button w3-border-bottom">
-                <button class="btn btn-link btn-lg btn-block" type="button" onclick='contact()'>
-                  <span class="en">Contact Us</span>
-                  <span class="hi">संपर्क करें</span>
+                <button class="btn btn-link btn-lg btn-block" type="button" onclick='contact()'>               
+                  <span class="en"><img style='width: 10%;height: auto;' src='images/icons/contact.png'/>&nbsp;&nbsp;&nbsp;&nbsp;Contact Us</span>
+                  <span class="hi"><img style='width: 10%;height: auto;' src='images/icons/contact.png'/>&nbsp;&nbsp;&nbsp;&nbsp;संपर्क करें</span>
                 </button>
               </li>
               <div class="footer-row">
-            <span
-              >DigiSchool.&nbsp;&nbsp;&nbsp;Copyright
-              <i class="fa fa-copyright" aria-hidden="true"></i
-              >2020.&nbsp;&nbsp;&nbsp; All rights reserved</span
-            >
+                <span
+                  >DigiSchool.&nbsp;&nbsp;&nbsp;Copyright
+                  <i class="fa fa-copyright" aria-hidden="true"></i
+                  >2020.&nbsp;&nbsp;&nbsp; All rights reserved</span
+                >
 
-            <span>Made by Boston Consulting Group</span>
-          </div>
+                <span>Made by Boston Consulting Group</span>
+              </div>
               </ul>
           </div>
           
@@ -141,7 +145,6 @@
     <!-- NAVBAR -->
     <div class="body-content">
         <div class="xx">
-          <br/>
           <span class="en h1"><button class="w3-button xx w3-xlarge" onclick="w3_open()">☰</button>&nbsp;&nbsp;Explore</span><span class="hi h1"><button class="w3-button xx w3-xlarge" onclick="w3_open()">☰</button>&nbsp;&nbsp;अन्वेषण</span>
         </div>
 

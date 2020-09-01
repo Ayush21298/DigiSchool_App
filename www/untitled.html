@@ -255,9 +255,11 @@
             console.log(s)
             if(s.value == "Student"){
                 $(".teacher_input").hide();
+                $("#teacher_id").attr('disabled','disabled');
                 $(".student_input").show();
             } else if(s.value == "Teacher"){
                 $(".teacher_input").show();
+                $("#teacher_id").removeAttr('disabled');
                 $(".student_input").hide();
             }
         }

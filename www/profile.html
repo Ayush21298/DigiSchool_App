@@ -61,8 +61,7 @@
         background-blend-mode: color;
       }
       .prof-but{
-        /*background-image: linear-gradient(to right, #5A3F37 , #2C7744); */
-        background-image: linear-gradient(to bottom right, #000 , #45a247);
+       background-image: linear-gradient(to bottom right, #00b375, #006743); 
         font-size: 22px;
         color: white; 
         width:95%; 
@@ -81,7 +80,7 @@
       }
 
       .assess {
-        background: #328203;
+        background: #004d33;
         font-size: 22px;
         color: white;
         margin:auto;
@@ -125,7 +124,7 @@
             localStorage.setItem("state", state);
             localStorage.setItem("class", standard);
             localStorage.setItem("audience", user_type);
-            console.log(localStorage.getItem("date"))
+            console.log(localStorage.getItem("class"));
             window.location.assign("home.html");
         }
         $(document).ready(function(){
