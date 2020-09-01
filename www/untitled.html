@@ -85,11 +85,11 @@
     <input type="text" id="name" class="form-control" placeholder="Name">
     <p style="margin-top: 20px">User Type</p>
     <div class="custom-control custom-radio mb-4">
-        <input type="radio" class="custom-control-input" id="radio" onchange="user_type_change(this)" value="Student" type="radio" name="user_type" checked>
+        <input type="radio" class="custom-control-input" id="radio" onchange="user_type_change(this)" value="Students" type="radio" name="user_type" checked>
         <label class="custom-control-label" for="radio">Student</label>        
     </div>
     <div class="custom-control custom-radio mb-4">
-        <input type="radio" class="custom-control-input" onchange="user_type_change(this)" id="radio2" value="Teacher" type="radio" name="user_type">
+        <input type="radio" class="custom-control-input" onchange="user_type_change(this)" id="radio2" value="Teachers" type="radio" name="user_type">
         <label class="custom-control-label" for="radio2">Teacher</label>
     </div>
     
@@ -253,11 +253,11 @@
         }
         function user_type_change(s){
             console.log(s)
-            if(s.value == "Student"){
+            if(s.value == "Students"){
                 $(".teacher_input").hide();
                 $("#teacher_id").attr('disabled','disabled');
                 $(".student_input").show();
-            } else if(s.value == "Teacher"){
+            } else if(s.value == "Teachers"){
                 $(".teacher_input").show();
                 $("#teacher_id").removeAttr('disabled');
                 $(".student_input").hide();
@@ -266,10 +266,10 @@
         $(document).ready(function(){
             $("#phone").val(getCookie("phone"))
             var temp = $("input[name='user_type']:checked").val();
-            if(temp == "Student"){
+            if(temp == "Students"){
                 $(".teacher_input").hide();
                 $(".student_input").show();
-            } else if(temp == "Teacher"){
+            } else if(temp == "Teachers"){
                 $(".teacher_input").show();
                 $(".student_input").hide();
             }
