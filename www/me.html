@@ -75,26 +75,33 @@
         filter: alpha(opacity=100);
       }
       .deletee {
-        background: #581600;
+        background: #003200;
+        width: 90%; 
+        margin:auto;
         color: white;
-        margin:20px;
+        font-size: 5vw;
+        margin-bottom: 2vw;
+        height: 12vw;
+        line-height: 5vw;
+        border-radius: 6vw;
       }
-      .switchh {
-        background: #1e5002;
-        color: white;
-        margin:20px;
-      }
+
       .assess {
-        background: #328203;;
+        background: #008000;
+        width: 90%; 
+        margin:auto;
         color: white;
-        margin:20px;
+        font-size: 5vw;
+        margin-bottom: 2vw;
+        height: 12vw;
+        line-height: 5vw;
+        border-radius: 6vw;
       }
       body {
-        background-image: linear-gradient(to top left,#72fa24,#ffffef,#ffffff  );
+        background-color:  rgba(215, 215, 215, 0.4)!important;
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-position: center;
-        background-color: rgba(255, 255, 255, 0.81) !important;
         background-blend-mode: color;
       }
     </style>
@@ -128,7 +135,6 @@
                   <img style="width: 42% ;margin:5%" src="images/partner logos/jhar.jpg"/>                  
                   <img style="width: 38% ;margin:5%" src="images/partner logos/digisath.png"/>
                 </div>
-                <span class="en h3">Welcome User</span><span class="hi h3">स्वागत है</span><br />
                 <button
                   class="btn btn-success dropdown-toggle"
                   type="button"
@@ -139,12 +145,12 @@
                 </button>
                 <ul class="dropdown-menu dropdown-menu-right">
                   <li>
-                    <button class="btn btn-block" onclick="Hindi()">
+                    <button class="dropdown-item" onclick="Hindi()">
                       हिन्दी
                     </button>
                   </li>
                   <li>
-                    <button class="btn btn-block" onclick="English()">
+                    <button class="dropdown-item" onclick="English()">
                       English
                     </button>
               </li>
@@ -278,15 +284,12 @@
          </div>
          <br/><br/>
          <div style="align-items: center;">
-            <button style='height:50px;width:100%;border-radius:25px;' class="btn btn-block assess" onclick='window.location.assign("assessment.html")' >
-                Assessments
-            </button>
             <br />
-            <button style='height:50px;width:100%;border-radius:25px;' class="btn btn-block switchh" onclick='window.location.assign("profile.html")' >
+            <button class="btn btn-block assess" onclick='window.location.assign("profile.html")' >
                 Switch Profile
             </button>
             <br />
-            <button style='height:50px;width:100%;border-radius:25px;' class="btn btn-block deletee" onclick='delete_profile()' >
+            <button class="btn btn-block deletee" onclick='delete_profile()' >
                 Delete
             </button>
           </div>

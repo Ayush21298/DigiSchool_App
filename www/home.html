@@ -43,9 +43,9 @@
       }
 
       p { 
-            font-size: 22px;
+            font-size:5vw;
             text-align: center;
-        } 
+            text-transform: capitalize;        } 
 
       .full-section {
         height: 100%;
@@ -67,23 +67,38 @@
         opacity: 0.9;
         filter: alpha(opacity=100);
       }
+
       .my-button {
-        background-image: linear-gradient(to right, white ,#00b376, #008054); 
-        color: white; 
+        /*background-image: linear-gradient(to right, white ,#00b376, #008054); */
         padding:10px; 
-        width:95%; 
-        height: 100px; 
-        margin: 1vw; 
+        width:40vw; 
+        height: 30vw; 
+        display: inline-block;
+        border-radius: 5vw;
+        /*background-image: linear-gradient(to right, white , #00b3b3, #008080); */
+        background-color: rgba(255, 255, 255, 0.81) !important;
+        color: black; 
       }
-      .my-button:nth-child(odd){
-        background-image: linear-gradient(to right, white , #00b3b3, #008080); 
+      .banner {
+        /*background-image: linear-gradient(to right, white ,#00b376, #008054); */
+        background-color: rgba(0, 128, 0, 0.25) !important;
+        color: black; 
+        padding:10px; 
+        width:90%; 
+        margin: 5%; 
+        border-radius: 5vw;
+        text-align: left;
+      }
+      .my-button img{
+        /*background-image: linear-gradient(to right, white , #00b3b3, #008080); */
+        width:50%; height: auto; 
       }
       body {
-        background-image: linear-gradient(to top left,#72fa24,#ffffef,#ffffff  );
+        
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-position: center;
-        background-color: rgba(255, 255, 255, 0.81) !important;
+        background-color:  rgba(215, 215, 215, 0.4)!important;
         background-blend-mode: color;
       }
       .xx{
@@ -105,6 +120,18 @@
       }
       .active{
         background-color:rgba(100,255,100,0.5);
+      }
+      .ban-but{
+        width: 100%; 
+        margin:auto;
+        color: white;
+
+        font-size: 4.5vw;
+        margin-bottom: 2vw;
+        background-color: rgba(0, 128, 0, 0.8) !important;;
+        height: 12vw;
+        line-height: 4.5vw;
+        border-radius: 6vw;
       }
     </style>
 
@@ -134,7 +161,6 @@
                   <img style="width: 42% ;margin:5%" src="images/partner logos/jhar.jpg"/>                  
                   <img style="width: 38% ;margin:5%" src="images/partner logos/digisath.png"/>
                 </div>
-                <span class="en h3">Welcome User</span><span class="hi h3">स्वागत है</span><br />
                 <button
                   class="btn btn-success dropdown-toggle"
                   type="button"
@@ -145,12 +171,12 @@
                 </button>
                 <ul class="dropdown-menu dropdown-menu-right">
                   <li>
-                    <button class="btn btn-block" onclick="Hindi()">
+                    <button class="dropdown-item" onclick="Hindi()">
                       हिन्दी
                     </button>
                   </li>
                   <li>
-                    <button class="btn btn-block" onclick="English()">
+                    <button class="dropdown-item" onclick="English()">
                       English
                     </button>
               </li>
@@ -201,32 +227,48 @@
     <!-- NAVBAR -->
     <div class="body-content">
         <div class="xx">
-          <span class="en"><button class="w3-button xx w3-xlarge" onclick="w3_open()">☰</button>&nbsp;&nbsp;HOME</span><span class="hi "><button class="w3-button xx w3-xlarge" onclick="w3_open()">☰</button>&nbsp;&nbsp;घर</span>
+          <span class="en"><button class="w3-button xx w3-xlarge" onclick="w3_open()">☰</button>&nbsp;&nbsp;HOME</span><span class="hi "><button class="w3-button xx w3-xlarge" onclick="w3_open()">☰</button>&nbsp;&nbsp;मुख्य पृष्ठ</span>
         </div>
       </div>
       <div id="wholepage">
+        <br/>
+          <div class="banner" >
+            <h3><span class="en">Welcome,</span><span class="hi">स्वागत है,</span><span id='xxxx'></h3>
+            <p style='text-transform: none; text-align: left' id='today'><span class='en'>Loading...</span><span class='hi'>लोड हो रहा है...</span></p>
+             <button type="button" class="en btn ban-but" onclick='window.location.assign("assessment.html")'>View Past Records</button>
+             <button type="button" class="hi btn ban-but" onclick='window.location.assign("assessment.html")'>पिछले रिकॉर्ड देखें</button>
+             <button type="button" class="en btn ban-but" onclick='window.location.assign("content.html")'>Revise Previous Content</button>
+             <button type="button" class="hi btn ban-but" onclick='window.location.assign("content.html")'>पिछली सामग्री को संशोधित करें</button>
+            
+          </div>
+          <section class="full-section" style="text-align: left;">
+            <h3 style="color:darkgreen;margin:5vw; "><span class="en">Links for Today</span><span class="hi ">आज के लिए लिंक</span></h3>
 
-          <section class="full-section" style="text-align: center;">
+            <div class="row" style="text-align: center;margin: 2vw">
+              <div class="col-6" style="text-align: center;">
+              <button type="button" class="btn my-button" onclick='window.location.assign("content.html")'>
+                  <img src='images/content.png'></img>
+                  <p><span class="en">Content</span><span class="hi ">सामग्री</span></p>
+              </button>
+            </div>
+              <div class="col-6" style="text-align: center;">
+              <button type="button" class="btn my-button" onclick='window.location.assign("plan.html")' >
+                  <img src='images/calendar.png'></img>
+                  <p><span class="en">Plan</span><span class="hi ">योजना</span></p>
+              </button>
+            </div>
+              <div class="col-6" style="text-align: center;">
+              <button type="button" class="btn my-button" onclick='quiz()' >
+                <img src='images/check.png'></img>
+                  <p><span class="en">Quiz</span><span class="hi ">प्रश्नोत्तरी</span></p>
+              </button>
+            </div>
+          </div>
 
-            <button type="button" class="btn my-button" onclick='window.location.assign("content.html")'>
-                <img style='width:60px; height: 60px; float: left; margin-right: 10px' src='images/content.png'></img>
-                <p><span class="en">CONTENT OF THE DAY</span><span class="hi ">आज की सामग्री</span></p>
-            </button>
-
-            <button type="button" class="btn my-button" onclick='quiz()' >
-              <img style='width:60px; height: 60px; float: left; margin-right: 10px' src='images/check.png'></img>
-                <p><span class="en">QUIZ OF THE DAY</span><span class="hi ">आज की प्रश्नोत्तरी</span></p>
-            </button>
-
-            <button type="button" class="btn my-button" onclick='window.location.assign("plan.html")' >
-                <img style='width:60px; height: 60px; float: left; margin-right: 10px' src='images/calendar.png'></img>
-                <p><span class="en">PLAN OF THE DAY</span><span class="hi ">आज की योजना</span></p>
-            </button>
-
-            <button type="button" class="btn my-button" onclick='window.location.assign("assessment.html")'>
-                <img style='width:60px; height: 60px; float: left; margin-right: 10px' src='images/feedback.png'></img>
-                <p><span class="en">ASSESSMENTS</span><span class="hi ">मूल्यांकन</span></p>
-            </button>
+            <!-- <button type="button" class="btn my-button" onclick='window.location.assign("assessment.html")'>
+                <img src='images/feedback.png'></img>
+                <p><span class="en">Assessments</span><span class="hi ">मूल्यांकन</span></p>
+            </button> -->
             
           </section>
 
@@ -236,7 +278,8 @@
     </div>
 
     <script>
-
+      var isquiz=-1;
+      var iscontent=-1;
       var quiz_otd="";
       function quiz(){
         if(quiz_otd == ""){
@@ -255,6 +298,8 @@
       }
       
       $(document).ready(function () {
+        console.log(localStorage.getItem("name"));
+        $('#xxxx').html(localStorage.getItem('name'));
         Translate();
         console.log("ready");
         console.log(localStorage.getItem("class"))
@@ -266,8 +311,58 @@
             },
             function(data, status){
                 // alert(JSON.stringify(data));
+                console.log('y1y');
                 quiz_otd = data[0]["url"];
+                if(quiz_otd == "")
+                  {isquiz=0;
+                    if (iscontent!=-1){
+                      if (iscontent==0)
+                        $("#today").html("<span class='en'>Today, you have no content and no quiz.</span><span class='hi'>आज, आपके पास कोई नई सामग्री है और प्रश्नोत्तरी नहीं है।</span>")
+                      else
+                        $("#today").html("<span class='en'>Today, you have new content and no quiz.</span><span class='hi'>आज, आपके पास नई सामग्री है और कोई प्रश्नोत्तरी नहीं है।</span>")
+                      Translate();
+                    }}
+                else
+                  {isquiz=1;
+                    if (iscontent!=-1){
+                      if (iscontent==0)
+                        $("#today").html("<span class='en'>Today, you have no content and new quiz.</span><span class='hi'>आज, आपके पास नई प्रश्नोत्तरी है और कोई सामग्री नहीं है।</span>")
+                      else
+                        $("#today").html("<span class='en'>Today, you have new content and new quiz.</span><span class='hi'>आज, आपके पास नई सामग्री और प्रश्नोत्तरी है।</span>")
+                      Translate();
+                    }}
+                
             });
+        $.get(
+                  video_url,
+                  {
+                    view_by: "date",
+                    date: new Date().toLocaleDateString("en-us"),
+                    standard: localStorage.getItem("class"),
+                    state: localStorage.getItem("state"),
+                    audience: localStorage.getItem("audience"),
+                  },
+                  function (data2, status, jqXHR) {
+                    console.log('yy');
+                    if (data2.length>0){
+                      iscontent=1;
+                      if(isquiz!=-1){
+                      if(quiz_otd == "")
+                        $("#today").html("<span class='en'>Today, you have new content and no quiz.</span><span class='hi'>आज, आपके पास नई सामग्री है और कोई प्रश्नोत्तरी नहीं है।</span>")
+                      else
+                        $("#today").html("<span class='en'>Today, you have new content and new quiz.</span><span class='hi'>आज, आपके पास नई सामग्री और प्रश्नोत्तरी है।</span>")
+                      Translate();
+                    }}
+                    else{
+                      iscontent=0;
+                      if(isquiz!=-1){
+                      if(quiz_otd == "")
+                        $("#today").html("<span class='en'>Today, you have no content and no quiz.</span><span class='hi'>आज, आपके पास कोई नई सामग्री है और प्रश्नोत्तरी नहीं है।</span>")
+                      else
+                        $("#today").html("<span class='en'>Today, you have no content and new quiz.</span><span class='hi'>आज, आपके पास नई प्रश्नोत्तरी है और कोई सामग्री नहीं है।</span>")
+                    Translate();
+                    }}
+                  });
       });
     </script>
     <script type="text/javascript" src="cordova.js"></script>

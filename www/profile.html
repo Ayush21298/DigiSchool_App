@@ -52,64 +52,72 @@
 <body>
     <style type="text/css">
         body {
-        background-image: linear-gradient(to top left,#72fa24,#ffffef,#ffffff  );
+        background-color: white/*linear-gradient(to top left,#808080,#a0a0a0 )*/;
         background-size: contain;
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-position: center;
-        background-color: rgba(255, 255, 255, 0.81) !important;
         background-blend-mode: color;
       }
+      p { 
+            font-size:5vw;
+            text-align: center;
+            color: black;
+            text-transform: capitalize;        } 
       .prof-but{
-       background-image: linear-gradient(to bottom right, #00b375, #006743); 
+       background-image: linear-gradient(to bottom right, #009000, #006700); 
         font-size: 22px;
         color: white; 
-        width:95%; 
-        min-height: 150px;
-        height: 95%;
+        width:25vw;
+        height: 25vw;
         position: relative;
         font-size:18px
         }
         .xxx{
-            margin-bottom: 30px;
+            margin-bottom: 2vw;
         }
         .deletee {
-        background: #8b0000;
+        background: #003200;
+        font-size: 5vw;
         color: white;
-        margin:20px;
+        margin:auto;
+        width: 100%;
+        height: 16vw;
+        border-radius: 8vw;
+        margin-bottom: 10vw;
       }
 
       .assess {
-        background: #004d33;
-        font-size: 22px;
+        background-image: linear-gradient(to right, #009000, #006700); 
+        font-size: 5vw;
         color: white;
         margin:auto;
+        width: 100%;
+        height: 16vw;
+        border-radius: 8vw;
+        margin-bottom: 10vw;
       }
+
     </style>
        
             
-            <button class="en btn deletee" onclick='setCookie("logged_in", "false");alert("Logged Out");window.location.assign("login.html")' style="position:fixed; top:10px;right:10px;height: 50px">
-                Log Out
-            </button>
-            <button class="hi btn deletee" onclick='setCookie("logged_in", "false");alert("Logged Out");window.location.assign("login.html")' style="position:fixed; top:10px;right:10px;height: 50px">
-                लॉग आउट
-            </button>
-            <div style="margin:30px; margin-top:100px;text-align: center;align-items: center;">
+            
+            <div style="margin:10vw; color: black; text-align: center;align-items: center;">
                 <h2 class='en'>Choose Profile</h2><h2 class="hi"></span>उपभोक्ता चुनें</h2>
                 <br/><br/>
                 <div  class="row " id="profiless">
                 </div>
                 <br/>
-                <button style="width: 100%;height: 100px;border-radius: 50px;"type="button" onclick='window.location.assign("untitled.html")' class="btn-lg btn assess en">
-                        Add Another Profile</button>
-                <button style="width: 100%;height: 100px;border-radius: 50px;" type="button" onclick='window.location.assign("untitled.html")' class="btn-lg btn assess hi">
-                        कोई अन्य उपभोक्ता जोड़ें</button>
+                <button type="button" onclick='window.location.assign("untitled.html")' class="btn-lg btn assess en">Add Another Profile</button>
+                <button  type="button" onclick='window.location.assign("untitled.html")' class="btn-lg btn assess hi">कोई अन्य उपभोक्ता जोड़ें</button>
+
+                <button class="en btn btn-lg deletee" onclick='setCookie("logged_in", "false");alert("Logged Out");window.location.assign("login.html")' >Log Out </button>
+            <button class="hi btn btn-lg deletee" onclick='setCookie("logged_in", "false");alert("Logged Out");window.location.assign("login.html")' >लॉग आउट</button>
                 
             </div>
     
     <script src="js/login.js"></script>
     <script type="text/javascript">
-
         function choose_profile(user_id, name, user_type, state, standard){
             // alert(user_id);
             // alert(name);
@@ -117,23 +125,28 @@
             // alert(state);
             // alert(standard);
             setCookie("user_id", user_id);
-            setCookie("name", name);
+            localStorage.setItem("name", name);
             setCookie("user_type", user_type);
             var xxx=new Date().toLocaleDateString("en-US");
             localStorage.setItem("date", xxx);
             localStorage.setItem("state", state);
             localStorage.setItem("class", standard);
-            localStorage.setItem("audience", user_type);
+            if (user_type=='Student'||user_type=='Teacher')
+                localStorage.setItem("audience", user_type+'s');
+            else
+                localStorage.setItem("audience", user_type);
             console.log(localStorage.getItem("class"));
             window.location.assign("home.html");
         }
         $(document).ready(function(){
             // window.location.assign("profile_add.html");
+
             $.get(profile_url,
             {
             "phone": getCookie("phone")
             },
             function(data, status){
+
                 // alert(JSON.stringify(data));
                 if(data.length == 0){
                     alert("You have no profile associated with this number.")
@@ -142,8 +155,11 @@
                     $("#profiless").html("");
                     for (var i = 0; i < data.length; i++) {
                         var temp = `<div class="col-6 xxx"><button class="btn prof-but" onclick='choose_profile(${data[i]["id"]},"${data[i]["name"]}","${data[i]["user_type"]}","${data[i]["state"]}","${data[i]["standard"]}")'>
+                            <img src='images/study.png' style='width:100%;'/>
+                            </button><p>
                             ${data[i]["name"]}
-                            </button></div>`
+                            </p></div>`
+
                         $("#profiless").html($("#profiless").html() + temp);
                     }
                 }

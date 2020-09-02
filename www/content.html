@@ -68,12 +68,23 @@
         background-color:rgba(100,255,100,0.5);
       }
       body {
-        background-image: linear-gradient(to top left,#72fa24,#ffffef,#ffffff  );
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-position: center;
-        background-color: rgba(255, 255, 255, 0.81) !important;
+        background-color:  rgba(215, 215, 215, 0.4)!important;
         background-blend-mode: color;
+      }
+      .switchh {
+        width: 90%; 
+        margin:auto;
+        color: white;
+        font-size: 5vw;
+        margin-bottom: 2vw;
+        background-color: rgba(0, 128, 0, 0.8) !important;;
+        height: 12vw;
+        line-height: 5vw;
+        border-radius: 6vw;
+        
       }
     </style>
   </head>
@@ -91,7 +102,6 @@
                   <img style="width: 42% ;margin:5%" src="images/partner logos/jhar.jpg"/>                  
                   <img style="width: 38% ;margin:5%" src="images/partner logos/digisath.png"/>
                 </div>
-                <span class="en h3">Welcome User</span><span class="hi h3">स्वागत है</span><br />
                 <button
                   class="btn btn-success dropdown-toggle"
                   type="button"
@@ -102,12 +112,12 @@
                 </button>
                 <ul class="dropdown-menu dropdown-menu-right">
                   <li>
-                    <button class="btn btn-block" onclick="Hindi()">
+                    <button class="dropdown-item" onclick="Hindi()">
                       हिन्दी
                     </button>
                   </li>
                   <li>
-                    <button class="btn btn-block" onclick="English()">
+                    <button class="dropdown-item" onclick="English()">
                       English
                     </button>
               </li>
@@ -312,7 +322,9 @@
                     return [year, month, day].join("-");
                   }
 
-                  document.getElementById("datep").value = new Date(localStorage.getItem("date"));
+                  document.getElementById("datep").value = formatDate(
+                    localStorage.getItem("date")
+                  );
                   function handler(e) {
                     // alert(e.target.value);
                     var xxx=new Date(e.target.value).toLocaleDateString("en-US");
@@ -331,12 +343,13 @@
         <section class="container" id="main_container">
           <div id="page"></div>
 
-          <br /><br />
+          <br />
         </section>
+        <button class="en btn switchh" onclick='window.location.assign("plan.html")' >Go to Plan</button>
+        <button class="hi btn switchh" onclick='window.location.assign("plan.html")' >योजना पर जाएं</button>
+        <button class="en btn switchh" onclick='window.location.assign("home.html")' >Go back to home</button>
+        <button class="hi btn switchh" onclick='window.location.assign("home.html")' >मुख्य पृष्ठ पर वापस जाएं</button>
       </div>
-      <br /><br />
-      <!-- FOOTER -->
-      <br />
     </div>
     <script type="text/javascript" src="scripts/trans.js"></script>
     <script>
@@ -452,7 +465,7 @@
                             key[0]["subject_"] +
                             '</span><span class="hi">' +
                             transsubj(key[0]["subject_"]) +
-                            '</span></h2><br><div class="row flex-row flex-nowrap cards-container ">';
+                            '</span></h2><div class="row flex-row flex-nowrap cards-container ">';
             
                           for (var j = 0; j < key.length; j++) {
                             var link = key[j];
@@ -460,7 +473,7 @@
                             if (link["competency_"] != competency) {
                               competency = link["competency_"];
                               txt +=
-                                '</div></div><br><h3><span class="en">' +
+                                '</div></div><h3><span class="en">' +
                                 link["competency_"] +
                                 '</span><span class="hi">' +
                                 link["competency_hindi_"] +

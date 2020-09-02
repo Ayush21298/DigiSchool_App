@@ -31,11 +31,10 @@
   </head>
   <style type="text/css">
     body {
-        background-image: linear-gradient(to top left,#72fa24,#ffffef,#ffffff  );
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-position: center;
-        background-color: rgba(255, 255, 255, 0.81) !important;
+        background-color:  rgba(215, 215, 215, 0.4)!important;
         background-blend-mode: color;
       }
     .xx{
@@ -58,6 +57,13 @@
       .active{
         background-color:rgba(100,255,100,0.5);
       }
+      .switchh {
+        width: 5vw;
+        background-color: rgba(0, 128, 0, 0.8) !important;;
+        height: 5vw;
+        padding: 0px;
+        
+      }
   </style>
   <body>
     <!-- NAVBAR -->
@@ -74,7 +80,6 @@
                   <img style="width: 42% ;margin:5%" src="images/partner logos/jhar.jpg"/>                  
                   <img style="width: 38% ;margin:5%" src="images/partner logos/digisath.png"/>
                 </div>
-                <span class="en h3">Welcome User</span><span class="hi h3">स्वागत है</span><br />
                 <button
                   class="btn btn-success dropdown-toggle"
                   type="button"
@@ -85,12 +90,12 @@
                 </button>
                 <ul class="dropdown-menu dropdown-menu-right">
                   <li>
-                    <button class="btn btn-block" onclick="Hindi()">
+                    <button class="dropdown-item" onclick="Hindi()">
                       हिन्दी
                     </button>
                   </li>
                   <li>
-                    <button class="btn btn-block" onclick="English()">
+                    <button class="dropdown-item" onclick="English()">
                       English
                     </button>
               </li>
@@ -145,7 +150,7 @@
     <!-- NAVBAR -->
     <div class="body-content">
         <div class="xx">
-          <span class="en h1"><button class="w3-button xx w3-xlarge" onclick="w3_open()">☰</button>&nbsp;&nbsp;Explore</span><span class="hi h1"><button class="w3-button xx w3-xlarge" onclick="w3_open()">☰</button>&nbsp;&nbsp;अन्वेषण</span>
+          <span class="en h1"><button class="w3-button xx w3-xlarge" onclick="w3_open()">☰</button>&nbsp;&nbsp;Explore</span><span class="hi h1"><button class="w3-button xx w3-xlarge" onclick="w3_open()">☰</button>&nbsp;&nbsp;एक्सप्लोर</span>
         </div>
 
         <!-- SUBJECT HEADER -->
@@ -192,7 +197,6 @@
             location.reload();
           }
         </script>
-        <br />
         <section>
           <div class="subject-header" style="background: none;">
             <div class="subject-buttons">
@@ -415,15 +419,15 @@
             key[0]["competency_"] +
             " (link : " +
             key.length +
-            ') <button class="btn btn-success" onClick="copyPlaylist(' +
+            ')<button class="en btn switchh" onClick="copyPlaylist(' +
             i +
-            ')">Share Competency</button> </span><span class="hi">' +
+            ')"><img style="width:5vw; height: auto; " src="images/share.png"></img></button> </span><span class="hi">' +
             comps_hindi[key[0]["competency_"]] +
             " (लिंक : " +
             key.length +
-            ') <button class="btn btn-success" onClick="copyPlaylist(' +
+            ') <button class="hi btn switchh" onClick="copyPlaylist(' +
             i +
-            ')">दक्षता साझा करें</button> </span></h5><br><div class="row flex-row flex-nowrap cards-container ">';
+            ')"><img style="width:5vw; height: auto; " src="images/share.png"></img></button> </span></h5><br><div class="row flex-row flex-nowrap cards-container ">';
           for (var j = 0; j < key.length; j++) {
             var link = key[j];
 
