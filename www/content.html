@@ -414,7 +414,7 @@
       }
       function myReload() {
         //var edValue = document.getElementById("searchInput");
-        console.log("hello " +  new Date(localStorage.getItem("date")).toLocaleDateString("en-us"));
+        console.log("hello " +  localStorage.getItem("date"));
         console.log("hello " +  localStorage.getItem("class"));
         console.log("hello " +  localStorage.getItem("state"));
         console.log("hello " +  localStorage.getItem("audience"));
@@ -423,7 +423,7 @@
           video_url,
           {
             view_by: "date",
-            date: new Date(localStorage.getItem("date")).toLocaleDateString("en-us"),
+            date: localStorage.getItem("date"),
             standard: localStorage.getItem("class"),
             state: localStorage.getItem("state"),
             audience: localStorage.getItem("audience"),

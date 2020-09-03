@@ -109,8 +109,7 @@
     </select>
 
     <label>School</label>
-    <select class="browser-default custom-select mb-4" id="school">
-        <option value="" disabled="" selected="">School</option>
+    <input type="text" id="school" class="form-control" placeholder="School" aria-describedby="defaultRegisterFormPhoneHelpBlock">
     </select>
     <p style="margin-top: 20px">Class</p>
     <select class="browser-default custom-select mb-4" id="class" name="class">
@@ -149,7 +148,6 @@
                 var state_sel = $("#state").children("option:selected").val();
                 var district_sel = $("#district").children("option:selected").val();
                 var block_sel = $("#block").children("option:selected").val();
-                var school_sel = $("#school").children("option:selected").val();
                 if( (state_sel == "Select") || (st=="state") ){
                     $('#state').prop('disabled', false);
                     $('#state')
@@ -167,9 +165,7 @@
                     $('#block')
                     .empty()
                     .append('<option>Select</option>')
-                    $('#school')
-                    .empty()
-                    .append('<option>Select</option>')
+                    
                 } else if( (district_sel == "Select") || (st=="district") ){
                     $('#district').prop('disabled', false);
                     $('#district')
@@ -184,9 +180,7 @@
                     $('#block')
                     .empty()
                     .append('<option>Select</option>')
-                    $('#school')
-                    .empty()
-                    .append('<option>Select</option>')
+                    
                 } else if( (block_sel == "Select") || (st=="block") ){
                     $('#block').prop('disabled', false);
                     $('#block')
@@ -198,20 +192,7 @@
                             text: block
                         }));
                     }
-                    $('#school')
-                    .empty()
-                    .append('<option>Select</option>')
-                } else if( (school_sel == "Select") || (st=="school") ){
-                    $('#school').prop('disabled', false);
-                    $('#school')
-                    .empty()
-                    .append('<option>Select</option>')
-                    for (var school=0; school < data[state_sel][0][district_sel][0][block_sel].length; school++){
-                        $('#school').append($('<option>', {
-                            value: data[state_sel][0][district_sel][0][block_sel][school],
-                            text: data[state_sel][0][district_sel][0][block_sel][school]
-                        }));
-                    }
+                    
                 } 
             }).fail(function(){
                 console.log("An error has occurred.");
@@ -278,7 +259,6 @@
             $('#state').prop('disabled', 'disabled');
             $('#district').prop('disabled', 'disabled');
             $('#block').prop('disabled', 'disabled');
-            $('#school').prop('disabled', 'disabled');
             load_form();
         })
         $('select').change(function () {
@@ -290,9 +270,7 @@
         $('#district').change(function () {
             load_form("block");
         });
-        $('#block').change(function () {
-            load_form("school");
-        });
+        
     </script>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
