@@ -289,8 +289,7 @@
     </div>
 
     <script>
-      var isquiz=-1;
-      var iscontent=-1;
+      var todayy=['...','...','...','...'];
       var quiz_otd="";
       function quiz(){
         if(quiz_otd == ""){
@@ -308,6 +307,10 @@
         }
       }
       
+      function updateToday(){
+        $("#today").html("<span class='en'>Today, you have" +todayy[0]+ " content and"+ todayy[2]+ " quiz.</span><span class='hi'>आज, आपके पास सामग्री " +todayy[1]+ " है और प्रश्नोत्तरी " +todayy[3]+ " है।</span>");
+        Translate();
+      }
       $(document).ready(function () {
         console.log(localStorage.getItem("name"));
         $('#xxxx').html(localStorage.getItem('name'));
@@ -324,24 +327,16 @@
                 // alert(JSON.stringify(data));
                 console.log('y1y');
                 quiz_otd = data[0]["url"];
-                if(quiz_otd == "")
-                  {isquiz=0;
-                    if (iscontent!=-1){
-                      if (iscontent==0)
-                        $("#today").html("<span class='en'>Today, you have no content and no quiz.</span><span class='hi'>आज, आपके पास कोई नई सामग्री है और प्रश्नोत्तरी नहीं है।</span>")
-                      else
-                        $("#today").html("<span class='en'>Today, you have new content and no quiz.</span><span class='hi'>आज, आपके पास नई सामग्री है और कोई प्रश्नोत्तरी नहीं है।</span>")
-                      Translate();
-                    }}
-                else
-                  {isquiz=1;
-                    if (iscontent!=-1){
-                      if (iscontent==0)
-                        $("#today").html("<span class='en'>Today, you have no content and new quiz.</span><span class='hi'>आज, आपके पास नई प्रश्नोत्तरी है और कोई सामग्री नहीं है।</span>")
-                      else
-                        $("#today").html("<span class='en'>Today, you have new content and new quiz.</span><span class='hi'>आज, आपके पास नई सामग्री और प्रश्नोत्तरी है।</span>")
-                      Translate();
-                    }}
+                if(quiz_otd == ""){
+                  todayy[1]="no";
+                  todayy[3]="नहीं";
+                  updateToday();}
+                else{
+                  todayy[1]="new";
+                  todayy[3]="नई";
+                  updateToday();
+                }
+                
                 
             });
         $.get(
@@ -354,25 +349,16 @@
                     audience: localStorage.getItem("audience"),
                   },
                   function (data2, status, jqXHR) {
-                    console.log('yy');
-                    if (data2.length>0){
-                      iscontent=1;
-                      if(isquiz!=-1){
-                      if(quiz_otd == "")
-                        $("#today").html("<span class='en'>Today, you have new content and no quiz.</span><span class='hi'>आज, आपके पास नई सामग्री है और कोई प्रश्नोत्तरी नहीं है।</span>")
-                      else
-                        $("#today").html("<span class='en'>Today, you have new content and new quiz.</span><span class='hi'>आज, आपके पास नई सामग्री और प्रश्नोत्तरी है।</span>")
-                      Translate();
-                    }}
-                    else{
-                      iscontent=0;
-                      if(isquiz!=-1){
-                      if(quiz_otd == "")
-                        $("#today").html("<span class='en'>Today, you have no content and no quiz.</span><span class='hi'>आज, आपके पास कोई नई सामग्री है और प्रश्नोत्तरी नहीं है।</span>")
-                      else
-                        $("#today").html("<span class='en'>Today, you have no content and new quiz.</span><span class='hi'>आज, आपके पास नई प्रश्नोत्तरी है और कोई सामग्री नहीं है।</span>")
-                    Translate();
-                    }}
+                    if(data2.length==0){
+                        todayy[0]="no";
+                        todayy[2]="नहीं";
+                        updateToday();}
+                      else{
+                        todayy[0]="new";
+                        todayy[2]="नई";
+                        updateToday();
+                      }
+                    
                   });
       });
     </script>
