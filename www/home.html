@@ -289,7 +289,7 @@
     </div>
 
     <script>
-      var todayy=['...','...','...','...'];
+      var todayy=['no','no','नहीं','नहीं'];
       var quiz_otd="";
       function quiz(){
         if(quiz_otd == ""){
@@ -308,7 +308,7 @@
       }
       
       function updateToday(){
-        $("#today").html("<span class='en'>Today, you have" +todayy[0]+ " content and"+ todayy[2]+ " quiz.</span><span class='hi'>आज, आपके पास सामग्री " +todayy[1]+ " है और प्रश्नोत्तरी " +todayy[3]+ " है।</span>");
+        $("#today").html("<span class='en'>Today, you have" +todayy[0]+ " content and"+ todayy[1]+ " quiz.</span><span class='hi'>आज, आपके पास सामग्री " +todayy[2]+ " है और प्रश्नोत्तरी " +todayy[3]+ " है।</span>");
         Translate();
       }
       $(document).ready(function () {
@@ -325,17 +325,17 @@
             },
             function(data, status){
                 // alert(JSON.stringify(data));
-                quiz_otd = data[0]["url"];
-                if(quiz_otd == ""){
-                  todayy[1]="no";
-                  todayy[3]="नहीं";
-                  updateToday();}
-                else{
+                if(data[0]){
                   todayy[1]="new";
                   todayy[3]="नई";
+                  console.log('-1'+todayy);
+                  updateToday();}
+                else{                  
+                  todayy[1]="no";
+                  todayy[3]="नहीं";
+                  console.log('-0'+todayy);
                   updateToday();
                 }
-                
                 
             });
         $.get(
@@ -351,10 +351,12 @@
                     if(data2.length==0){
                         todayy[0]="no";
                         todayy[2]="नहीं";
+                        console.log('0-'+todayy);
                         updateToday();}
                       else{
                         todayy[0]="new";
                         todayy[2]="नई";
+                        console.log('1-'+todayy);
                         updateToday();
                       }
                     
